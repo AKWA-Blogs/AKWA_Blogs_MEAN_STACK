@@ -22,6 +22,14 @@ module.exports = {
     //     res.locals.lnameErr = req.session.lnameErr;
     //     res.locals.passErr = req.session.passErr;
     // },
+    getUser: function (req, res) {
+        User.findOne({ _id: req.params.id }, function (error, article) {
+            if (error)
+                res.json(error);
+            else
+                res.json(article);
+        })
+    },
 
     addUser: function (req, res) {
         // Check for valid email

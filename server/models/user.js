@@ -1,15 +1,19 @@
 var mongoose = require('mongoose');
-var articl = require('./article');
+var article = require('./article');
+const user = {};
 
-var UserSchema = new mongoose.Schema({
-    first_name: String,
-    last_name: String,
-    email: String,
-    password: String,
+
+user.UserSchema = new mongoose.Schema({
+    first_name: { type: String, required: true },
+    last_name: { type: String, required: true },
+    email: { type: String, required: true },
+    password: { type: String, required: true },
     // channels:[ChannelSchema],
-    // likes:[articl.ArticleSchema],
-    // read_later: [articl.ArticleSchema]
+    likes: [article],
+    read_later: [article]
 }, { timestamps: true });
 
+module.exports = user;
 
-let User = module.exports = mongoose.model('User', UserSchema);
+
+// let User = module.exports = mongoose.model('User', UserSchema);
