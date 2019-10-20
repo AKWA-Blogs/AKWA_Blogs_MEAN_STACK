@@ -20,7 +20,7 @@ module.exports = {
     },
 
     addArticle: function (req, res) {
-        Article.create({ title: req.body.title, body: req.body.body, author: req.bod.author }, function (error, article) {
+        Article.create({ title: req.body.title, body: req.body.body, author: req.body.author }, function (error, article) {
             if (error) {
                 res.json({ message: "Error", error: error });
             }
