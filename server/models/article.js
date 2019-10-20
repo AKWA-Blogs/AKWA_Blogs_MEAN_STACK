@@ -1,12 +1,15 @@
 var mongoose = require("mongoose");
-var comment = require("./comment");
+var Comment = require("./comment").schema;
+var User = require("./user").schema;
 
-var ArticleSchema = new mongoose.Schema({
+ var ArticleSchema = new mongoose.Schema({
     title: { type: String, required: true },
     body: { type: String, required: true },
-    // author: { type: Schema.Types.ObjectId, ref: 'User' },
-    likes: {type: Array},
-    comments: [comment.CommentSchema],
+    author: {type: User, required: true},
+    likes: [String],
+    comments: [Comment],
 }, { timestamps: true });
 
-let Article = module.exports = mongoose.model('Article', ArticleSchema);
+module.exports = Article = mongoose.model('Article', ArticleSchema);
+
+// let Article = module.exports = mongoose.model('Task', TaskSchema);

@@ -1,12 +1,11 @@
 var mongoose = require("mongoose");
-const comment = {};
+var User = require("./user").schema;
 
 
-comment.CommentSchema = new mongoose.Schema({
-    // commenter: { type: Schema.Types.ObjectId, ref: 'User' },
+var CommentSchema = new mongoose.Schema({
+    commenter: { type: User, required: true },
     comment: { type: String, required: [true, "Comments must have content"], minlength: [3, "Comment must be of length 3 or more"] },
 }, { timestamps: true })
 
-module.exports = comment;
-
+module.exports = Comment = mongoose.model('Comment', CommentSchema);
 // let Comment = module.exports = mongoose.model('Comment', CommentSchema);
