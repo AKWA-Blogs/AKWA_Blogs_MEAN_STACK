@@ -23,8 +23,7 @@ db.on('error', function (err) {
     console.log(err);
 });
 
-// require("./server/config/routes.js")(app);
-
+require('./server/config/routes.js')(app);
 
 
 app.listen(8000, function(){
