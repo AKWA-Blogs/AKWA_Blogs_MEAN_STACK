@@ -1,4 +1,5 @@
 var articles = require("../controllers/articles.js");
+var comments = require("../controllers/comments");
 
 
 module.exports = function (app) {
@@ -12,4 +13,8 @@ module.exports = function (app) {
     // app.put("/articles/:id", articles.editArticle)
 
     app.delete("/articles/:id", articles.deleteArticle)
+
+    app.post("/comment",comment.addComment)
+
+    app.delete("/comments/:id", comments.deleteComment)
 }
