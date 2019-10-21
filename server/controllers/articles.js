@@ -20,7 +20,7 @@ module.exports = {
     },
 
     addArticle: function (req, res) {
-        Article.create({ title: req.body.title, body: req.body.body, author: req.body.author }, function (error, article) {
+        Article.create({ title: req.body.title, body: req.body.body, author: req.body.author, tags: req.body.tags }, function (error, article) {
             if (error) {
                 res.json({ message: "Error", error: error });
             }
@@ -41,9 +41,11 @@ module.exports = {
         })
     },
     editArticle: function (req, res) {
-        Task.updateOne({ _id: req.params.id }, {
+        Article.updateOne({ _id: req.params.id }, {
             title: req.body.title,
-            body: req.body.body
+            body: req.body.body,
+            tags: req.body.tags
+
         })
             .then(data => {
                 console.log('data updated', data)

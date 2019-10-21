@@ -20,7 +20,7 @@ module.exports = {
     },
 
     addChannel: function (req, res) {
-        Channel.create({ title: req.body.title, body: req.body.body, author: req.body.author }, function (error, channel) {
+        Channel.create({ name: req.body.name, description: req.body.description, owner: req.body.owner, tags: req.body.tags }, function (error, channel) {
             if (error) {
                 res.json({ message: "Error", error: error });
             }
@@ -41,9 +41,10 @@ module.exports = {
         })
     },
     editChannel: function (req, res) {
-        Task.updateOne({ _id: req.params.id }, {
-            title: req.body.title,
-            body: req.body.body
+        Channel.updateOne({ _id: req.params.id }, {
+            name: req.body.name,
+            description: req.body.description,
+            tags: req.body.tags
         })
             .then(data => {
                 console.log('data updated', data)
