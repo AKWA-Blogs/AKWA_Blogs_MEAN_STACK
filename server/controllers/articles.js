@@ -39,6 +39,20 @@ module.exports = {
                 res.json({ message: "Success", removed: true });
             }
         })
-    }
+    },
+    editArticle: function (req, res) {
+        Task.updateOne({ _id: req.params.id }, {
+            title: req.body.title,
+            body: req.body.body
+        })
+            .then(data => {
+                console.log('data updated', data)
+                res.json({ data: data });
+            })
+            .catch(err => {
+                console.log("We have an error!", err);
+                res.json(err);
+            });
+    },
 
 }

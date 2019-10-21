@@ -2,6 +2,7 @@ let mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const emailRegex = require('email-regex');
 let User = require('../models/user');
+const jwt = require('jsonwebtoken');
 
 module.exports = {
     // index: function (req, res) {
@@ -22,6 +23,13 @@ module.exports = {
     //     res.locals.lnameErr = req.session.lnameErr;
     //     res.locals.passErr = req.session.passErr;
     // },
+
+    index: function (req, res) {
+        User.find()
+            .then(users => res.json(users))
+            .catch(err => res.json(err));
+    },
+
     getUser: function (req, res) {
         User.findOne({ _id: req.params.id }, function (error, article) {
             if (error)
@@ -68,7 +76,12 @@ module.exports = {
                     // req.session.user_id = user._id;
                     // req.session.user_email = user.email;
                     user.save();
-                    res.json(user);
+                    console.log('Token sent');
+                    let token = jwt.sign({ user: req.body.email }, "Oursecretword", { expiresIn: "2h" });
+                    res.status(200).send({
+                        token
+                    });
+
 
                 })
                 .catch(error => {
@@ -80,6 +93,47 @@ module.exports = {
             console.log("Error");
         }
 
+    },
+
+    editUser: function (req, res) {
+        User.updateOne({ _id: req.params.id }, {
+            first_name: req.body.first_name,
+            last_name: req.body.last_name,
+            email: req.body.email,
+        })
+            .then(data => {
+                console.log('data updated', data)
+                res.json({ data: data });
+            })
+            .catch(err => {
+                console.log("We have an error!", err);
+                res.json(err);
+            });
+    },
+
+    login: function (req, res) {
+        User.findOne({ email: req.body.email }, function (error, user) {
+            if (error) {
+                console.log("Not regitered");
+                res.json(error);
+            }
+            else {
+                bcrypt.compare(req.body.password, user.password, function (err, valid) {
+                    if (!valid) {
+                        console.log('invalid password');
+                        res.sendStatus(401);
+
+                    } else {
+                        console.log('password valid');
+                        let token = jwt.sign({ user: user.email,id: user._id }, "ihtrfdftgyjuhkjlp;pkljkh", { expiresIn: "2h" });
+                        res.status(200).send({
+                            token
+                        });
+
+                    }
+                });
+            }
+        })
     },
 
 }
