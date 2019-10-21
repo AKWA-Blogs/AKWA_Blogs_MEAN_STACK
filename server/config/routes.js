@@ -1,4 +1,6 @@
 var articles = require("../controllers/articles.js");
+var comments = require("../controllers/comments");
+
 var users = require("../controllers/users")
 
 module.exports = function (app) {
@@ -13,6 +15,9 @@ module.exports = function (app) {
 
     app.delete("/articles/:id", articles.deleteArticle)
 
+    app.post("/comment",comment.addComment)
+
+    app.delete("/comments/:id", comments.deleteComment)
 
     // app.get("/users", users.index)
 
