@@ -8,6 +8,7 @@ var User = require("./user").schema;
     author: {type: User, required: true},
     likes: [String],
     comments: [Comment],
+    tags: [String]
 }, { timestamps: true });
 
 module.exports = Article = mongoose.model('Article', ArticleSchema);
