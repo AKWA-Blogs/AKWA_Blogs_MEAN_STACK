@@ -125,13 +125,23 @@ module.exports = {
 
                     } else {
                         console.log('password valid');
-                        let token = jwt.sign({ user: user.email,id: user._id }, "ihtrfdftgyjuhkjlp;pkljkh", { expiresIn: "2h" });
+                        let token = jwt.sign({ user: user.email, id: user._id }, "ihtrfdftgyjuhkjlp;pkljkh", { expiresIn: "2h" });
                         res.status(200).send({
                             token
                         });
 
                     }
                 });
+            }
+        });
+    },
+    deleteUser: function (req, res) {
+        User.remove({ _id: req.params.id }, function (error) {
+            if (error) {
+                res.json({ message: "Error", error: error });
+            }
+            else {
+                res.json({ message: "Success", removed: true });
             }
         })
     },

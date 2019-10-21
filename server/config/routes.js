@@ -1,6 +1,6 @@
-var articles = require("../controllers/articles.js");
+var articles = require("../controllers/articles");
 var comments = require("../controllers/comments");
-
+var channels = require("../controllers/channels");
 var users = require("../controllers/users")
 
 module.exports = function (app) {
@@ -15,9 +15,9 @@ module.exports = function (app) {
 
     app.delete("/articles/:id", articles.deleteArticle);
 
-    app.post("/comment",comments.addComment);
+    app.post("/comment", comments.addComment);
 
-    // app.delete("/comments/:id", comments.deleteComment);
+    app.delete("/comments/:id", comments.deleteComment);
 
     app.get("/users", users.index);
 
@@ -29,5 +29,15 @@ module.exports = function (app) {
 
     app.put("/users/:id", users.editUser);
 
-    // app.delete("/users/:id", users.deleteUser);
+    app.delete("/users/:id", users.deleteUser);
+
+    app.get("/channels", channels.index);
+
+    app.get("/channels/:id", channels.getChannel);
+
+    app.post("/channel", channels.addChannel);
+
+    app.put("/channels/:id", channels.editChannel);
+
+    app.delete("/channels/:id", channels.deleteChannel);
 }

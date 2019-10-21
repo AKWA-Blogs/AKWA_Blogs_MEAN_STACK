@@ -1,13 +1,13 @@
 var mongoose = require('mongoose');
 var Article = require('./article');
-
+var Channel = require('./channel').schema;
 
 var UserSchema = new mongoose.Schema({
     first_name: { type: String, required: true },
     last_name: { type: String, required: true },
     email: { type: String, required: true, unique: true},
     password: { type: String, required: true },
-    // channels:[ChannelSchema],
+    channel: {type: Channel},
     likes: [Article],
     read_later: [Article]
 }, { timestamps: true });
