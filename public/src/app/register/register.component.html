@@ -5,22 +5,22 @@
             <mat-card-title>Register New Account</mat-card-title>
         </mat-card-header>
 
-        <form class="form">
+        <form class="form" (submit)= "onSubmit()">
             <mat-card-content>
                 <mat-form-field class="full-width">
-                    <input matInput placeholder="First Name" [formControl]="fnameFormControl">
+                    <input matInput placeholder="First Name" [formControl]="fnameFormControl" [(ngModel)]="newUser.first_name">
                     <mat-error *ngIf="fnameFormControl.hasError('required')">
                         First name is <strong>required</strong>
                     </mat-error>
                 </mat-form-field>
                 <mat-form-field class="full-width">
-                        <input matInput placeholder="Last Name" [formControl]="lnameFormControl">
-                        <mat-error *ngIf="lnameFormControl.hasError('required')">
-                            Last name is <strong>required</strong>
-                        </mat-error>
+                    <input matInput placeholder="Last Name" [formControl]="lnameFormControl" [(ngModel)]="newUser.last_name">
+                    <mat-error *ngIf="lnameFormControl.hasError('required')">
+                        Last name is <strong>required</strong>
+                    </mat-error>
                 </mat-form-field>
                 <mat-form-field class="full-width">
-                    <input matInput placeholder="Email" [formControl]="emailFormControl">
+                    <input matInput placeholder="Email" [formControl]="emailFormControl" [(ngModel)]="newUser.email">
                     <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
                         Please enter a valid email address
                     </mat-error>
@@ -29,20 +29,21 @@
                     </mat-error>
                 </mat-form-field>
                 <mat-form-field class="full-width">
-                    <input matInput placeholder="Password" [formControl]="passFormControl">
+                    <input type="password" matInput placeholder="Password" [formControl]="passFormControl" [(ngModel)]="newUser.password">
                     <mat-error *ngIf="passFormControl.hasError('required')">
                         Password is <strong>required</strong>
                     </mat-error>
                 </mat-form-field>
                 <mat-form-field class="full-width">
-                        <input matInput placeholder="Confirm Password" [formControl]="confirmFormControl">
-                        <mat-error *ngIf="confirmFormControl.hasError('required')">
-                            Confirm password is <strong>required</strong>
-                        </mat-error>
-                    </mat-form-field>
+                    <input type="password" matInput placeholder="Confirm Password" [formControl]="confirmFormControl">
+                    <mat-error *ngIf="confirmFormControl.hasError('required')">
+                        Confirm password is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
             </mat-card-content>
             <button mat-stroked-button color="primary" class="btn-block">Register</button>
         </form>
+        {{newUser | json}}
     </mat-card>
 
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
+import { HttpService } from '../http.service';
 
 @Component({
   selector: 'app-register',
@@ -9,21 +10,23 @@ import {FormControl, Validators} from '@angular/forms';
 export class RegisterComponent implements OnInit {
   fnameFormControl = new FormControl('', [Validators.required]);
   lnameFormControl = new FormControl('', [Validators.required]);
-
   emailFormControl = new FormControl('', [
     Validators.required,
     Validators.email,
   ]);
-  passFormControl = new FormControl('', [
-    Validators.required,
-  ]);
-  confirmFormControl = new FormControl('', [
-    Validators.required,
-  ]);
+  passFormControl = new FormControl('', [Validators.required]);
+  confirmFormControl = new FormControl('', [Validators.required]);
   
-  constructor() { }
+  constructor(private _httpService : HttpService) {}
 
   ngOnInit() {
   }
 
+  newUser = {first_name: "", last_name: "", email: "", password: ""}
+
+  onSubmit () {
+    console.log("registering...")
+    let observable = this._httpService.postToServer('/user/signup', {data: this.newUser})
+    observable.subscribe(data => console.log('done! ', data));
+  }
 }

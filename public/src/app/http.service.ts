@@ -5,6 +5,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class HttpService {
-
-  constructor(private _http: HttpClient) { }
+  postToServer(route, data) {
+    return this._http.post(route, data);
+  }
+  constructor(private _http: HttpClient) {}
 }
