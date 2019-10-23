@@ -24,9 +24,7 @@
                   <div class="col-md-4" *ngFor="let article of channel.articles">
                     <div class="card card-product">
                       <div class="card-header card-header-image" data-header-animation="true">
-                        <a href="#pablo">
                           <img class="img" src="./assets/img/card-1.jpg">
-                        </a>
                       </div>
                       <div class="card-body">
                         <div class="card-actions text-center">
@@ -62,11 +60,9 @@
             <div class="tab-pane" id="link8">
               <div class="row" *ngIf="channels.length>0">
                 <div class="col-md-4" *ngFor="let channel of channels">
-                  <div class="card card-product">
-                    <div class="card-header card-header-image" data-header-animation="true">
-                      <a href="#pablo">
-                        <img class="img" src="./assets/img/card-1.jpg">
-                      </a>
+                  <div class="card card-profile">
+                    <div class="card-header card-avatar" data-header-animation="true">
+                        <img class="img" style="width: 200px;" src="./assets/img/card-1.jpg">
                     </div>
                     <div class="card-body">
                       <div class="card-actions text-center">
@@ -74,7 +70,7 @@
                           [matTooltipPosition]="'below'">
                           <i class="material-icons">art_track</i>
                         </button>
-                        <button mat-raised-button type="button" class="btn btn-danger btn-link" matTooltip="Unsubscribe" [matTooltipPosition]="'below'">
+                        <button mat-raised-button type="button" class="btn btn-danger btn-link" matTooltip="Unsubscribe" [matTooltipPosition]="'below'" (click)="unsubscribe(channel._id)">
                             <i class="material-icons">close</i>
                           </button>
                       </div>
@@ -92,6 +88,7 @@
                       </div>
                     </div>
                   </div>
+                  
                 </div>
               </div>
             </div>

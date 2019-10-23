@@ -35,4 +35,8 @@ export class SubfeedComponent implements OnInit {
       this.channels = channels;
     });
   }
+  unsubscribe(id: string): void {
+    console.log(`Click unsubscribe is working with num param: ${id}`);
+
+  }
 }
