@@ -76,8 +76,8 @@ export const ROUTES: RouteInfo[] = [{
             {path: 'vector', title: 'Vector Map', ab:'VM'}
         ]
     },{
-        path: '/widgets',
-        title: 'Widgets',
+        path: '/subfeed',
+        title: 'SubFeed',
         type: 'link',
         icontype: 'widgets'
 

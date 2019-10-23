@@ -7,11 +7,11 @@ declare interface Task {
   checked: boolean;
 }
 @Component({
-    selector: 'app-widgets-cmp',
-    templateUrl: 'widgets.component.html'
+    selector: 'app-subfeed-cmp',
+    templateUrl: 'subfeed.component.html'
 })
 
-export class WidgetsComponent implements OnInit {
+export class SubfeedComponent implements OnInit {
     public tableData: TableData;
     public tasks1: Task[];
     public tasks2: Task[];
