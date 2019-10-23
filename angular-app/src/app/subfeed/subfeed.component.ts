@@ -33,7 +33,6 @@ export class SubfeedComponent implements OnInit {
     observable.subscribe(channels => {
       console.log("Got subbed channel!!", channels[0]['articles']);
       this.channels = channels;
-      this.articles = channels[0]['articles'];
     });
   }
 }
