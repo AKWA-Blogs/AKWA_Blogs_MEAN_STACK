@@ -9,7 +9,9 @@ var UserSchema = new mongoose.Schema({
     password: { type: String, required: true },
     channel: {type: Channel},
     likes: [Article],
-    read_later: [Article]
+    read_later: [Article],
+    avatarUrl : {type : String , default: "defaultAvatar.png"},
+    subscription: [String]
 }, { timestamps: true });
 
 module.exports = User = mongoose.model('User', UserSchema);

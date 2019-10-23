@@ -1,0 +1,49 @@
+<div class="wrapper wrapper-full-page">
+  <div class="page-header login-page header-filter" filter-color="black"
+    style="background-image: url('./assets/img/login.jpg'); background-size: cover; background-position: top center;">
+    <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-6 ml-auto mr-auto">
+          <div class="card">
+            <form  (submit)= "onSubmit()">
+              <div class="card-header card-header-rose card-header-icon">
+                <div class="card-icon">
+                  <i class="material-icons">contacts</i>
+                </div>
+                <h4 class="card-title">Login Form</h4>
+              </div>
+              <div class="card-body">
+                <mat-form-field class="full-width">
+                  <input matInput placeholder="Email *" [formControl]="emailFormControl" [(ngModel)]="user.email">
+                  <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                    Please enter a valid email address
+                  </mat-error>
+                  <mat-error *ngIf="emailFormControl.hasError('required')">
+                    Email is <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+                {{emailFormControl.errors | json}}
+                <mat-form-field class="full-width">
+                  <input type="password" matInput placeholder="Password *" [formControl]="passFormControl" [(ngModel)]="user.password">
+                  <mat-error *ngIf="passFormControl.hasError('required')">
+                    Password is <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+                <div class="category form-category">* Required fields</div>
+              </div>
+              <div class="card-footer text-right">
+                <div class="form-group">
+                  <button mat-raised-button type="submit" class="btn btn-rose btn-fill btn-wd">Login</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+  </div>
+</div>

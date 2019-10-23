@@ -1,3 +1,13 @@
 
 <h1>Hello</h1>
 <app-explore></app-explore>
+<!-- Toolbar -->
+<mat-toolbar color="primary" class="app-header">
+  <div><img style="width: 80px; height:80px;" src="../assets/img/logo/symbol.png" alt=""></div>
+  <span class="nav-tool-items">
+    <a mat-button routerLink="login" routerLinkActive="active">Log in</a>
+    <a mat-button routerLink="register" routerLinkActive="active">Register</a>
+  </span>
+</mat-toolbar>
+
+<router-outlet></router-outlet>
