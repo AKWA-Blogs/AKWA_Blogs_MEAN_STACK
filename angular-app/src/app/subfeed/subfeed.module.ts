@@ -4,17 +4,17 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../app.module';
 
-import { WidgetsComponent } from './widgets.component';
-import { WidgetsRoutes } from './widgets.routing';
+import { SubfeedComponent } from './subfeed.component';
+import { SubfeedRoutes } from './subfeed.routing';
 
 @NgModule({
     imports: [
-        RouterModule.forChild(WidgetsRoutes),
+        RouterModule.forChild(SubfeedRoutes),
         CommonModule,
         FormsModule,
         MaterialModule
     ],
-    declarations: [WidgetsComponent]
+    declarations: [SubfeedComponent]
 })
 
-export class WidgetsModule {}
+export class SubfeedModule {}
