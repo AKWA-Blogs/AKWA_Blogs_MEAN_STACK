@@ -31,17 +31,20 @@ export class LoginComponent implements OnInit, OnDestroy {
     emailFormControl = new FormControl('', [
         Validators.required,
         Validators.email,
-      ]);
-      passFormControl = new FormControl('', [
+    ]);
+    passFormControl = new FormControl('', [
         Validators.required,
-      ]);
+    ]);
 
-    constructor(private element: ElementRef, private _httpService : HttpService, private router : Router) {
+    constructor(private element: ElementRef, private _httpService: HttpService, private router: Router) {
         this.nativeElement = element.nativeElement;
         this.sidebarVisible = false;
     }
 
     ngOnInit() {
+        // if (localStorage.getItem('id') != null) {
+        //     this.router.navigate(['/'])
+        // }
         var navbar: HTMLElement = this.element.nativeElement;
         this.toggleButton = navbar.getElementsByClassName('navbar-toggle')[0];
         const body = document.getElementsByTagName('body')[0];
@@ -54,18 +57,18 @@ export class LoginComponent implements OnInit, OnDestroy {
         }, 700);
     }
 
-    user = {email: "", password: ""}
+    user = { email: "", password: "" }
 
-    onSubmit () {
-      console.log('logging...')
-      let observable = this._httpService.postLogin(this.user)
-      observable.subscribe(data => {
-        console.log('done! ', data['token'])
-        var user = jwt_decode(data['token'])
-        localStorage.setItem('id', user.id)
-        console.log('setting "id" in local: '+localStorage.getItem('id'))
-        this.router.navigate(['/'])
-      })
+    onSubmit() {
+        console.log('logging...')
+        let observable = this._httpService.postLogin(this.user)
+        observable.subscribe(data => {
+            console.log('done! ', data['token'])
+            var user = jwt_decode(data['token'])
+            localStorage.setItem('id', user.id)
+            console.log('setting "id" in local: ' + localStorage.getItem('id'))
+            this.router.navigate(['/'])
+        })
     }
 
     sidebarToggle() {
@@ -84,7 +87,7 @@ export class LoginComponent implements OnInit, OnDestroy {
             body.classList.remove('nav-open');
         }
     }
-    
+
     ngOnDestroy() {
         const body = document.getElementsByTagName('body')[0];
         body.classList.remove('login-page');

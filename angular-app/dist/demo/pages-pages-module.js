@@ -284,6 +284,9 @@ var LoginComponent = /** @class */ (function () {
         this.sidebarVisible = false;
     }
     LoginComponent.prototype.ngOnInit = function () {
+        // if (localStorage.getItem('id') != null) {
+        //     this.router.navigate(['/'])
+        // }
         var navbar = this.element.nativeElement;
         this.toggleButton = navbar.getElementsByClassName('navbar-toggle')[0];
         var body = document.getElementsByTagName('body')[0];
