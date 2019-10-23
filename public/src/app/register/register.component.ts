@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
 
   onSubmit () {
     console.log("registering...")
-    let observable = this._httpService.postToServer('/user/signup', this.newUser)
+    let observable = this._httpService.postSignUp(this.newUser)
     observable.subscribe(data => {
       console.log('done! ', data['token'])
       var user = jwt_decode(user['token'])
