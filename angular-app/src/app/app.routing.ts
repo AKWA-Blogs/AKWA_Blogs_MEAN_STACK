@@ -15,10 +15,9 @@ export const AppRoutes: Routes = [
           {
         path: '',
         loadChildren: './dashboard/dashboard.module#DashboardModule'
-    }, {
-        path: 'components',
-        loadChildren: './components/components.module#ComponentsModule'
-    }, {
+    }, 
+    
+    {
         path: 'forms',
         loadChildren: './forms/forms.module#Forms'
     }, {
@@ -28,8 +27,8 @@ export const AppRoutes: Routes = [
         path: 'maps',
         loadChildren: './maps/maps.module#MapsModule'
     }, {
-        path: 'widgets',
-        loadChildren: './widgets/widgets.module#WidgetsModule'
+        path: 'subfeed',
+        loadChildren: './subfeed/subfeed.module#SubfeedModule'
     }, {
         path: 'charts',
         loadChildren: './charts/charts.module#ChartsModule'
