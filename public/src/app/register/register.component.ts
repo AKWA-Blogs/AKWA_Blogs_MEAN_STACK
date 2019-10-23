@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import { HttpService } from '../http.service';
+import * as jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-register',
@@ -27,6 +28,11 @@ export class RegisterComponent implements OnInit {
   onSubmit () {
     console.log("registering...")
     let observable = this._httpService.postToServer('/user/signup', this.newUser)
-    observable.subscribe(data => console.log('done! ', data));
+    observable.subscribe(data => {
+      console.log('done! ', data['token'])
+      var user = jwt_decode(user['token'])
+      console.log('id: '+user.id)
+      
+    })
   }
 }
