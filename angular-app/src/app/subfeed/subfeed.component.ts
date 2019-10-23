@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TableData } from '../md/md-table/md-table.component';
+import { HttpService } from '../http.service';
 
 declare var $: any;
 declare interface Task {
@@ -7,53 +7,28 @@ declare interface Task {
   checked: boolean;
 }
 @Component({
-    selector: 'app-subfeed-cmp',
-    templateUrl: 'subfeed.component.html'
+  selector: 'app-subfeed-cmp',
+  templateUrl: 'subfeed.component.html'
 })
 
 export class SubfeedComponent implements OnInit {
-    public tableData: TableData;
-    public tasks1: Task[];
-    public tasks2: Task[];
-    public tasks3: Task[];
+  articles = {}
+  channels = {}
+  constructor(private _httpService: HttpService) {
 
-    ngOnInit() {
-        this.tableData = {
-            headerRow: ['ID', 'Name', 'Salary', 'Country'],
-            dataRows: [
-                ['1', 'Dakota Rice', '$36,738', 'Niger'],
-                ['2', 'Minerva Hooper', '$23,789', 'Curaçao'],
-                ['3', 'Sage Rodriguez', '$56,142', 'Netherlands'],
-                ['4', 'Philip Chaney', '$38,735', 'Korea, South']
-            ]
-         };
-         this.tasks1 = [
-           { title: 'Sign contract for \'What are conference organizers afraid of?\'', checked: false },
-           { title: 'Lines From Great Russian Literature? Or E-mails From My Boss?', checked: true },
-           {
-             title: 'Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit',
-             checked: true
-           },
-           { title: 'Create 4 Invisible User Experiences you Never Knew About', checked: false }
-         ];
-         this.tasks2 = [
-            {
-                title: `Flooded: One year later, assessing what was lost and
-                 what was found when a ravaging rain swept through metro Detroit`,
-                checked: true
-            },
+  }
 
-            { title: 'Sign contract for \'What are conference organizers afraid of?\'', checked: false },
-         ];
-        this.tasks3 = [
+  ngOnInit() {
+    this.getArticlesFromService();
+  }
+  getArticlesFromService() {
+    let observable = this._httpService.getArticles();
+    observable.subscribe(data => {
+      console.log("Got our Articles!!", data);
+      this.articles = data;
+    });
+  }
+  getChannelsFromService() {
 
-           { title: 'Lines From Great Russian Literature? Or E-mails From My Boss?', checked: false },
-           {
-             title: 'Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit',
-             checked: true
-           },
-           { title: 'Sign contract for \'What are conference organizers afraid of?\'', checked: false }
-       ];
-
-    }
+  }
 }

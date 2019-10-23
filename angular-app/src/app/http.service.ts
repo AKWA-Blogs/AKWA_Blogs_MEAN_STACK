@@ -6,13 +6,16 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HttpService {
 
-  baseUrl: string = "http://localhost:8000/";
   constructor(private _http: HttpClient) {
-        this.getUsers();
+        // this.getUsers();
+        // this.getArticles();
    }
 
    getUsers(){
     return this._http.get('http://localhost:8000/users');
   };
+  getArticles(){
+    return this._http.get('http://localhost:8000/articles');
+  }
 
 }
