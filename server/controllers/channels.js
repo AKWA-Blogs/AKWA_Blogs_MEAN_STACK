@@ -75,4 +75,21 @@ module.exports = {
             }
         });
     },
+
+    getSubChannels: function (req, res) {
+        User.findOne({ _id: req.params.id }, function (error, user) {
+            if (error) {
+                res.json(error);
+            }
+            else {
+                console.log(user.subscription);
+                Channel.find({
+                    "_id": {
+                        "$in": [user.subscription]
+                    }
+                }).then(channels => res.json(channels))
+                    .catch(err => res.json(err));
+            }
+        })
+    },
 }

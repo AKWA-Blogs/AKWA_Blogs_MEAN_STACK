@@ -43,4 +43,6 @@ module.exports = function (app) {
 
     app.post("/channel/subscribe", channels.subscribeToChannel);
 
+    app.get("/channels/subscribed/:id", channels.getSubChannels);
+
 }
