@@ -16,4 +16,7 @@ export class HttpService {
     return this._http.get('/articles')
   }
 
+  postSignUp(data) {
+    return this._http.post('/user/signup', data);
+  }
 }
