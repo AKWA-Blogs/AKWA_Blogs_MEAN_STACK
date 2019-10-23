@@ -40,4 +40,7 @@ module.exports = function (app) {
     app.put("/channels/:id", channels.editChannel);
 
     app.delete("/channels/:id", channels.deleteChannel);
+
+    app.post("/channel/subscribe", channels.subscribeToChannel);
+
 }

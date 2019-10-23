@@ -9,6 +9,7 @@ var Article = require("./article");
     owner: {type: User, required: true},
     tags: [String],
     articles: [Article],
+    subscribers: [String]
 }, { timestamps: true });
 
 module.exports = Channel = mongoose.model('Channel', ChannelSchema);
