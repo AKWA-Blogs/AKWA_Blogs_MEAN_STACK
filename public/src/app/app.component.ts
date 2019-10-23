@@ -7,16 +7,20 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  title = 'public';
 
-  constructor(private _httpService: HttpService, private router : Router){}
+export class AppComponent {
+  title = 'AKWA';
+  articles = [];
+  channels = []
+  constructor(private _httpService: HttpService, private router: Router) { }
 
-  ngOnInit(){
-    if (localStorage.getItem('id') == null) {
+  ngOnInit() {
+    var id = localStorage.getItem('id')
+    if (id == null) {
       this.router.navigate(['/login'])
     }
-    console.log('onInit')
-    console.log('getting id: '+localStorage.getItem('id'))
-  };
+    console.log('app.component, getting id: ' + id)
+  }
+
 }
+
