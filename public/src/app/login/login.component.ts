@@ -29,6 +29,14 @@ export class LoginComponent implements OnInit {
   user = {email: "", password: ""}
 
   onSubmit () {
-    
+    console.log('logging...')
+    let observable = this._httpService.postLogin(this.user)
+    observable.subscribe(data => {
+      console.log('done! ', data['token'])
+      var user = jwt_decode(data['token'])
+      localStorage.setItem('id', user.id)
+      console.log('setting "id" in local: '+localStorage.getItem('id'))
+      this.router.navigate(['/'])
+    })
   }
 }

@@ -12,11 +12,17 @@
                     <mat-error *ngIf="fnameFormControl.hasError('required')">
                         First name is <strong>required</strong>
                     </mat-error>
+                    <mat-error *ngIf="fnameFormControl.errors.minlength">
+                        First name <strong>must be at least 3 characters long.</strong>
+                    </mat-error>
                 </mat-form-field>
                 <mat-form-field class="full-width">
                     <input matInput placeholder="Last Name" [formControl]="lnameFormControl" [(ngModel)]="newUser.last_name">
                     <mat-error *ngIf="lnameFormControl.hasError('required')">
                         Last name is <strong>required</strong>
+                    </mat-error>
+                    <mat-error *ngIf="lnameFormControl.errors.minlength">
+                        Last name <strong>must be at least 3 characters long.</strong>
                     </mat-error>
                 </mat-form-field>
                 <mat-form-field class="full-width">

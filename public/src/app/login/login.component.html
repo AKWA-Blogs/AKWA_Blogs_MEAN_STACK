@@ -5,10 +5,10 @@
             <mat-card-title>Log in</mat-card-title>
         </mat-card-header>
 
-        <form class="form">
+        <form class="form" (submit)= "onSubmit()">
             <mat-card-content>
                 <mat-form-field class="full-width">
-                    <input matInput placeholder="Email" [formControl]="emailFormControl">
+                    <input matInput placeholder="Email" [formControl]="emailFormControl" [(ngModel)]="user.email">
                     <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
                         Please enter a valid email address
                     </mat-error>
@@ -17,7 +17,7 @@
                     </mat-error>
                 </mat-form-field>
                 <mat-form-field class="full-width">
-                    <input matInput placeholder="Password" [formControl]="passFormControl">
+                    <input type="password" matInput placeholder="Password" [formControl]="passFormControl" [(ngModel)]="user.password">
                     <mat-error *ngIf="passFormControl.hasError('required')">
                         Password is <strong>required</strong>
                     </mat-error>
