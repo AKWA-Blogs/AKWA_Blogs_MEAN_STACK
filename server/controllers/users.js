@@ -77,7 +77,7 @@ module.exports = {
                     // req.session.user_email = user.email;
                     user.save();
                     console.log('Token sent');
-                    let token = jwt.sign({ user: req.body.email }, "Oursecretword", { expiresIn: "2h" });
+                    let token = jwt.sign({id: user.id, first_name: user.first_name, last_name: user.last_name, email: user.email}, "Oursecretword", { expiresIn: "2h" });
                     res.status(200).send({
                         token
                     });
