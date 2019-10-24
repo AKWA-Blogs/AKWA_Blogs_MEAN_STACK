@@ -24,7 +24,7 @@ export interface ChildrenItems {
 export const ROUTES: RouteInfo[] = [
     {
         path: '/subfeed',
-        title: 'SubFeed',
+        title: 'Subscription Feed',
         type: 'link',
         icontype: 'view_list'
 
@@ -35,6 +35,13 @@ export const ROUTES: RouteInfo[] = [
         type: 'link',
         icontype: 'apps'
 
+    },
+
+    {
+        path: '/channel',
+        title: 'My Channel',
+        type: 'link',
+        icontype: 'date_range'
     },
 
     {
@@ -93,7 +100,7 @@ export const ROUTES: RouteInfo[] = [
         ]
     }, {
         path: '/charts',
-        title: 'Charts',
+        title: 'My Charts',
         type: 'link',
         icontype: 'timeline'
 
