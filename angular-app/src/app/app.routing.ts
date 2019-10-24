@@ -41,14 +41,22 @@ export const AppRoutes: Routes = [
             }, {
                 path: '',
                 loadChildren: './timeline/timeline.module#TimelineModule'
+            },
+            {
+                path: '',
+                loadChildren: './timeline/timeline.module#TimelineModule'
+            }, {
+                path: 'explore',
+                loadChildren: './explore/explore.module#ExploreModule'
             }
         ]
-    }, {
-        path: '',
-        component: AuthLayoutComponent,
-        children: [{
-            path: 'pages',
-            loadChildren: './pages/pages.module#PagesModule'
-        }]
+    }, 
+ {
+      path: '',
+      component: AuthLayoutComponent,
+      children: [{
+        path: 'pages',
+        loadChildren: './pages/pages.module#PagesModule'
+      }]
     }
 ];

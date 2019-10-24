@@ -6,10 +6,13 @@ let Channel = require('../models/channel');
 module.exports = {
 
     index: function (req, res) {
+        res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
+
         Article.find()
             .then(articles => res.json(articles))
             .catch(err => res.json(err));
     },
+
 
     getArticle: function (req, res) {
         Article.findOne({ _id: req.params.id }, function (error, article) {
@@ -65,6 +68,12 @@ module.exports = {
                 console.log("We have an error!", err);
                 res.json(err);
             });
+    },
+
+    expArticle: function(req){
+        Article.find({})
+        .then(articles => res.json(articles))
+        .catch(err => res.json(err));    
     },
 
 }

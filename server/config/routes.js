@@ -45,4 +45,8 @@ module.exports = function (app) {
 
     app.get("/channels/subscribed/:id", channels.getSubChannels);
 
+    app.get("/explore/articles/:id", articles.expArticle);
+    
+    app.get("/explore/channels/:id", channels.expChannel);
+
 }

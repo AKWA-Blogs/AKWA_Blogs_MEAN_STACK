@@ -32,7 +32,6 @@ export class HttpService {
     return this._http.delete(this.baseUrl + `/article/${id}`)
   };
 
-
   // Comment CRUD
 
   postComment(data) {
@@ -95,6 +94,19 @@ export class HttpService {
 
   getSubChannels(id) {
     return this._http.get(this.baseUrl + `/channels/subscribed/${id}`);
+  };
+
+  //explore
+
+
+  expArticle(id){
+    return this._http.get(this.baseUrl+`/explore/articles/${id}`)
+
+  };
+
+  expChannel(id){
+    return this._http.get(this.baseUrl+`/explore/channels/${id}`)
+
   };
 
 }
