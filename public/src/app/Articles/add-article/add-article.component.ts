@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../../http.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { HttpService } from '../../http.service';
   templateUrl: './add-article.component.html',
   styleUrls: ['./add-article.component.css']
 })
-export class AddArticleComponent {
+export class AddArticleComponent implements OnInit{
   article = {
     title: '',
     body: '',
@@ -15,10 +15,16 @@ export class AddArticleComponent {
   };
 
   constructor(private _httpService: HttpService) { }
-  
+  ngOnInit() {
+  }
 
   AddArticle(){
-    console.log(this.article)
+    let user = this._httpService.getUsersID()
+
+    let observable = this._httpService.postArticle(this.article)
+    observable.subscribe(data => { 
+      console.log("Article ", data) 
+    });
   }
 
 }

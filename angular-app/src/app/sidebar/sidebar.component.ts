@@ -31,6 +31,13 @@ export const ROUTES: RouteInfo[] = [
         icontype: 'view_list'
 
     },
+    {
+        path: '/explore',
+        title: 'Explore',
+        type: 'link',
+        icontype: 'apps'
+
+    },
 
     {
         path: '/dashboard',
@@ -54,12 +61,12 @@ export const ROUTES: RouteInfo[] = [
         ]
     }, {
         path: '/forms',
-        title: 'Forms',
+        title: 'My Channel',
         type: 'sub',
         icontype: 'content_paste',
         collapse: 'forms',
         children: [
-            { path: 'regular', title: 'Regular Forms', ab: 'RF' },
+            { path: 'regular', title: 'Create Article', ab: 'RF' },
             { path: 'extended', title: 'Extended Forms', ab: 'EF' },
             { path: 'validation', title: 'Validation Forms', ab: 'VF' },
             { path: 'wizard', title: 'Wizard', ab: 'W' }
