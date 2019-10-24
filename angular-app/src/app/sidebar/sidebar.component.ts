@@ -59,12 +59,12 @@ export const ROUTES: RouteInfo[] = [
         ]
     }, {
         path: '/forms',
-        title: 'My Channel',
+        title: 'Forms',
         type: 'sub',
         icontype: 'content_paste',
         collapse: 'forms',
         children: [
-            { path: 'regular', title: 'Create Article', ab: 'RF' },
+            { path: 'regular', title: 'Regular Forms', ab: 'RF' },
             { path: 'extended', title: 'Extended Forms', ab: 'EF' },
             { path: 'validation', title: 'Validation Forms', ab: 'VF' },
             { path: 'wizard', title: 'Wizard', ab: 'W' }
