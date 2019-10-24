@@ -98,13 +98,22 @@ module.exports = {
                 res.json(error);
             }
             else {
-               user_tags= user.tags;
-              
-                   Channel.find(
-                     {  'tags':{$in: user.tags } }
-                   )
-               }
+                user_tags = user.tags;
+
+                Channel.find(
+                    { 'tags': { $in: user.tags } }
+                    , function (error, channels) {
+                        if (error) {
+                            res.json(error);
+                        }
+                        else {
+                            res.json(channels);
+                        }
+                    }
+                )
             }
-        )}
+        }
+        )
     }
+}
 
