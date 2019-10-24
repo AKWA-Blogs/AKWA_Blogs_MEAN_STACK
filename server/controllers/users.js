@@ -3,7 +3,6 @@ const bcrypt = require('bcrypt');
 const emailRegex = require('email-regex');
 let User = require('../models/user');
 const jwt = require('jsonwebtoken');
-let Channel = require('../models/channel');
 
 module.exports = {
     // index: function (req, res) {
@@ -101,7 +100,6 @@ module.exports = {
             first_name: req.body.first_name,
             last_name: req.body.last_name,
             email: req.body.email,
-            tags: req.body.tags,
         })
             .then(data => {
                 console.log('data updated', data)
@@ -148,29 +146,4 @@ module.exports = {
         })
     },
 
-    getUsersChannels: function (req, res) {
-        /* Channel.findOne()
-            .then(channels => function(){
-                console.log(channels)
-                for(var i = 0; i < channels.length; i++){
-                    if(channels[i].owner._id == req.params.id){
-                      res.json(channels[i]._id);
-                    }
-                }
-            })
-            .catch(err => res.json(err));
-    } */
-
-    Channel.find({}, function (error, channels) {
-        if (error)
-            res.json("+++++++ ", error);
-        else{
-            for(var i = 0; i < channels.length; i++){
-                if(channels[i].owner._id == req.params.id){
-                  res.json(channels[i]);
-                }
-            }
-        }
-    })
-}
 }

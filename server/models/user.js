@@ -7,11 +7,11 @@ var UserSchema = new mongoose.Schema({
     last_name: { type: String, required: true },
     email: { type: String, required: true, unique: true},
     password: { type: String, required: true },
+    channel: {type: Channel},
     likes: [Article],
     read_later: [Article],
     avatarUrl : {type : String , default: "defaultAvatar.png"},
-    subscription: [String],
-    tags : [String],
+    subscription: [String]
 }, { timestamps: true });
 
 module.exports = User = mongoose.model('User', UserSchema);

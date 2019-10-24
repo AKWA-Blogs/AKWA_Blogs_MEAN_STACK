@@ -48,8 +48,7 @@ module.exports = {
             tags: req.body.tags
         })
             .then(data => {
-                
-                console.log('data done', req.body.name)
+                console.log('data updated', data)
                 res.json({ data: data });
             })
             .catch(err => {
@@ -93,28 +92,4 @@ module.exports = {
             }
         })
     },
-    expChannel: function (req, res) {
-        User.findOne({ _id: req.params.id }, function (error, user) {
-            if (error) {
-                res.json(error);
-            }
-            else {
-                user_tags = user.tags;
-
-                Channel.find(
-                    { 'tags': { $in: user.tags } }
-                    , function (error, channels) {
-                        if (error) {
-                            res.json(error);
-                        }
-                        else {
-                            res.json(channels);
-                        }
-                    }
-                )
-            }
-        }
-        )
-    }
 }
-
