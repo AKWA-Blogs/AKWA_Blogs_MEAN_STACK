@@ -287,7 +287,7 @@ var DashboardRoutes = [
     {
         path: '',
         children: [{
-                path: 'dashboard',
+                path: '',
                 component: _dashboard_component__WEBPACK_IMPORTED_MODULE_0__["DashboardComponent"]
             }]
     }

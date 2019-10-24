@@ -377,14 +377,14 @@ __webpack_require__.r(__webpack_exports__);
 var AppRoutes = [
     {
         path: '',
-        redirectTo: 'dashboard',
+        redirectTo: 'subfeed',
         pathMatch: 'full',
     }, {
         path: '',
         component: _layouts_admin_admin_layout_component__WEBPACK_IMPORTED_MODULE_0__["AdminLayoutComponent"],
         children: [
             {
-                path: '',
+                path: 'dashboard',
                 loadChildren: './dashboard/dashboard.module#DashboardModule'
             },
             {
@@ -1487,6 +1487,7 @@ var NavbarComponent = /** @class */ (function () {
                 $layer.remove();
             }
         });
+        this.checkIsLoggedIn();
     };
     NavbarComponent.prototype.onResize = function (event) {
         if ($(window).width() > 991) {
@@ -1586,7 +1587,14 @@ var NavbarComponent = /** @class */ (function () {
     NavbarComponent.prototype.logout = function () {
         console.log('logging out...');
         localStorage.removeItem('id');
-        this.router.navigate(['/']);
+        this.router.navigate(['/pages/login']);
+    };
+    NavbarComponent.prototype.checkIsLoggedIn = function () {
+        var id = localStorage.getItem('id');
+        if (id == null) {
+            this.router.navigate(['/pages/login']);
+        }
+        console.log('navbar, getting id: ' + id);
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('app-navbar-cmp', { static: false }),
@@ -1676,7 +1684,7 @@ var ROUTES = [
         path: '/subfeed',
         title: 'SubFeed',
         type: 'link',
-        icontype: 'widgets'
+        icontype: 'view_list'
     },
     {
         path: '/dashboard',

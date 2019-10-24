@@ -25,7 +25,6 @@ export class NavbarComponent implements OnInit {
     private _router: Subscription;
 
     @ViewChild('app-navbar-cmp', {static: false}) button: any;
-
     constructor(location: Location, private renderer: Renderer, private element: ElementRef, private router: Router,) {
         this.location = location;
         this.nativeElement = element.nativeElement;
@@ -109,6 +108,7 @@ export class NavbarComponent implements OnInit {
             $layer.remove();
           }
         });
+        this.checkIsLoggedIn()
     }
     onResize(event) {
       if ($(window).width() > 991) {
@@ -215,6 +215,13 @@ export class NavbarComponent implements OnInit {
     logout() {
         console.log('logging out...')
         localStorage.removeItem('id')
-        this.router.navigate(['/'])
+        this.router.navigate(['/pages/login'])
+    }
+    checkIsLoggedIn () {
+        var id = localStorage.getItem('id')
+        if (id == null) {
+          this.router.navigate(['/pages/login'])
+        }
+        console.log('navbar, getting id: ' + id)
     }
 }
