@@ -19,16 +19,24 @@ export class SubfeedComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getArticlesFromService();
+    this.getChannelsFromService();
   }
-  getArticlesFromService() {
-    let observable = this._httpService.getArticles();
-    observable.subscribe(data => {
-      console.log("Got our Articles!!", data);
-      this.articles = data;
+  // getArticlesFromService() {
+  //   let observable = this._httpService.getArticles();
+  //   observable.subscribe(articles => {
+  //     console.log("Got our Articles!!", articles);
+  //     this.articles = articles;
+  //   });
+  // }
+  getChannelsFromService() {
+    let observable = this._httpService.getSubChannels('5daecf2f9b83707a68aae65b');
+    observable.subscribe(channels => {
+      console.log("Got subbed channel!!", channels[0]['articles']);
+      this.channels = channels;
     });
   }
-  getChannelsFromService() {
+  unsubscribe(id: string): void {
+    console.log(`Click unsubscribe is working with num param: ${id}`);
 
   }
 }
