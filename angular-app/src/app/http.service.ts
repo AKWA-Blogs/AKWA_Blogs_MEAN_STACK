@@ -8,8 +8,6 @@ export class HttpService {
   baseUrl: string = "http://localhost:8000";
 
   constructor(private _http: HttpClient) {
-    // this.getUsers();
-    // this.getArticles();
   }
 
   // Articles CRUD

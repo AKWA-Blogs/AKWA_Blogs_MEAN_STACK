@@ -399,7 +399,7 @@ var PagesModule = /** @class */ (function () {
                 _login_login_component__WEBPACK_IMPORTED_MODULE_9__["LoginComponent"],
                 _register_register_component__WEBPACK_IMPORTED_MODULE_6__["RegisterComponent"],
                 _pricing_pricing_component__WEBPACK_IMPORTED_MODULE_7__["PricingComponent"],
-                _lock_lock_component__WEBPACK_IMPORTED_MODULE_8__["LockComponent"]
+                _lock_lock_component__WEBPACK_IMPORTED_MODULE_8__["LockComponent"],
             ]
         })
     ], PagesModule);

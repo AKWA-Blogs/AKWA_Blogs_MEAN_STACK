@@ -73,7 +73,7 @@ module.exports = "<!-- Fixed Plugin configurator, used just for Demo Purpose -->
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<footer class=\"footer \">\n  <div class=\"container-fluid\">\n    <nav class=\"pull-left\">\n      <ul>\n        <li>\n          <a href=\"https://www.creative-tim.com\">\n            Creative Tim\n          </a>\n        </li>\n        <li>\n          <a href=\"https://creative-tim.com/about-us\">\n            About Us\n          </a>\n        </li>\n        <li>\n          <a href=\"http://blog.creative-tim.com\">\n            Blog\n          </a>\n        </li>\n        <li>\n          <a href=\"https://www.creative-tim.com/license\">\n            Licenses\n          </a>\n        </li>\n      </ul>\n    </nav>\n    <div class=\"copyright pull-right\">\n      &copy;\n      {{test | date: 'yyyy'}}, made with <i class=\"material-icons\">favorite</i> by\n      <a href=\"https://www.creative-tim.com\" target=\"_blank\">Creative Tim</a> for a better web.\n    </div>\n  </div>\n</footer>\n"
+module.exports = "<footer class=\"footer \">\n  <div class=\"container-fluid\">\n    <nav class=\"pull-left\">\n      <ul>\n      </ul>\n    </nav>\n    <div class=\"copyright pull-right\">\n      &copy;\n      {{test | date: 'yyyy'}}, made with <i class=\"material-icons\">favorite</i> by\n      <a href=\"https://github.com/AKWA-Blogs/AKWA_Blogs_MEAN_STACK\" target=\"_blank\">AKWA TEAM</a>\n    </div>\n  </div>\n</footer>\n"
 
 /***/ }),
 
@@ -84,7 +84,7 @@ module.exports = "<footer class=\"footer \">\n  <div class=\"container-fluid\">\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav #navbar class=\"navbar navbar-expand-lg navbar-transparent  navbar-absolute\">\n  <div class=\"container-fluid\">\n    <div class=\"navbar-wrapper\">\n      <div class=\"navbar-minimize\">\n        <button mat-raised-button (click)=\"minimizeSidebar()\" class=\"btn btn-just-icon btn-white btn-fab btn-round\">\n          <i class=\"material-icons text_align-center visible-on-sidebar-regular\">more_vert</i>\n          <i class=\"material-icons design_bullet-list-67 visible-on-sidebar-mini\">view_list</i>\n        </button>\n      </div>\n      <a class=\"navbar-brand\" href=\"{{getPath()}}\"> {{getTitle()}}</a>\n    </div>\n    <button mat-button class=\"navbar-toggler btn-no-ripple\" type=\"button\" (click)=\"sidebarToggle()\">\n      <span class=\"sr-only\">Toggle navigation</span>\n      <span class=\"navbar-toggler-icon icon-bar\"></span>\n      <span class=\"navbar-toggler-icon icon-bar\"></span>\n      <span class=\"navbar-toggler-icon icon-bar\"></span>\n    </button>\n    <div class=\"collapse navbar-collapse justify-content-end\" id=\"navigation\">\n      <form class=\"navbar-form\">\n        <div class=\"input-group no-border\">\n          <input type=\"text\" value=\"\" class=\"form-control\" placeholder=\"Search...\">\n          <button mat-raised-button type=\"submit\" class=\"btn btn-white btn-round btn-just-icon\">\n            <i class=\"material-icons\">search</i>\n            <div class=\"ripple-container\"></div>\n          </button>\n        </div>\n      </form>\n      <ul class=\"navbar-nav\">\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" href=\"#pablo\">\n            <i class=\"material-icons\">dashboard</i>\n            <p>\n              <span class=\"d-lg-none d-md-block\">Stats</span>\n            </p>\n          </a>\n        </li>\n        <li class=\"nav-item dropdown\">\n          <a class=\"nav-link\" href=\"#pablo\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n            <i class=\"material-icons\">notifications</i>\n            <span class=\"notification\">5</span>\n            <p>\n              <span class=\"d-lg-none d-md-block\">Some Actions</span>\n            </p>\n          </a>\n          <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"navbarDropdownMenuLink\">\n            <a class=\"dropdown-item\" href=\"#\">Mike John responded to your email</a>\n            <a class=\"dropdown-item\" href=\"#\">You have 5 new tasks</a>\n            <a class=\"dropdown-item\" href=\"#\">You're now friend with Andrew</a>\n            <a class=\"dropdown-item\" href=\"#\">Another Notification</a>\n            <a class=\"dropdown-item\" href=\"#\">Another One</a>\n          </div>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" href=\"#pablo\">\n            <i class=\"material-icons\">person</i>\n            <p>\n              <span class=\"d-lg-none d-md-block\">Account</span>\n            </p>\n          </a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</nav>\n"
+module.exports = "<nav #navbar class=\"navbar navbar-expand-lg navbar-transparent  navbar-absolute\">\n  <div class=\"container-fluid\">\n    <div class=\"navbar-wrapper\">\n      <div class=\"navbar-minimize\">\n        <button mat-raised-button (click)=\"minimizeSidebar()\" class=\"btn btn-just-icon btn-white btn-fab btn-round\">\n          <i class=\"material-icons text_align-center visible-on-sidebar-regular\">more_vert</i>\n          <i class=\"material-icons design_bullet-list-67 visible-on-sidebar-mini\">view_list</i>\n        </button>\n      </div>\n      <a class=\"navbar-brand\" href=\"{{getPath()}}\"> {{getTitle()}}</a>\n    </div>\n    <button mat-button class=\"navbar-toggler btn-no-ripple\" type=\"button\" (click)=\"sidebarToggle()\">\n      <span class=\"sr-only\">Toggle navigation</span>\n      <span class=\"navbar-toggler-icon icon-bar\"></span>\n      <span class=\"navbar-toggler-icon icon-bar\"></span>\n      <span class=\"navbar-toggler-icon icon-bar\"></span>\n    </button>\n    <div class=\"collapse navbar-collapse\" style=\"margin-left: 75%;\" id=\"navigation\">\n      <ul class=\"navbar-nav\">\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" href=\"#\" (click)=\"logout()\">\n            <i class=\"material-icons logout-icon\">exit_to_app</i>\n            <span style=\"font-weight: bold;\">Logout</span>\n          </a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</nav>"
 
 /***/ }),
 
@@ -95,7 +95,7 @@ module.exports = "<nav #navbar class=\"navbar navbar-expand-lg navbar-transparen
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n\n        <div class=\"logo\">\n          <a class=\"simple-text logo-mini\">\n            <div class=\"logo-img\">\n                <img src=\"/assets/img/angular2-logo-white.png\"/>\n            </div>\n          </a>\n            <a href=\"https://www.creative-tim.com\" class=\"simple-text logo-normal\">\n              Creative Tim\n            </a>\n        </div>\n\n\n        <div class=\"sidebar-wrapper\">\n\n            <div class=\"user\">\n                <div class=\"photo\">\n                    <img src=\"./assets/img/faces/avatar.jpg\" />\n                </div>\n                <div class=\"user-info\">\n                    <a data-toggle=\"collapse\" href=\"#collapseExample\" class=\"collapsed\">\n                        <span>\n                            Tania Andrew\n                            <b class=\"caret\"></b>\n                        </span>\n                    </a>\n                    <div class=\"collapse\" id=\"collapseExample\">\n                        <ul class=\"nav\">\n                            <li class=\"nav-item\">\n                                <a href=\"javascript:void(0)\" class=\"nav-link\">\n                                    <span class=\"sidebar-mini\">MP</span>\n                                    <span class=\"sidebar-normal\">My Profile</span>\n                                </a>\n                            </li>\n                            <li class=\"nav-item\">\n                                <a href=\"javascript:void(0)\" class=\"nav-link\">\n                                    <span class=\"sidebar-mini\">EP</span>\n                                    <span class=\"sidebar-normal\">Edit Profile</span>\n                                </a>\n                            </li>\n                            <li class=\"nav-item\">\n                                <a href=\"javascript:void(0)\" class=\"nav-link\">\n                                    <span class=\"sidebar-mini\">S</span>\n                                    <span class=\"sidebar-normal\">Settings</span>\n                                </a>\n                            </li>\n                        </ul>\n                    </div>\n                </div>\n            </div>\n            <div *ngIf=\"isMobileMenu()\">\n              <form class=\"navbar-form\">\n                <span class=\"bmd-form-group\"><div class=\"input-group no-border\">\n                  <input type=\"text\" value=\"\" class=\"form-control\" placeholder=\"Search...\">\n                  <button mat-raised-button type=\"submit\" class=\"btn btn-white btn-round btn-just-icon\">\n                    <i class=\"material-icons\">search</i>\n                    <div class=\"ripple-container\"></div>\n                  </button>\n                </div></span>\n              </form>\n              <ul class=\"nav navbar-nav nav-mobile-menu\">\n                <li class=\"nav-item\">\n                  <a class=\"nav-link\" href=\"#pablo\">\n                    <i class=\"material-icons\">dashboard</i>\n                    <p>\n                      <span class=\"d-lg-none d-md-block\">Stats</span>\n                    </p>\n                  </a>\n                </li>\n                <li class=\"nav-item dropdown\">\n                  <a class=\"nav-link\" href=\"#pablo\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n                    <i class=\"material-icons\">notifications</i>\n                    <span class=\"notification\">5</span>\n                    <p>\n                      <span class=\"d-lg-none d-md-block\">Some Actions</span>\n                    </p>\n                  </a>\n                  <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"navbarDropdownMenuLink\">\n                    <a class=\"dropdown-item\" href=\"#\">Mike John responded to your email</a>\n                    <a class=\"dropdown-item\" href=\"#\">You have 5 new tasks</a>\n                    <a class=\"dropdown-item\" href=\"#\">You're now friend with Andrew</a>\n                    <a class=\"dropdown-item\" href=\"#\">Another Notification</a>\n                    <a class=\"dropdown-item\" href=\"#\">Another One</a>\n                  </div>\n                </li>\n                <li class=\"nav-item\">\n                  <a class=\"nav-link\" href=\"#pablo\">\n                    <i class=\"material-icons\">person</i>\n                    <p>\n                      <span class=\"d-lg-none d-md-block\">Account</span>\n                    </p>\n                  </a>\n                </li>\n              </ul>\n            </div>\n            <ul class=\"nav\">\n                <li routerLinkActive=\"active\" *ngFor=\"let menuitem of menuItems\" class=\"nav-item\">\n                    <!--If is a single link-->\n                    <a [routerLink]=\"[menuitem.path]\" *ngIf=\"menuitem.type === 'link'\" class=\"nav-link\">\n                        <i class=\"material-icons\">{{menuitem.icontype}}</i>\n                        <p>{{menuitem.title}}</p>\n                    </a>\n                    <!--If it have a submenu-->\n                    <a data-toggle=\"collapse\" href=\"#{{menuitem.collapse}}\" *ngIf=\"menuitem.type === 'sub'\" (click)=\"updatePS()\" class=\"nav-link\">\n                        <i class=\"material-icons\">{{menuitem.icontype}}</i>\n                        <p>{{menuitem.title}}<b class=\"caret\"></b></p>\n                    </a>\n\n                    <!--Display the submenu items-->\n                    <div id=\"{{menuitem.collapse}}\" class=\"collapse\" *ngIf=\"menuitem.type === 'sub'\">\n                        <ul class=\"nav\">\n                            <li routerLinkActive=\"active\" *ngFor=\"let childitem of menuitem.children\" class=\"nav-item\">\n                                <a [routerLink]=\"[menuitem.path, childitem.path]\" class=\"nav-link\">\n                                    <span class=\"sidebar-mini\">{{childitem.ab}}</span>\n                                    <span class=\"sidebar-normal\">{{childitem.title}}</span>\n                                </a>\n                            </li>\n                        </ul>\n                    </div>\n                </li>\n                <li class=\"nav-item\">\n                    <a href=\"http://md-pro-angular.creative-tim.com/documentation/tutorial?ref=md-pro-archive\" class=\"nav-link\">\n                        <i class=\"material-icons\">school</i>\n                        <p>Documentation</p>\n                    </a>\n                </li>\n            </ul>\n\n        </div>\n"
+module.exports = "<div class=\"logo\">\n    <a class=\"simple-text logo-mini\">\n      <div class=\"logo-img\">\n          <img src=\"/assets/img/angular2-logo-white.png\"/>\n      </div>\n    </a>\n      <a href=\"\" class=\"simple-text logo-normal\">\n        AKWA-Blogs\n      </a>\n  </div>\n\n<div class=\"sidebar-wrapper\">\n\n  <div class=\"user\">\n    <div class=\"photo\">\n      <img src=\"./assets/img/default-avatar.png\" />\n    </div>\n    <div class=\"user-info\">\n        <a data-toggle=\"collapse\" href=\"#collapseExample\" class=\"collapsed\">\n            <span>\n                Tania Andrew\n            </span>\n        </a>\n    </div>\n  </div>\n  <ul class=\"nav\">\n    <li routerLinkActive=\"active\" *ngFor=\"let menuitem of menuItems\" class=\"nav-item\">\n      <!--If is a single link-->\n      <a [routerLink]=\"[menuitem.path]\" *ngIf=\"menuitem.type === 'link'\" class=\"nav-link\">\n        <i class=\"material-icons\">{{menuitem.icontype}}</i>\n        <p>{{menuitem.title}}</p>\n      </a>\n      <!--If it have a submenu-->\n      <a data-toggle=\"collapse\" href=\"#{{menuitem.collapse}}\" *ngIf=\"menuitem.type === 'sub'\" (click)=\"updatePS()\"\n        class=\"nav-link\">\n        <i class=\"material-icons\">{{menuitem.icontype}}</i>\n        <p>{{menuitem.title}}<b class=\"caret\"></b></p>\n      </a>\n\n      <!--Display the submenu items-->\n      <div id=\"{{menuitem.collapse}}\" class=\"collapse\" *ngIf=\"menuitem.type === 'sub'\">\n        <ul class=\"nav\">\n          <li routerLinkActive=\"active\" *ngFor=\"let childitem of menuitem.children\" class=\"nav-item\">\n            <a [routerLink]=\"[menuitem.path, childitem.path]\" class=\"nav-link\">\n              <span class=\"sidebar-mini\">{{childitem.ab}}</span>\n              <span class=\"sidebar-normal\">{{childitem.title}}</span>\n            </a>\n          </li>\n        </ul>\n      </div>\n    </li>\n    <li class=\"nav-item\">\n      <a href=\"http://md-pro-angular.creative-tim.com/documentation/tutorial?ref=md-pro-archive\" class=\"nav-link\">\n        <i class=\"material-icons\">school</i>\n        <p>Documentation</p>\n      </a>\n    </li>\n  </ul>\n\n</div>"
 
 /***/ }),
 
@@ -109,17 +109,11 @@ module.exports = "\n\n        <div class=\"logo\">\n          <a class=\"simple-
 var map = {
 	"./calendar/calendar.module": [
 		"./src/app/calendar/calendar.module.ts",
-		"default~calendar-calendar-module~components-components-module",
 		"calendar-calendar-module"
 	],
 	"./charts/charts.module": [
 		"./src/app/charts/charts.module.ts",
 		"charts-charts-module"
-	],
-	"./components/components.module": [
-		"./src/app/components/components.module.ts",
-		"default~calendar-calendar-module~components-components-module",
-		"components-components-module"
 	],
 	"./dashboard/dashboard.module": [
 		"./src/app/dashboard/dashboard.module.ts",
@@ -137,6 +131,10 @@ var map = {
 		"./src/app/pages/pages.module.ts",
 		"pages-pages-module"
 	],
+	"./subfeed/subfeed.module": [
+		"./src/app/subfeed/subfeed.module.ts",
+		"subfeed-subfeed-module"
+	],
 	"./tables/tables.module": [
 		"./src/app/tables/tables.module.ts",
 		"tables-tables-module"
@@ -148,10 +146,6 @@ var map = {
 	"./userpage/user.module": [
 		"./src/app/userpage/user.module.ts",
 		"userpage-user-module"
-	],
-	"./widgets/widgets.module": [
-		"./src/app/widgets/widgets.module.ts",
-		"widgets-widgets-module"
 	]
 };
 function webpackAsyncContext(req) {
@@ -164,7 +158,7 @@ function webpackAsyncContext(req) {
 	}
 
 	var ids = map[req], id = ids[0];
-	return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(function() {
+	return __webpack_require__.e(ids[1]).then(function() {
 		return __webpack_require__(id);
 	});
 }
@@ -383,19 +377,17 @@ __webpack_require__.r(__webpack_exports__);
 var AppRoutes = [
     {
         path: '',
-        redirectTo: 'dashboard',
+        redirectTo: 'subfeed',
         pathMatch: 'full',
     }, {
         path: '',
         component: _layouts_admin_admin_layout_component__WEBPACK_IMPORTED_MODULE_0__["AdminLayoutComponent"],
         children: [
             {
-                path: '',
+                path: 'dashboard',
                 loadChildren: './dashboard/dashboard.module#DashboardModule'
-            }, {
-                path: 'components',
-                loadChildren: './components/components.module#ComponentsModule'
-            }, {
+            },
+            {
                 path: 'forms',
                 loadChildren: './forms/forms.module#Forms'
             }, {
@@ -405,8 +397,8 @@ var AppRoutes = [
                 path: 'maps',
                 loadChildren: './maps/maps.module#MapsModule'
             }, {
-                path: 'widgets',
-                loadChildren: './widgets/widgets.module#WidgetsModule'
+                path: 'subfeed',
+                loadChildren: './subfeed/subfeed.module#SubfeedModule'
             }, {
                 path: 'charts',
                 loadChildren: './charts/charts.module#ChartsModule'
@@ -461,11 +453,7 @@ var HttpService = /** @class */ (function () {
     function HttpService(_http) {
         this._http = _http;
         this.baseUrl = "http://localhost:8000";
-        this.getUsers();
     }
-    //  getUsers(){
-    //   return this._http.get('http://localhost:8000/users');
-    // };
     // Articles CRUD
     HttpService.prototype.getArticles = function () {
         return this._http.get(this.baseUrl + '/articles');
@@ -539,6 +527,10 @@ var HttpService = /** @class */ (function () {
     ;
     HttpService.prototype.deleteChannel = function (id) {
         return this._http.delete(this.baseUrl + ("/channels/" + id));
+    };
+    ;
+    HttpService.prototype.getSubChannels = function (id) {
+        return this._http.get(this.baseUrl + ("/channels/subscribed/" + id));
     };
     ;
     HttpService = __decorate([
@@ -1495,6 +1487,7 @@ var NavbarComponent = /** @class */ (function () {
                 $layer.remove();
             }
         });
+        this.checkIsLoggedIn();
     };
     NavbarComponent.prototype.onResize = function (event) {
         if ($(window).width() > 991) {
@@ -1591,6 +1584,18 @@ var NavbarComponent = /** @class */ (function () {
     NavbarComponent.prototype.getPath = function () {
         return this.location.prepareExternalUrl(this.location.path());
     };
+    NavbarComponent.prototype.logout = function () {
+        console.log('logging out...');
+        localStorage.removeItem('id');
+        this.router.navigate(['/pages/login']);
+    };
+    NavbarComponent.prototype.checkIsLoggedIn = function () {
+        var id = localStorage.getItem('id');
+        if (id == null) {
+            this.router.navigate(['/pages/login']);
+        }
+        console.log('navbar, getting id: ' + id);
+    };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('app-navbar-cmp', { static: false }),
         __metadata("design:type", Object)
@@ -1674,7 +1679,14 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 //Menu Items
-var ROUTES = [{
+var ROUTES = [
+    {
+        path: '/subfeed',
+        title: 'SubFeed',
+        type: 'link',
+        icontype: 'view_list'
+    },
+    {
         path: '/dashboard',
         title: 'Dashboard',
         type: 'link',
@@ -1728,11 +1740,6 @@ var ROUTES = [{
             { path: 'fullscreen', title: 'Full Screen Map', ab: 'FSM' },
             { path: 'vector', title: 'Vector Map', ab: 'VM' }
         ]
-    }, {
-        path: '/widgets',
-        title: 'Widgets',
-        type: 'link',
-        icontype: 'widgets'
     }, {
         path: '/charts',
         title: 'Charts',
