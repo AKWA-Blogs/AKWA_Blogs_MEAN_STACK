@@ -10,15 +10,14 @@
   </div>
 
 <div class="sidebar-wrapper">
-
   <div class="user">
     <div class="photo">
-      <img src="./assets/img/default-avatar.png" />
+      <img src="{{'./assets/img/'+user.avatarUrl}}" />
     </div>
     <div class="user-info">
         <a data-toggle="collapse" href="#collapseExample" class="collapsed">
             <span>
-                Tania Andrew
+                {{user.first_name}} {{user.last_name}}
             </span>
         </a>
     </div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import PerfectScrollbar from 'perfect-scrollbar';
+import UserSchema from '../../../../server/models/user'
+import { HttpService } from '../http.service'
 
 declare const $: any;
 
@@ -119,6 +121,10 @@ export const ROUTES: RouteInfo[] = [
 export class SidebarComponent implements OnInit {
     public menuItems: any[];
     ps: any;
+    user : UserSchema;
+
+    constructor (private _httpService: HttpService) {}
+
     isMobileMenu() {
         if ($(window).width() > 991) {
             return false;
@@ -132,6 +138,12 @@ export class SidebarComponent implements OnInit {
             const elemSidebar = <HTMLElement>document.querySelector('.sidebar .sidebar-wrapper');
             this.ps = new PerfectScrollbar(elemSidebar);
         }
+        // loading user:
+        let observable = this._httpService.getUsersID(localStorage.getItem('id'))
+        observable.subscribe(data => {
+            this.user = data
+            console.log('sidebar, got user: ', this.user)
+        })
     }
     updatePS(): void {
         if (window.matchMedia(`(min-width: 960px)`).matches && !this.isMac()) {
