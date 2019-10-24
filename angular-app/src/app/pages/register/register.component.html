@@ -52,10 +52,13 @@
                   </mat-form-field>
                   <mat-form-field class="full-width">
                       <input type="password" matInput placeholder="Confirm Password" [formControl]="confirmFormControl">
-                      <mat-error *ngIf="passFormControl.value == confirmFormControl.value">
+                      <mat-error *ngIf="passFormControl.value != confirmFormControl.value">
                           These passwords don't match. Try again!
                       </mat-error>
                   </mat-form-field>
+                  {{passFormControl.value}}
+                  <br>
+                  {{confirmFormControl.value}}
                 <div class="category form-category">* Required fields</div>
               </div>
               <div class="card-footer text-left">

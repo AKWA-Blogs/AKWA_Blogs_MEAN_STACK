@@ -1,5 +1,6 @@
 import { Component, OnInit, ElementRef, OnDestroy } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators, FormGroup } from '@angular/forms';
+import { PasswordValidation } from './password-validator.component';
 import { HttpService } from '../../http.service';
 import * as jwt_decode from 'jwt-decode';
 import { Router } from '@angular/router';
@@ -33,7 +34,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
   ]);
   confirmFormControl = new FormControl('', [
     Validators.required,
-    Validators.minLength(8)
+    Validators.minLength(8),
   ]);
 
   constructor(private element: ElementRef, private _httpService: HttpService, private router: Router) {
@@ -56,6 +57,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
   onSubmit() {
     if (this.passFormControl.value != this.confirmFormControl.value) {return}
+    if (this.newUser.first_name.length < 3 || this.newUser.last_name.length < 3) {return}
     console.log("registering...")
     let observable = this._httpService.postSignUp(this.newUser)
     observable.subscribe(data => {
