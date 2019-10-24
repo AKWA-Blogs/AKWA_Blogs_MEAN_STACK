@@ -48,7 +48,8 @@ module.exports = {
             tags: req.body.tags
         })
             .then(data => {
-                console.log('data updated', data)
+                
+                console.log('data done', req.body.name)
                 res.json({ data: data });
             })
             .catch(err => {
