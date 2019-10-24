@@ -13,6 +13,7 @@ module.exports = {
             .catch(err => res.json(err));
     },
 
+
     getArticle: function (req, res) {
         Article.findOne({ _id: req.params.id }, function (error, article) {
             if (error)
@@ -67,6 +68,12 @@ module.exports = {
                 console.log("We have an error!", err);
                 res.json(err);
             });
+    },
+
+    expArticle: function(req){
+        Article.find({})
+        .then(articles => res.json(articles))
+        .catch(err => res.json(err));    
     },
 
 }

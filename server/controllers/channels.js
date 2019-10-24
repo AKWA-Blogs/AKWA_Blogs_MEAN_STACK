@@ -92,4 +92,19 @@ module.exports = {
             }
         })
     },
+    expChannel: function (req, res) {
+        User.findOne({ _id: req.params.id }, function (error, user) {
+            if (error) {
+                res.json(error);
+            }
+            else {
+               user_tags= user.tags;
+               for(var x in user_tags){
+                   Channel.find(
+                     {  'tags': x}
+                   )
+               }
+            }
+        })
+    }
 }

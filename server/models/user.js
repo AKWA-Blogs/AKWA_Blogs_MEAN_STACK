@@ -11,7 +11,8 @@ var UserSchema = new mongoose.Schema({
     likes: [Article],
     read_later: [Article],
     avatarUrl : {type : String , default: "defaultAvatar.png"},
-    subscription: [String]
+    subscription: [String],
+    tags : [String],
 }, { timestamps: true });
 
 module.exports = User = mongoose.model('User', UserSchema);
