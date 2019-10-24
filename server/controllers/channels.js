@@ -1,5 +1,6 @@
 let mongoose = require('mongoose');
 let Channel = require('../models/channel');
+let User = require('../models/user');
 
 
 module.exports = {
@@ -56,4 +57,39 @@ module.exports = {
             });
     },
 
+    subscribeToChannel: function (req, res) {
+        Channel.findOneAndUpdate({ _id: req.body.channel_id }, { $push: { subscribers: req.body.user_id } }, function (error) {
+            if (error) {
+                res.json({ message: "Error at channel update", error: error });
+            }
+            else {
+                User.findOneAndUpdate({ _id: req.body.user_id }, { $push: { subscription: req.body.channel_id } }, function (error) {
+                    if (error) {
+                        res.json({ message: "Error user update", error: error });
+                    }
+                    else {
+
+                        res.json({ message: "Success supscription", added: true });
+                    }
+                });
+            }
+        });
+    },
+
+    getSubChannels: function (req, res) {
+        User.findOne({ _id: req.params.id }, function (error, user) {
+            if (error) {
+                res.json(error);
+            }
+            else {
+                console.log(user.subscription);
+                Channel.find({
+                    "_id": {
+                        "$in": [user.subscription]
+                    }
+                }).then(channels => res.json(channels))
+                    .catch(err => res.json(err));
+            }
+        })
+    },
 }
