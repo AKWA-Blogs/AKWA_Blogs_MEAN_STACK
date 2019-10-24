@@ -74,7 +74,7 @@ export class HttpService {
   // Channel CRUD
 
   getChannels() {
-    return this._http.get(this.baseUrl + '/articles')
+    return this._http.get(this.baseUrl + '/channels')
   };
 
   getChannelID(id) {
@@ -96,5 +96,9 @@ export class HttpService {
   getSubChannels(id) {
     return this._http.get(this.baseUrl + `/channels/subscribed/${id}`);
   };
+
+  getUsersChannels(id){
+    return this._http.get(this.baseUrl + `/users/channels/${id}`);
+  }
 
 }
