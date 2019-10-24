@@ -26,7 +26,7 @@ export const ROUTES: RouteInfo[] = [
         path: '/subfeed',
         title: 'SubFeed',
         type: 'link',
-        icontype: 'widgets'
+        icontype: 'view_list'
 
     },
     {
