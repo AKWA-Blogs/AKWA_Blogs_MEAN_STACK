@@ -13,8 +13,8 @@ const routes: Routes = [
   {path: 'addArticle',component: AddArticleComponent},
   {path: 'editArticle',component: EditArticleComponent},
   {path: 'showArticle',component: ShowArticleComponent},
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent},
 ];
 
 @NgModule({
