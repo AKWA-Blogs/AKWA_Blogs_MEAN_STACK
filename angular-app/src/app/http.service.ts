@@ -69,6 +69,10 @@ export class HttpService {
     return this._http.delete(this.baseUrl + `/users/${id}`)
   };
 
+  getUserChannel(id) {
+    return this._http.get(this.baseUrl + `/users/channels/${id}`);
+  };
+
 
   // Channel CRUD
 
