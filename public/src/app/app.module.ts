@@ -33,6 +33,7 @@ import { RegisterComponent } from './register/register.component';
     ShowArticleComponent,
     LoginComponent,
     RegisterComponent,
+    ExploreComponent
   ],
   imports: [
     BrowserModule,

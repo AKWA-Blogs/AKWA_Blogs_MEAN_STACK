@@ -6,6 +6,8 @@ let Channel = require('../models/channel');
 module.exports = {
 
     index: function (req, res) {
+        res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
+
         Article.find()
             .then(articles => res.json(articles))
             .catch(err => res.json(err));

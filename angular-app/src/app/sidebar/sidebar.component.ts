@@ -29,6 +29,13 @@ export const ROUTES: RouteInfo[] = [
         icontype: 'widgets'
 
     },
+    {
+        path: '/explore',
+        title: 'Explore',
+        type: 'link',
+        icontype: 'apps'
+
+    },
 
     {
         path: '/dashboard',

@@ -41,6 +41,9 @@ export const AppRoutes: Routes = [
     }, {
         path: '',
         loadChildren: './timeline/timeline.module#TimelineModule'
+    }, {
+        path: 'explore',
+        loadChildren: './explore/explore.module#ExploreModule'
     }
   ]}, {
       path: '',
