@@ -7,12 +7,12 @@
       <div class="row">
         <div class="col-lg-4 col-md-6 col-sm-6 ml-auto mr-auto">
           <div class="card">
-            <form  (submit)= "onSubmit()">
+            <form (submit)= "onSubmit()">
               <div class="card-header card-header-rose card-header-icon">
                 <div class="card-icon">
                   <i class="material-icons">contacts</i>
                 </div>
-                <h4 class="card-title">Login Form</h4>
+                <h4 class="card-title">Login</h4>
               </div>
               <div class="card-body">
                 <mat-form-field class="full-width">
@@ -24,7 +24,7 @@
                     Email is <strong>required</strong>
                   </mat-error>
                 </mat-form-field>
-                {{emailFormControl.errors | json}}
+                <!-- {{emailFormControl.errors | json}} -->
                 <mat-form-field class="full-width">
                   <input type="password" matInput placeholder="Password *" [formControl]="passFormControl" [(ngModel)]="user.password">
                   <mat-error *ngIf="passFormControl.hasError('required')">
