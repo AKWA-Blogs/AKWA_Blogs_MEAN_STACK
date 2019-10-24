@@ -99,12 +99,12 @@ module.exports = {
             }
             else {
                user_tags= user.tags;
-               for(var x in user_tags){
+              
                    Channel.find(
-                     {  'tags': x}
+                     {  'tags':{$in: user.tags } }
                    )
                }
             }
-        })
+        )}
     }
-}
+
