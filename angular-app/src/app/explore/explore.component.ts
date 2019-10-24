@@ -24,7 +24,8 @@ export class ExploreComponent implements OnInit {
     this.getArticlesFromService();
   }
   getArticlesFromService() {
-    let observable = this._httpService.expArticle(this.tags);
+    let observable = this._httpService.expChannel('5daffc8c44476296b93ab61a');
+    console.log("in expArticle")
 
     observable.subscribe(data => {
       console.log("Got our Articles!!", data);

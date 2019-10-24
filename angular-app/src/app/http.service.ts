@@ -99,13 +99,13 @@ export class HttpService {
   //explore
 
 
-  expArticle(data){
-    return this._http.delete(this.baseUrl+`/explore/articles/${data._id}`,data)
+  expArticle(id){
+    return this._http.get(this.baseUrl+`/explore/articles/${id}`)
 
   };
 
-  expChannel(data){
-    return this._http.delete(this.baseUrl+`/explore/channels/${data._id}`, data)
+  expChannel(id){
+    return this._http.get(this.baseUrl+`/explore/channels/${id}`)
 
   };
 
