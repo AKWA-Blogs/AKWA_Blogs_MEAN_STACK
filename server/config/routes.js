@@ -31,6 +31,8 @@ module.exports = function (app) {
 
     app.delete("/users/:id", users.deleteUser);
 
+    app.get("/users/channels/:id", users.getUsersChannels);
+
     app.get("/channels", channels.index);
 
     app.get("/channels/:id", channels.getChannel);
