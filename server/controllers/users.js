@@ -101,6 +101,7 @@ module.exports = {
             first_name: req.body.first_name,
             last_name: req.body.last_name,
             email: req.body.email,
+            tags: req.body.tags,
         })
             .then(data => {
                 console.log('data updated', data)

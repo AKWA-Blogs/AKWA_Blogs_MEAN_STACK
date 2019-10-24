@@ -8,7 +8,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpService } from './http.service';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatInputModule, MatCardModule, MatButtonModule, MatOptionModule, MatSelectModule} from '@angular/material'
+import { ExploreComponent } from './explore/explore.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatTabsModule} from '@angular/material/tabs';
+import { MatSliderModule } from '@angular/material/slider';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatInputModule, MatButtonModule, MatOptionModule, MatSelectModule} from '@angular/material'
 
 import { AddArticleComponent } from './Articles/add-article/add-article.component';
 import { EditArticleComponent } from './Articles/edit-article/edit-article.component';
@@ -28,12 +33,20 @@ import { RegisterComponent } from './register/register.component';
     ShowArticleComponent,
     LoginComponent,
     RegisterComponent,
+    ExploreComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    MatSliderModule,
+    MatCardModule,
+    MatTooltipModule,
+    MatTabsModule,
+    
+
+    BrowserAnimationsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatInputModule,
