@@ -63,7 +63,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"charts-charts-module":"charts-charts-module","dashboard-dashboard-module":"dashboard-dashboard-module","default~calendar-calendar-module~components-components-module":"default~calendar-calendar-module~components-components-module","calendar-calendar-module":"calendar-calendar-module","components-components-module":"components-components-module","forms-forms-module":"forms-forms-module","maps-maps-module":"maps-maps-module","pages-pages-module":"pages-pages-module","tables-tables-module":"tables-tables-module","timeline-timeline-module":"timeline-timeline-module","userpage-user-module":"userpage-user-module","widgets-widgets-module":"widgets-widgets-module"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "" + ({"calendar-calendar-module":"calendar-calendar-module","charts-charts-module":"charts-charts-module","dashboard-dashboard-module":"dashboard-dashboard-module","forms-forms-module":"forms-forms-module","maps-maps-module":"maps-maps-module","pages-pages-module":"pages-pages-module","subfeed-subfeed-module":"subfeed-subfeed-module","tables-tables-module":"tables-tables-module","timeline-timeline-module":"timeline-timeline-module","userpage-user-module":"userpage-user-module"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function

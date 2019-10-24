@@ -10,7 +10,7 @@ export class HttpService {
   constructor(private _http: HttpClient) {
         // this.getUsers();
         // this.getArticles();
-   }
+  }
 
   //  getUsers(){
   //   return this._http.get('http://localhost:8000/users');

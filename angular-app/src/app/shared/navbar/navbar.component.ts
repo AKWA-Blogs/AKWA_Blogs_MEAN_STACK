@@ -211,4 +211,10 @@ export class NavbarComponent implements OnInit {
     getPath() {
         return this.location.prepareExternalUrl(this.location.path());
     }
+
+    logout() {
+        console.log('logging out...')
+        localStorage.removeItem('id')
+        this.router.navigate(['/'])
+    }
 }
