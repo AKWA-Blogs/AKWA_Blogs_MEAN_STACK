@@ -53,7 +53,5 @@ module.exports = function (app) {
 
     app.get("/user/articles/:id", channels.getUserArticles);
 
-    // app.post("/channel/articles/delete", channels.deleteChannelArticle);
-
 
 }

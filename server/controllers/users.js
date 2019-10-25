@@ -146,18 +146,18 @@ module.exports = {
             }
         })
     },
-//     getUsersChannels: function (req, res) {
-//     Channel.find({}, function (error, channels) {
-//         if (error)
-//             res.json("Channel not found", error);
-//         else{
-//             for(var i = 0; i < channels.length; i++){
-//                 if(channels[i].owner._id == req.params.id){
-//                   res.json(channels[i]);
-//                 }
-//             }
-//         }
-//     })
-// }
+    getUsersChannels: function (req, res) {
+    Channel.find({}, function (error, channels) {
+        if (error)
+            res.json("Channel not found", error);
+        else{
+            for(var i = 0; i < channels.length; i++){
+                if(channels[i].owner._id == req.params.id){
+                  res.json(channels[i]);
+                }
+            }
+        }
+    })
+}
 
 }
