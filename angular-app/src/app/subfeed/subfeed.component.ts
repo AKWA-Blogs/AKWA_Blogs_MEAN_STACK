@@ -21,13 +21,7 @@ export class SubfeedComponent implements OnInit {
   ngOnInit() {
     this.getChannelsFromService();
   }
-  // getArticlesFromService() {
-  //   let observable = this._httpService.getArticles();
-  //   observable.subscribe(articles => {
-  //     console.log("Got our Articles!!", articles);
-  //     this.articles = articles;
-  //   });
-  // }
+
   getChannelsFromService() {
     let observable = this._httpService.getSubChannels('5daecf2f9b83707a68aae65b');
     observable.subscribe(channels => {
