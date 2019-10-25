@@ -27,7 +27,7 @@ export interface ChildrenItems {
 export const ROUTES: RouteInfo[] = [
     {
         path: '/subfeed',
-        title: 'SubFeed',
+        title: 'Subscription Feed',
         type: 'link',
         icontype: 'view_list'
 
@@ -38,6 +38,18 @@ export const ROUTES: RouteInfo[] = [
         type: 'link',
         icontype: 'apps'
 
+    },
+
+    {
+        path: '/channel',
+        title: 'Channel',
+        type: 'sub',
+        icontype: 'content_paste',
+        collapse: 'channel',
+        children: [
+            { path: 'viewMyChannel', title: 'My Channel', ab: 'MC' },
+            { path: 'addArticle', title: 'Add Article', ab: 'AA' }
+        ]
     },
 
     {
@@ -62,12 +74,12 @@ export const ROUTES: RouteInfo[] = [
         ]
     }, {
         path: '/forms',
-        title: 'My Channel',
+        title: 'Forms',
         type: 'sub',
         icontype: 'content_paste',
         collapse: 'forms',
         children: [
-            { path: 'regular', title: 'Create Article', ab: 'RF' },
+            { path: 'regular', title: 'Regular Forms', ab: 'RF' },
             { path: 'extended', title: 'Extended Forms', ab: 'EF' },
             { path: 'validation', title: 'Validation Forms', ab: 'VF' },
             { path: 'wizard', title: 'Wizard', ab: 'W' }
@@ -96,7 +108,7 @@ export const ROUTES: RouteInfo[] = [
         ]
     }, {
         path: '/charts',
-        title: 'Charts',
+        title: 'My Charts',
         type: 'link',
         icontype: 'timeline'
 

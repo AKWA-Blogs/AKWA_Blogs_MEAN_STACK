@@ -69,11 +69,15 @@ export class HttpService {
     return this._http.delete(this.baseUrl + `/users/${id}`)
   };
 
+  getUserChannel(id) {
+    return this._http.get(this.baseUrl + `/users/channels/${id}`);
+  };
+
 
   // Channel CRUD
 
   getChannels() {
-    return this._http.get(this.baseUrl + '/channels')
+    return this._http.get(this.baseUrl + '/articles')
   };
 
   getChannelID(id) {
@@ -95,11 +99,6 @@ export class HttpService {
   getSubChannels(id) {
     return this._http.get(this.baseUrl + `/channels/subscribed/${id}`);
   };
-
-
-  getUsersChannels(id){
-    return this._http.get(this.baseUrl + `/users/channels/${id}`);
-  }
 
   //explore
 
