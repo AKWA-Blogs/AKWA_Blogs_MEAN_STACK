@@ -10,9 +10,7 @@ declare const $: any;
 @Component({
   selector: 'app-viewMyChannel-cmp',
   templateUrl: 'viewMyChannel.component.html',
-  styles: [`md-calendar {
-      width: 300px;
-  }`]
+  styleUrls: ['./viewMychannel.component.css']
 })
 
 export class ViewMyChannelComponent implements OnInit {
