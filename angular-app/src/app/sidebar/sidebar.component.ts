@@ -37,13 +37,6 @@ export const ROUTES: RouteInfo[] = [
 
     },
 
-    // {
-    //     path: '/channel',
-    //     title: 'My Channel',
-    //     type: 'link',
-    //     icontype: 'date_range'
-    // },
-
     {
         path: '/channel',
         title: 'Channel',
