@@ -63,6 +63,9 @@ export const AppRoutes: Routes = [
             }, {
                 path: 'explore',
                 loadChildren: './explore/explore.module#ExploreModule'
+            }, {
+                path: 'profile',
+                loadChildren: './profile/profile.module#ProfileModule'
             }
         ]
     },

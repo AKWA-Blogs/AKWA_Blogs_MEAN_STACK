@@ -29,7 +29,7 @@ export class SubfeedComponent implements OnInit {
   //   });
   // }
   getChannelsFromService() {
-    let observable = this._httpService.getSubChannels('5daecf2f9b83707a68aae65b');
+    let observable = this._httpService.getSubChannels(localStorage.getItem('id'));
     observable.subscribe(channels => {
       console.log("Got subbed channel!!", channels[0]['articles']);
       this.channels = channels;
