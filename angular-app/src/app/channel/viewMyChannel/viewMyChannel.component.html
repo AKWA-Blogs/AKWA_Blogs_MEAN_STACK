@@ -46,7 +46,7 @@
                                 [matTooltipPosition]="'below'">
                                 <i class="material-icons">edit</i>
                             </button>
-                            <button mat-raised-button type="button" class="btn btn-danger btn-link" matTooltip="Remove"
+                            <button mat-raised-button type="button"  (click)="DeleteArticle(article._id)" class="btn btn-danger btn-link" matTooltip="Delete"
                                 [matTooltipPosition]="'below'">
                                 <i class="material-icons">close</i>
                             </button>

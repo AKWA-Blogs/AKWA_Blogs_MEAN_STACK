@@ -29,7 +29,7 @@ export class HttpService {
   };
 
   deleteArticle(id) {
-    return this._http.delete(this.baseUrl + `/article/${id}`)
+    return this._http.delete(this.baseUrl + `/articles/${id}`)
   };
 
   // Comment CRUD

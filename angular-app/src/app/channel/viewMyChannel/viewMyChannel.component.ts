@@ -31,4 +31,13 @@ export class ViewMyChannelComponent implements OnInit {
       this.articles = channel["articles"]
     });
   }
+
+  DeleteArticle(id) {
+    console.log(id);
+    let observable = this._httpService.deleteArticle(id)
+    observable.subscribe(data => {
+      console.log('deleted', data)
+    })
+    this.getUserChannelFromService()
+  }
 }
