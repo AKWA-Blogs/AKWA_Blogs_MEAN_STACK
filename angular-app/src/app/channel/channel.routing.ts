@@ -1,14 +1,19 @@
 import { Routes } from '@angular/router';
 
-import { ChannelComponent } from './channel.component';
+import { ViewMyChannelComponent } from './viewMyChannel/viewMyChannel.component';
+import { AddArticleComponent } from './addArticle/addArticle.component';
 
 export const ChannelRoutes: Routes = [
     {
-
       path: '',
       children: [ {
-        path: '',
-        component: ChannelComponent
+        path: 'viewMyChannel',
+        component: ViewMyChannelComponent
+    }]}, {
+    path: '',
+    children: [ {
+      path: 'addArticle',
+      component: AddArticleComponent
     }]
-}
+    },
 ];

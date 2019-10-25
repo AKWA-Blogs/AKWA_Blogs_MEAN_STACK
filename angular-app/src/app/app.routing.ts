@@ -18,6 +18,11 @@ export const AppRoutes: Routes = [
             },
 
             {
+                path: 'channel',
+                loadChildren: './channel/channel.module#Channel'
+            }, 
+
+            {
                 path: 'forms',
                 loadChildren: './forms/forms.module#Forms'
             }, 
@@ -35,10 +40,10 @@ export const AppRoutes: Routes = [
                 path: 'subfeed',
                 loadChildren: './subfeed/subfeed.module#SubfeedModule'
             },
-            {
-                path: 'channel',
-                loadChildren: './channel/channel.module#ChannelModule'
-            },
+            // {
+            //     path: 'channel',
+            //     loadChildren: './channel/channel.module#ChannelModule'
+            // },
             {
                 path: 'charts',
                 loadChildren: './charts/charts.module#ChartsModule'
