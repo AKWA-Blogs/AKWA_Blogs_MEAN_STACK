@@ -1,7 +1,7 @@
 <div class="logo">
     <a class="simple-text logo-mini">
       <div class="logo-img">
-          <img src="/assets/img/angular2-logo-white.png"/>
+          <img src="/assets/img/logo/symbol.png"/>
       </div>
     </a>
       <a href="" class="simple-text logo-normal">
@@ -15,7 +15,7 @@
       <img src="{{'./assets/img/'+user.avatarUrl}}" />
     </div>
     <div class="user-info">
-        <a data-toggle="collapse" href="#collapseExample" class="collapsed">
+        <a data-toggle="collapse" (click)="goToProfile()" href="#" class="collapsed">
             <span>
                 {{user.first_name}} {{user.last_name}}
             </span>

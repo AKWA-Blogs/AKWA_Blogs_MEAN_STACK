@@ -44,7 +44,7 @@ export class RegularFormsComponent implements OnInit {
 
     let channelID = this._httpService.getUsersChannels(localStorage.getItem('id'))
     channelID.subscribe(data => {
-      this.article.channelId += data._id
+      // this.article.channelId += data._id
       // console.log(data._id)
       console.log(this.article)
     });

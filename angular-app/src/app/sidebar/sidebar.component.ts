@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import PerfectScrollbar from 'perfect-scrollbar';
-import UserSchema from '../../../../server/models/user'
-import { HttpService } from '../http.service'
+import UserSchema from '../../../../server/models/user';
+import { HttpService } from '../http.service';
+import { Router } from '@angular/router';
 
 declare const $: any;
 
@@ -130,7 +131,7 @@ export class SidebarComponent implements OnInit {
     ps: any;
     user : UserSchema;
 
-    constructor (private _httpService: HttpService) {}
+    constructor (private _httpService: HttpService, private router: Router) {}
 
     isMobileMenu() {
         if ($(window).width() > 991) {
@@ -163,5 +164,10 @@ export class SidebarComponent implements OnInit {
             bool = true;
         }
         return bool;
+    }
+
+    goToProfile() {
+        console.log('going to profile...')
+        this.router.navigate(['/profile'])
     }
 }

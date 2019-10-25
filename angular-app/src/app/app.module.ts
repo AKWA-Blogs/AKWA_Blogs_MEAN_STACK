@@ -52,7 +52,7 @@ import { AdminLayoutComponent } from './layouts/admin/admin-layout.component';
 import { AuthLayoutComponent } from './layouts/auth/auth-layout.component';
 
 import { AppRoutes } from './app.routing';
-import { ProfileComponent } from './profile/profile.component';
+// import { ProfileComponent } from './profile/profile.component';
 //import { ExploreComponent } from './explore/explore.component';
 
 @NgModule({
@@ -89,7 +89,6 @@ import { ProfileComponent } from './profile/profile.component';
     MatToolbarModule,
     MatTooltipModule
   ],
-  declarations: [ProfileComponent]
   // declarations: []
 })
 export class MaterialModule { }
