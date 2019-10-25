@@ -18,9 +18,19 @@ export const AppRoutes: Routes = [
             },
 
             {
+                path: 'channel',
+                loadChildren: './channel/channel.module#Channel'
+            },
+
+            {
                 path: 'forms',
                 loadChildren: './forms/forms.module#Forms'
-            }, {
+            }, 
+            {
+                path: 'components',
+                loadChildren: './components/components.module#ComponentsModule'
+            },
+            {
                 path: 'tables',
                 loadChildren: './tables/tables.module#TablesModule'
             }, {
@@ -29,7 +39,12 @@ export const AppRoutes: Routes = [
             }, {
                 path: 'subfeed',
                 loadChildren: './subfeed/subfeed.module#SubfeedModule'
-            }, {
+            },
+            // {
+            //     path: 'channel',
+            //     loadChildren: './channel/channel.module#ChannelModule'
+            // },
+            {
                 path: 'charts',
                 loadChildren: './charts/charts.module#ChartsModule'
             }, {
@@ -48,15 +63,18 @@ export const AppRoutes: Routes = [
             }, {
                 path: 'explore',
                 loadChildren: './explore/explore.module#ExploreModule'
+            }, {
+                path: 'profile',
+                loadChildren: './profile/profile.module#ProfileModule'
             }
         ]
-    }, 
- {
-      path: '',
-      component: AuthLayoutComponent,
-      children: [{
-        path: 'pages',
-        loadChildren: './pages/pages.module#PagesModule'
-      }]
+    },
+    {
+        path: '',
+        component: AuthLayoutComponent,
+        children: [{
+            path: 'pages',
+            loadChildren: './pages/pages.module#PagesModule'
+        }]
     }
 ];

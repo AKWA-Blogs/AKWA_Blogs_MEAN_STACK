@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     user = { email: "", password: "" }
 
     onSubmit() {
-        console.log('logging...')
+        console.log('logging... data: ',this.user)
         let observable = this._httpService.postLogin(this.user)
         observable.subscribe(data => {
             console.log('done! ', data['token'])

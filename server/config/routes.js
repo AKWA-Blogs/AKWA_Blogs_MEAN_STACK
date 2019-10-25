@@ -48,5 +48,8 @@ module.exports = function (app) {
     app.get("/explore/articles/:id", articles.expArticle);
     
     app.get("/explore/channels/:id", channels.expChannel);
+    
+    app.get("/users/channels/:id", users.getUsersChannels);
+
 
 }

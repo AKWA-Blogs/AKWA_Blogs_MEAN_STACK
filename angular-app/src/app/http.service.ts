@@ -25,7 +25,7 @@ export class HttpService {
   };
 
   putArticle(data) {
-    return this._http.get(this.baseUrl + `/articles/${data._id}`, data)
+    return this._http.put(this.baseUrl + `/articles/${data._id}`, data)
   };
 
   deleteArticle(id) {
@@ -62,11 +62,15 @@ export class HttpService {
   };
 
   putUser(data) {
-    return this._http.get(this.baseUrl + `/users/${data._id}`, data)
+    return this._http.put(this.baseUrl + `/users/${data._id}`, data)
   };
 
   deleteUser(id) {
     return this._http.delete(this.baseUrl + `/users/${id}`)
+  };
+
+  getUserChannel(id) {
+    return this._http.get(this.baseUrl + `/users/channels/${id}`);
   };
 
 
@@ -85,7 +89,7 @@ export class HttpService {
   };
 
   putChannel(data) {
-    return this._http.get(this.baseUrl + `/channels/${data._id}`, data)
+    return this._http.put(this.baseUrl + `/channels/${data._id}`, data)
   };
 
   deleteChannel(id) {
