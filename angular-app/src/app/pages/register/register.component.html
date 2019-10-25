@@ -42,7 +42,7 @@
                       </mat-error>
                   </mat-form-field>
                   <mat-form-field class="full-width">
-                      <input type="password" matInput placeholder="Password" [formControl]="passFormControl" [(ngModel)]="newUser.password">
+                      <input id="password" type="password" matInput placeholder="Password" [formControl]="passFormControl" [(ngModel)]="newUser.password">
                       <mat-error *ngIf="passFormControl.hasError('required')">
                           Password is <strong>required</strong>
                       </mat-error>
@@ -51,7 +51,7 @@
                       </mat-error>
                   </mat-form-field>
                   <mat-form-field class="full-width">
-                      <input type="password" matInput placeholder="Confirm Password" [formControl]="confirmFormControl">
+                      <input id="confirm" type="password" matInput placeholder="Confirm Password" [formControl]="confirmFormControl">
                       <mat-error *ngIf="passFormControl.value != confirmFormControl.value">
                           These passwords don't match. Try again!
                       </mat-error>

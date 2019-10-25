@@ -20,7 +20,7 @@ export const AppRoutes: Routes = [
             {
                 path: 'channel',
                 loadChildren: './channel/channel.module#Channel'
-            }, 
+            },
 
             {
                 path: 'forms',
@@ -63,15 +63,18 @@ export const AppRoutes: Routes = [
             }, {
                 path: 'explore',
                 loadChildren: './explore/explore.module#ExploreModule'
+            }, {
+                path: 'profile',
+                loadChildren: './profile/profile.module#ProfileModule'
             }
         ]
-    }, 
- {
-      path: '',
-      component: AuthLayoutComponent,
-      children: [{
-        path: 'pages',
-        loadChildren: './pages/pages.module#PagesModule'
-      }]
+    },
+    {
+        path: '',
+        component: AuthLayoutComponent,
+        children: [{
+            path: 'pages',
+            loadChildren: './pages/pages.module#PagesModule'
+        }]
     }
 ];
