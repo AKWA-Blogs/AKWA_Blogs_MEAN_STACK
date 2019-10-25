@@ -1,6 +1,7 @@
 let mongoose = require('mongoose');
 let Channel = require('../models/channel');
 let User = require('../models/user');
+let Article = require('../models/article');
 
 
 module.exports = {
@@ -115,6 +116,17 @@ module.exports = {
             }
         }
         )
+    },
+    getUserArticles: function (req, res) {
+        Article.find({"author._id": req.params.id }, function (error, articles) {
+            if (error) {
+                res.json(error);
+            }
+            else {
+                res.json(articles);
+            }
+        })
     }
-}
 
+
+}
