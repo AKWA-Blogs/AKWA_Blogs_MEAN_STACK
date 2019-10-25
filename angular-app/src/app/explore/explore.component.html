@@ -18,9 +18,9 @@
           <br>
           <br>
           <div class="tab-content tab-space tab-subcategories">
-            <div class="tab-pane active" id="link7">
-              <div class="row" *ngIf="articles.length>0">
-                <div class="col-md-4" *ngFor="let article of articles">
+            <div class="tab-pane active" id="link7"> 
+              <div class="row" *ngIf="channels.length>0">
+                <div class="col-md-4" *ngFor="let channel of channels">
                   <div class="card card-product">
                     <div class="card-header card-header-image" data-header-animation="true">
                       <a href="#pablo">
@@ -35,15 +35,17 @@
                         </button>
                       </div>
                       <h4 class="card-title">
-                        <p>{{article.title}}</p>
+                        <p>{{channel.name}}</p>
                       </h4>
                       <div class="card-description">
-                        <p>Created at: {{article.createdAt}}</p>
+                        <p> {{channel.description}}</p>
+                      </div>
+                        <div class="card-description">
                       </div>
                     </div>
                     <div class="card-footer">
                       <div class="price">
-                        <p class="stats"><i class="material-icons">person</i>{{article.author.first_name}}</p>
+                        <p class="stats"><i class="material-icons">person</i> {{channel.owner.first_name}}  {{channel.owner.last_name}}</p>
                       </div>
                       <div class="stats">
                         <!-- <a href="">
@@ -56,8 +58,27 @@
               </div>
             </div>
             <div class="tab-pane" id="link8">
-              Sub Channels
-            </div>
+
+              <div class="row" *ngIf="articles.length>0">
+                <div class="col-md-4" *ngFor="let article of articles">
+
+             <div class="card">
+                <div class="card-header">
+                  <h4 class="card-title">{{article.title}}</h4>
+                  <p class="card-category">
+                    More information here
+                  </p>
+                </div>
+                <div class="card-body">
+                  From the seamless transition of glass and metal to the streamlined profile, every detail was carefully considered to enhance your experience. So while its display is larger, the phone feels just right.
+                  <br>
+                  <br> Another Text. The first thing you notice when you hold the phone is how great it feels in your hand. The cover glass curves down around the sides to meet the anodized aluminum enclosure in a remarkable, simplified design.
+                </div>
+              </div>
+               </div>
+                    </div>
+                    <br>
+                          </div>
           </div>
         </div>
       </div>
