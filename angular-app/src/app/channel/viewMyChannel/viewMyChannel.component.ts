@@ -28,6 +28,7 @@ export class ViewMyChannelComponent implements OnInit {
     observable.subscribe(channel => {
       console.log("Got subbed channel!!", channel);
       this.channel = channel;
+      this.articles = channel["articles"]
     });
   }
 }
