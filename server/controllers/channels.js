@@ -118,7 +118,7 @@ module.exports = {
         )
     },
     getUserArticles: function (req, res) {
-        Article.find({"author._id": req.params.id }, function (error, articles) {
+        Article.find({ "author._id": req.params.id }, function (error, articles) {
             if (error) {
                 res.json(error);
             }
@@ -126,7 +126,32 @@ module.exports = {
                 res.json(articles);
             }
         })
-    }
+    },
+
+    deleteChannelArticle: function (req, res) {
+        Channel.findOne({ _id: req.body.channel_id }, function (error, channel) {
+            if (error) {
+                res.json(error);
+            }
+            else {
+                console.log(channel.articles[0]._id);
+                for (var i = 0; i < channel.articles.length; i++) {
+                    if(channel.articles[i]!= null){
+                    if (channel.articles[i]._id == req.body.article_id) {
+                        delete(channel.articles[i])
+                    }}
+                }
+                channel.save();
+                console.log(channel.articles);
+                res.json(channel);
+
+
+            }
+        })
+    },
+
+
+
 
 
 }
