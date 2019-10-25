@@ -38,6 +38,18 @@ export const ROUTES: RouteInfo[] = [
     },
 
     {
+        path: '/channel',
+        title: 'Channel',
+        type: 'sub',
+        icontype: 'content_paste',
+        collapse: 'channel',
+        children: [
+            { path: 'viewMyChannel', title: 'My Channel', ab: 'MC' },
+            { path: 'addArticle', title: 'Add Article', ab: 'AA' }
+        ]
+    },
+
+    {
         path: '/dashboard',
         title: 'Dashboard',
         type: 'link',
