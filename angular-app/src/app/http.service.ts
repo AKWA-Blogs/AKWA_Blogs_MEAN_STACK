@@ -73,6 +73,10 @@ export class HttpService {
     return this._http.get(this.baseUrl + `/users/channels/${id}`);
   };
 
+  getUserArticles(id){
+    return this._http.get(this.baseUrl + `/user/articles/${id}`);
+  };
+
 
   // Channel CRUD
 
