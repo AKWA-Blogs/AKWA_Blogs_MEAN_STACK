@@ -100,6 +100,10 @@ export class HttpService {
     return this._http.get(this.baseUrl + `/channels/subscribed/${id}`);
   };
 
+  getUsersChannels(id) {
+    return this._http.get(this.baseUrl + `/users/channels/${id}`);
+  };
+
   //explore
 
 
