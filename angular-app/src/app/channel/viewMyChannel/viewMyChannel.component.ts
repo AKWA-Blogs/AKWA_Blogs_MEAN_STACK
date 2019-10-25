@@ -21,14 +21,29 @@ export class ViewMyChannelComponent implements OnInit {
 
   ngOnInit() {
     this.getUserChannelFromService();
+    this.getUserArticlesFromService();
   }
 
   getUserChannelFromService() {
     let observable = this._httpService.getUserChannel(localStorage.getItem('id'));
     observable.subscribe(channel => {
-      console.log("Got subbed channel!!", channel);
       this.channel = channel;
-      this.articles = channel["articles"]
     });
+  }
+
+  getUserArticlesFromService(){
+    let observable = this._httpService.getUserArticles(localStorage.getItem('id'));
+    observable.subscribe(articles => {
+      this.articles = articles;
+    });
+  }
+
+  DeleteArticle(id) {
+    console.log(id);
+    let observable = this._httpService.deleteArticle(id)
+    observable.subscribe(data => {
+      console.log('deleted', data)
+    })
+    this.getUserArticlesFromService()
   }
 }
