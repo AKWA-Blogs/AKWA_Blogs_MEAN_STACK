@@ -29,8 +29,15 @@ export class SubfeedComponent implements OnInit {
       this.channels = channels;
     });
   }
-  unsubscribe(id: string): void {
-    console.log(`Click unsubscribe is working with num param: ${id}`);
-
+  unsubFromChannel(id: string) {
+    const data = { "channel_id": id, "user_id": localStorage.getItem('id') };
+    let observable = this._httpService.unsubsribeFromChannel(data);
+    observable.subscribe(data => {
+      console.log(data);
+      console.log("unsubbed from channel");
+    });
+    this.getChannelsFromService();
   }
+
+
 }

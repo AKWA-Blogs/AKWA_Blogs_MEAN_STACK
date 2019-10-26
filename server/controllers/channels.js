@@ -119,7 +119,7 @@ module.exports = {
         )
     },
     getUserArticles: function (req, res) {
-        Article.find({"author._id": req.params.id }, function (error, articles) {
+        Article.find({ "author._id": req.params.id }, function (error, articles) {
             if (error) {
                 res.json(error);
             }
@@ -141,6 +141,26 @@ module.exports = {
                 }
             }
         )
+    },
+
+    unsubsribeFromChannel: function (req, res) {
+        Channel.findOneAndUpdate({ _id: req.body.channel_id }, { $pull: { subscribers: req.body.user_id } }, function (error) {
+            if (error) {
+                res.json({ message: "Error at channel update", error: error });
+            }
+            else {
+                console.log(req.body.channel_id);
+                User.findOneAndUpdate({ _id: req.body.user_id }, { $pull: { subscription: req.body.channel_id } }, function (error) {
+                    if (error) {
+                        res.json({ message: "Error in user", error: error });
+                    }
+                    else {
+
+                        res.json({ message: "Success unsubbed", added: true });
+                    }
+                });
+            }
+        });
     }
 
 
