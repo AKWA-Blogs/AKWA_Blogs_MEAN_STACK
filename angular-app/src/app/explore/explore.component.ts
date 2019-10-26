@@ -43,7 +43,7 @@ export class ExploreComponent implements OnInit {
 
 
   ngOnInit() {
-    this.getUser();
+    this.getUserTags();
 
     this.getArticlesFromService();
     this.getChannelsFromService();
@@ -107,11 +107,23 @@ export class ExploreComponent implements OnInit {
     });
   }
 
-  getUser() {
+  getUserTags() {
     let observable = this._httpService.getUsersID(localStorage.getItem('id'));
     observable.subscribe(data => {
       this.user = data;
       this.tags = this.user['tags'];
     });
+  }
+
+  subToChannel(id: string){
+    console.log("Channel: "+id);
+    const data = { "channel_id": id, "user_id": localStorage.getItem('id')};
+    console.log(data);
+    let observable = this._httpService.subscribeToChannel(data);
+    observable.subscribe(data => {
+      console.log(data);
+      console.log("subbed to channel");
+    });
+    
   }
 }
