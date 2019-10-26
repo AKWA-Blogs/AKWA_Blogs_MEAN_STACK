@@ -126,6 +126,20 @@ module.exports = {
                 res.json(articles);
             }
         })
+    },
+
+    filterChannels: function (req, res) {
+        Channel.find(
+            { 'tags': { $in: req.body.tags } }
+            , function (error, channels) {
+                if (error) {
+                    res.json(error);
+                }
+                else {
+                    res.json(channels);
+                }
+            }
+        )
     }
 
 
