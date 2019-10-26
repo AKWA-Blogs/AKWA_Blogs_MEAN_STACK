@@ -66,7 +66,9 @@ export class LoginComponent implements OnInit, OnDestroy {
             console.log('done! ', data['token'])
             var user = jwt_decode(data['token'])
             localStorage.setItem('id', user.id)
+            localStorage.setItem('name', user.user_first_name+" "+user.user_last_name)
             console.log('setting "id" in local: ' + localStorage.getItem('id'))
+            console.log('setting "name" in local: ' + localStorage.getItem('name'))
             this.router.navigate(['/'])
         })
     }
