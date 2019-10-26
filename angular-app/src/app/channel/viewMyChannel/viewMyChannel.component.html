@@ -102,7 +102,7 @@
                               <input matInput placeholder="Title" name="title" [(ngModel)]="editArticle.title">
                             </mat-form-field>
                             <mat-form-field class="example-full-width">
-                              <textarea matInput placeholder="Body" name="body"  [(ngModel)]="editArticle.body"></textarea>
+                              <textarea matInput placeholder="Body" name="body"  [(ngModel)]="editArticle.body" rows="13"></textarea>
                             </mat-form-field>
                             <div class="card-footer ">
                               <button mat-raised-button (click)="getEditArticle()" type="submit" class="btn btn-fill btn-rose">Save</button>
