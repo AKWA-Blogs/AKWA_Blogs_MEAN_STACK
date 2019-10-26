@@ -87,6 +87,12 @@ export class ViewMyChannelComponent implements OnInit {
     observable.subscribe(data => {
       console.log("Article ", data)
     });
+    swal({
+      title: "Article updated!",
+      buttonsStyling: false,
+      confirmButtonClass: "btn btn-success",
+      type: "success"
+    }).catch(swal.noop)
   }
 }
 
