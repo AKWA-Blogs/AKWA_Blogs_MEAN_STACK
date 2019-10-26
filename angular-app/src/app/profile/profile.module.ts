@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../app.module';
+import { TagInputModule } from 'ngx-chips';
 
 import { ProfileComponent } from './profile.component';
 import { ProfileRoutes } from './profile.routing';
@@ -13,7 +14,8 @@ import { ProfileRoutes } from './profile.routing';
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
-        MaterialModule
+        MaterialModule,
+        TagInputModule
     ],
     declarations: [ProfileComponent]
 })
