@@ -45,7 +45,7 @@ export class ViewArticleComponent implements OnInit {
     }
     )
   }
-  comment={comment:"",commenter:"Khalid",article_id:this.activatedRoute.snapshot.params.id}
+  comment={comment:"",commenter:localStorage.getItem('name'),article_id:this.activatedRoute.snapshot.params.id}
   addComment(){
     console.log("add Comment")
    let observable = this._httpService.postComment(this.comment)
