@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../../http.service';
+import { Router } from "@angular/router";
+import swal from 'sweetalert2';
 
 declare var $: any;
 
@@ -17,10 +19,10 @@ export class AddArticleComponent implements OnInit {
         tags: [],
         comments: []
     };
-    
+
     regularItems: string[] = [];
 
-    constructor(private _httpService: HttpService) { }
+    constructor(private _httpService: HttpService, private router: Router) { }
 
     ngOnInit() {
     }
@@ -41,23 +43,28 @@ export class AddArticleComponent implements OnInit {
         channelID.subscribe(data => {
             this.article.channelId += data['_id']
 
-              console.log('id   ',data["_id"])
+            console.log('id   ', data["_id"])
             // console.log(this.article)
 
             let user = this._httpService.getUsersID(localStorage.getItem('id'))
-        user.subscribe(data => {
-            this.article.author = data;
-            // console.log("user ", data)
-            console.log('######' ,this.article)
-            let observable = this._httpService.postArticle(this.article)
-            observable.subscribe(data => {
-            console.log("Article ", data)
-        });
- 
-        });
-        });
+            user.subscribe(data => {
+                this.article.author = data;
+                // console.log("user ", data)
+                console.log('######', this.article)
+                let observable = this._httpService.postArticle(this.article)
+                observable.subscribe(data => {
+                    console.log("Article ", data)
+                });
 
-        
+            });
+        });
+        swal({
+            title: "Article created!",
+            buttonsStyling: false,
+            confirmButtonClass: "btn btn-success",
+            type: "success"
+        }).catch(swal.noop)
+        this.router.navigate(['channel/viewMyChannel']);
 
     }
 
