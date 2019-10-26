@@ -1,30 +1,30 @@
 <div class="main-content">
   <div class="container-fluid">
-    <div class="row" >
+    <div class="row">
       <div class="col">
         <div class="card ">
-          <div class="card-header card-header-rose card-header-icon">
+          <div class="card-header  card-header-icon">
             <div class="card-icon">
               <i class="material-icons">mail_outline</i>
             </div>
             <h4 class="card-title">Stacked Form</h4>
           </div>
-          <div class="card-body" >
+          <div class="card-body">
             <!-- <form (click)="AddArticle()"> -->
-              <mat-form-field class="example-full-width">
-                <input matInput placeholder="Title" name="title"  [(ngModel)]="article.title">
-              </mat-form-field>
-              <mat-form-field class="example-full-width">
-                <textarea matInput placeholder="Body" name="body"  [(ngModel)]="article.body"></textarea>
-              </mat-form-field>
-              <div class="card-footer ">
-                <button mat-raised-button (click)="AddArticle()" type="submit" class="btn btn-fill btn-rose">Submit</button>
-              </div>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Title" name="title" [(ngModel)]="article.title">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <textarea matInput placeholder="Body" name="body" [(ngModel)]="article.body"  rows="13" ></textarea>
+            </mat-form-field>
             <!-- </form> -->
             <div class="col-md-6">
               <legend>Tags</legend>
-              Regular: <tag-input [(ngModel)]='regularItems' theme='filled-theme'></tag-input>
+              <tag-input [(ngModel)]='regularItems' theme='filled-theme'></tag-input>
             </div>
+          </div>
+          <div class="card-footer ">
+            <button mat-raised-button (click)="AddArticle()" type="submit" class="btn btn-fill ">Submit</button>
           </div>
         </div>
       </div>
