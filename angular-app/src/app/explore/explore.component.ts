@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
+import swal from 'sweetalert2';
 
 export interface AutoCompleteModel {
   value: any;
@@ -43,7 +44,7 @@ export class ExploreComponent implements OnInit {
 
 
   ngOnInit() {
-    this.getUser();
+    this.getUserTags();
 
     this.getArticlesFromService();
     this.getChannelsFromService();
@@ -107,11 +108,30 @@ export class ExploreComponent implements OnInit {
     });
   }
 
-  getUser() {
+  getUserTags() {
     let observable = this._httpService.getUsersID(localStorage.getItem('id'));
     observable.subscribe(data => {
       this.user = data;
       this.tags = this.user['tags'];
     });
+  }
+
+  subToChannel(id: string, channel: string) {
+    console.log("Channel: " + id);
+    const data = { "channel_id": id, "user_id": localStorage.getItem('id') };
+    console.log(data);
+    let observable = this._httpService.subscribeToChannel(data);
+    observable.subscribe(data => {
+      console.log(data);
+      console.log("subbed to channel");
+    });
+    swal({
+      title: "Subsribed to channel!",
+      text: `${channel}`,
+      buttonsStyling: false,
+      confirmButtonClass: "btn btn-success",
+      type: "success"
+  }).catch(swal.noop)
+
   }
 }

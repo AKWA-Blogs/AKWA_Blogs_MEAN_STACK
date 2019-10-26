@@ -61,4 +61,6 @@ module.exports = function (app) {
     app.get("/comments/:id",comments.getComment);
 
 
+    app.post("/channel/unsubscribe", channels.unsubsribeFromChannel);
+    
 }

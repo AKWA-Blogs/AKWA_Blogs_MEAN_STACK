@@ -22,33 +22,35 @@
               <div *ngFor="let channel of channels">
                 <div class="row" *ngIf="channel.articles.length>0">
                   <div class="col-md-6" *ngFor="let article of channel.articles">
-                    <div class="card card-product">
-                      <div class="card-header card-header-image" data-header-animation="true">
+                    <div class="row" *ngIf="article != null">
+                      <div class="card card-product">
+                        <div class="card-header card-header-image" data-header-animation="true">
                           <img class="img" src="./assets/img/card-1.jpg">
-                      </div>
-                      <div class="card-body">
-                        <div class="card-actions text-center">
-                          <button mat-raised-button type="button" class="btn btn-default btn-link" matTooltip="View"
-                            [matTooltipPosition]="'below'">
-                            <i class="material-icons">art_track</i>
-                          </button>
                         </div>
-                        <h4 class="card-title">
-                          <p>{{article.title}}</p>
-                        </h4>
-                        <div class="card-description">
-                          <p>Created at: {{article.createdAt}}</p>
+                        <div class="card-body">
+                          <div class="card-actions text-center">
+                            <button mat-raised-button type="button" class="btn btn-default btn-link" matTooltip="View"
+                              [matTooltipPosition]="'below'">
+                              <i class="material-icons">art_track</i>
+                            </button>
+                          </div>
+                          <h4 class="card-title">
+                            <p>{{article.title}}</p>
+                          </h4>
+                          <div class="card-description">
+                            <p>Created at: {{article.createdAt}}</p>
+                          </div>
                         </div>
-                      </div>
-                      <div class="card-footer">
-                        <div class="price">
-                          <p class="stats"><i class="material-icons">person</i>{{article.author.first_name}}
-                            {{article.author.last_name}}</p>
-                        </div>
-                        <div class="stats">
-                          <a href="">
-                            <p>Channel: {{channel.name}}</p>
-                          </a>
+                        <div class="card-footer">
+                          <div class="price">
+                            <p class="stats"><i class="material-icons">person</i>{{article.author.first_name}}
+                              {{article.author.last_name}}</p>
+                          </div>
+                          <div class="stats">
+                            <a href="">
+                              <p>Channel: {{channel.name}}</p>
+                            </a>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -62,7 +64,7 @@
                 <div class="col-md-4" *ngFor="let channel of channels">
                   <div class="card card-profile">
                     <div class="card-header card-avatar" data-header-animation="true">
-                        <img class="img" style="width: 200px;" src="./assets/img/card-1.jpg">
+                      <img class="img" style="width: 200px;" src="./assets/img/card-1.jpg">
                     </div>
                     <div class="card-body">
                       <div class="card-actions text-center">
@@ -70,9 +72,10 @@
                           [matTooltipPosition]="'below'">
                           <i class="material-icons">art_track</i>
                         </button>
-                        <button mat-raised-button type="button" class="btn btn-danger btn-link" matTooltip="Unsubscribe" [matTooltipPosition]="'below'" (click)="unsubscribe(channel._id)">
-                            <i class="material-icons">close</i>
-                          </button>
+                        <button mat-raised-button type="button" class="btn btn-danger btn-link" (click)="unsubFromChannel(channel._id)" matTooltip="Unsubscribe"
+                          [matTooltipPosition]="'below'">
+                          <i class="material-icons">close</i>
+                        </button>
                       </div>
                       <h4 class="card-title">
                         <p>{{channel.name}}</p>
@@ -88,7 +91,7 @@
                       </div>
                     </div>
                   </div>
-                  
+
                 </div>
               </div>
             </div>
