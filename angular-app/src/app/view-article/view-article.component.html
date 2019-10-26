@@ -1,3 +1,67 @@
-<p>
-  view-article works!
-</p>
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+
+        <div class="col-md-8 mr-auto ml-auto">
+          <!--      Wizard container        -->
+          <div class="card">
+              <div class="card card-wizard" data-color="rose" id="wizardProfile">
+
+              <!--        You can switch " data-color="primary" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
+                <div class="card-header text-center">
+                  <h3 class="card-title">
+                    {{article.title}}
+                  </h3>
+                </div>
+                <div class="card-body">
+                  <div class="tab-content">
+                    <div class="tab-pane active" id="about">
+                      <div class="row justify-content-center">
+
+                        <div class="col-lg-10 mt-3">
+                          {{article.body}}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+        
+              </div>
+          <!-- wizard container -->
+        </div>
+        <div class="card card-profile">
+            <div class="card-header card-avatar" data-header-animation="true">
+                <img class="img" style="width: 200px;" src="./assets/img/card-1.jpg">
+            </div>
+            <div class="card-body">
+              <div class="card-actions text-center">
+                <button mat-raised-button type="button" class="btn btn-default btn-link" matTooltip="View"
+                  [matTooltipPosition]="'below'">
+                  <i class="material-icons">art_track</i>
+                </button>
+                <button mat-raised-button type="button" class="btn btn-danger btn-link" matTooltip="Unsubscribe" [matTooltipPosition]="'below'" (click)="unsubscribe(channel._id)">
+                    <i class="material-icons">close</i>
+                  </button>
+              </div>
+              <h4 class="card-title">
+                <p>{{article.author.first_name}} {{article.author.last_name}}</p>
+              </h4>
+              <div class="card-description">
+                <p>Created at: {{article.author.email}}</p>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="price">
+                <p class="stats"><i class="material-icons">person</i>{{channel.owner.first_name}}
+                  {{channel.owner.last_name}}</p>
+              </div>
+            </div>
+          </div>
+      </div>
+      
+ 
+              </div>
+           
+    </div>
+  </div>
+  

@@ -7,7 +7,7 @@ import { HttpService } from '../http.service';
   templateUrl: './view-article.component.html',
 })
 export class ViewArticleComponent implements OnInit {
-  articles = {}
+  article = {}
 
   constructor(private _httpService: HttpService) { }
 
@@ -21,7 +21,7 @@ export class ViewArticleComponent implements OnInit {
 
     observable.subscribe(data => {
       console.log("Got our Articles!!", data);
-      this.articles = data
+      this.article = data
     }
     )
   }

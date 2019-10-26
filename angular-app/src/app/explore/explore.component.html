@@ -29,7 +29,7 @@
                     </div>
                     <div class="card-body">
                       <div class="card-actions text-center">
-                        <button mat-raised-button type="button" class="btn btn-default btn-link" matTooltip="View"
+                        <button  mat-raised-button type="button" class="btn btn-default btn-link" matTooltip="View"
                           [matTooltipPosition]="'below'">
                           <i class="material-icons">art_track</i>
                         </button>
@@ -72,6 +72,7 @@
                 <div class="card-body">
                   {{article.body}}                  
                 </div>
+                <a routerLink="../ViewArticle"> Button Label</a>
                 <p class="stats"><a href=""><i class="material-icons">person</i> {{article.author.first_name}}  {{article.author.last_name}}</a></p>
 
               </div>
