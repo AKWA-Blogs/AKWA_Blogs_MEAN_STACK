@@ -29,7 +29,7 @@ export class HttpService {
   };
 
   deleteArticle(id) {
-    return this._http.delete(this.baseUrl + `/article/${id}`)
+    return this._http.delete(this.baseUrl + `/articles/${id}`)
   };
 
   // Comment CRUD
@@ -71,6 +71,10 @@ export class HttpService {
 
   getUserChannel(id) {
     return this._http.get(this.baseUrl + `/users/channels/${id}`);
+  };
+
+  getUserArticles(id){
+    return this._http.get(this.baseUrl + `/user/articles/${id}`);
   };
 
 
