@@ -39,13 +39,12 @@ export class AddArticleComponent implements OnInit {
 
         let channelID = this._httpService.getUsersChannels(localStorage.getItem('id'))
         channelID.subscribe(data => {
-            this.article.channelId = data['_id']
+            this.article.channelId += data['_id']
 
-            //   console.log(data["_id"])
+              console.log('id   ',data["_id"])
             // console.log(this.article)
-        });
 
-        let user = this._httpService.getUsersID(localStorage.getItem('id'))
+            let user = this._httpService.getUsersID(localStorage.getItem('id'))
         user.subscribe(data => {
             this.article.author = data;
             // console.log("user ", data)
@@ -56,6 +55,9 @@ export class AddArticleComponent implements OnInit {
         });
  
         });
+        });
+
+        
 
     }
 
