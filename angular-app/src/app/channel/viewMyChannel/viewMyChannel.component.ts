@@ -1,5 +1,6 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { DateAdapter } from '@angular/material';
+import { HttpService } from '../../http.service';
 
 
 declare const require: any;
@@ -7,36 +8,42 @@ declare const require: any;
 declare const $: any;
 
 @Component({
-    selector: 'app-viewMyChannel-cmp',
-    templateUrl: 'viewMyChannel.component.html',
-    styles: [`md-calendar {
-      width: 300px;
-  }`]
+  selector: 'app-viewMyChannel-cmp',
+  templateUrl: 'viewMyChannel.component.html',
+  styleUrls: ['./viewMychannel.component.css']
 })
 
 export class ViewMyChannelComponent implements OnInit {
-    simpleSlider = 40;
-    doubleSlider = [20, 60];
+  channel = {}
+  articles = {}
+  constructor(private _httpService: HttpService) { }
 
-    regularItems = ['Pizza', 'Pasta', 'Parmesan'];
-    touch: boolean;
 
-    selectedValue: string;
-    currentCity: string[];
+  ngOnInit() {
+    this.getUserChannelFromService();
+    this.getUserArticlesFromService();
+  }
 
-    selectTheme = 'primary';
-    cities = [
-      {value: 'paris-0', viewValue: 'Paris'},
-      {value: 'miami-1', viewValue: 'Miami'},
-      {value: 'bucharest-2', viewValue: 'Bucharest'},
-      {value: 'new-york-3', viewValue: 'New York'},
-      {value: 'london-4', viewValue: 'London'},
-      {value: 'barcelona-5', viewValue: 'Barcelona'},
-      {value: 'moscow-6', viewValue: 'Moscow'},
-    ];
+  getUserChannelFromService() {
+    let observable = this._httpService.getUserChannel(localStorage.getItem('id'));
+    observable.subscribe(channel => {
+      this.channel = channel;
+    });
+  }
 
-    ngOnInit() {}
-        myFunc(val: any) {
-          // code here
-        }
+  getUserArticlesFromService(){
+    let observable = this._httpService.getUserArticles(localStorage.getItem('id'));
+    observable.subscribe(articles => {
+      this.articles = articles;
+    });
+  }
+
+  DeleteArticle(id) {
+    console.log(id);
+    let observable = this._httpService.deleteArticle(id)
+    observable.subscribe(data => {
+      console.log('deleted', data)
+    })
+    this.getUserArticlesFromService()
+  }
 }
