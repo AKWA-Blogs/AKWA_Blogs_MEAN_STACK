@@ -2,9 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MaterialModule } from '../app.module';
 import { TagInputModule } from 'ngx-chips';
-
+import { NouisliderModule } from 'ng2-nouislider';
+import { SelectModule } from 'ng2-select';
+import { MaterialModule } from '../app.module';
 import { ProfileComponent } from './profile.component';
 import { ProfileRoutes } from './profile.routing';
 
@@ -15,7 +16,10 @@ import { ProfileRoutes } from './profile.routing';
         FormsModule,
         ReactiveFormsModule,
         MaterialModule,
-        TagInputModule
+        TagInputModule,
+        NouisliderModule,
+        SelectModule
+
     ],
     declarations: [ProfileComponent]
 })
