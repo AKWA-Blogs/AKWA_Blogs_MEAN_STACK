@@ -24,12 +24,14 @@ module.exports = {
     },
 
     addArticle: function (req, res) {
+        console.log('req.body ',req.body)
         Article.create({ title: req.body.title, body: req.body.body, author: req.body.author, tags: req.body.tags }, function (error, article) {
             if (error) {
                 res.json({ message: "Error jjjjjj", error: error });
             }
             else {
                 Channel.findOneAndUpdate({ _id: req.body.channelId }, { $push: { articles: article } }, function (error, channel) {
+                    console.log('channel ',channel)
                     if (error) {
                         res.json({ message: "Error hhhhhh", error: error });
                     }
@@ -70,10 +72,27 @@ module.exports = {
             });
     },
 
-    expArticle: function(req){
-        Article.find({})
-        .then(articles => res.json(articles))
-        .catch(err => res.json(err));    
+    expArticle: function(req,res){
+        User.findOne({ _id: req.params.id }, function (error, user) {
+            if (error) {
+                res.json(error);
+            }
+            else {
+                user_tags = user.tags;
+                console.log("user's tags",user.tags);
+                Article.find(
+                    { 'tags': { $in: user.tags } }
+                    , function (error, articles) {
+                        if (error) {
+                            res.json(error);
+                        }
+                        else {
+                            res.json(articles);
+                        }
+                    }
+                )
+            }
+        })   
     },
 
 }
