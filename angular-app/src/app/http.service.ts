@@ -77,6 +77,10 @@ export class HttpService {
     return this._http.get(this.baseUrl + `/user/articles/${id}`);
   };
 
+  subscribeToChannel(data){
+    return this._http.post(this.baseUrl + '/channel/subscribe', data);
+  }
+
 
   // Channel CRUD
 
