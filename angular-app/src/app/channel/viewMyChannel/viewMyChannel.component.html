@@ -1,82 +1,82 @@
 <div *ngIf="!showEdit">
 
 
-<div class="main-content">
-    <div class="container-fluid">
-        <div class="card">
-            <div class="card-header card-header-icon">
-                <div class="card-icon">
-                    <i class="material-icons">library_books</i>
-                </div>
-                <h2 class="card-title">{{channel.name}}</h2>
-            </div>
-            <div class="card-body">
-                <br>
-                <div class="row ml-3">
-                    <h4>Channel Description:</h4>
-                </div>
-                <div class="row ml-3">
-                    <p class="channel-text">{{channel.description}}</p>
-                </div>
-                <br>
-                <div class="row ml-3">
-                    <h4>Channel Tags:</h4>
-                </div>
-                <ul *ngFor="let tag of channel.tags">
-                    <li class="channel-text">{{tag}}</li>
-                </ul>
-                <br>
-                <br>
-            </div>
-        </div>
-        <!-- end card -->
-        <div class="row mt-3 mb-5 ml-3">
-            <h3>My Articles</h3>
-        </div>
-        <div class="row">
-            <div class="col-md-4" *ngFor="let article of articles">
-                <div class="card card-product">
-                    <div class="card-header card-header-image" data-header-animation="true">
-                        <img class="img" src="./assets/img/card-1.jpg">
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-header card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons">library_books</i>
                     </div>
-                    <div class="card-body">
-                        <div class="card-actions text-center">
-                            <button mat-raised-button type="button" class="btn btn-default btn-link" matTooltip="View"
-                                [matTooltipPosition]="'below'">
-                                <i class="material-icons">art_track</i>
-                            </button>
-                            <button mat-raised-button type="button" class="btn btn-success btn-link" matTooltip="Edit"
-                                [matTooltipPosition]="'below'" (click)="showEditArticle(article)">
-                                <i class="material-icons">edit</i>
-                            </button>
-                            <button mat-raised-button type="button"  (click)="DeleteArticle(article._id)" class="btn btn-danger btn-link" matTooltip="Delete"
-                                [matTooltipPosition]="'below'">
-                                <i class="material-icons">close</i>
-                            </button>
-                        </div>
-                        <h4 class="card-title">
-                            <p>{{article.title}}</p>
-                        </h4>
-                        <div class="card-description">
-                            <p>Created at: {{article.createdAt}}</p>
-                        </div>
+                    <h2 class="card-title">{{channel.name}}</h2>
+                </div>
+                <div class="card-body">
+                    <br>
+                    <div class="row ml-3">
+                        <h4>Channel Description:</h4>
                     </div>
-                    <div class="card-footer">
-                        <div class="price">
-                            <p class="stats"><i class="material-icons">person</i>{{article.author.first_name}}
-                                {{article.author.last_name}}</p>
+                    <div class="row ml-3">
+                        <p class="channel-text">{{channel.description}}</p>
+                    </div>
+                    <br>
+                    <div class="row ml-3">
+                        <h4>Channel Tags:</h4>
+                    </div>
+                    <ul *ngFor="let tag of channel.tags">
+                        <li class="channel-text">{{tag}}</li>
+                    </ul>
+                    <br>
+                    <br>
+                </div>
+            </div>
+            <!-- end card -->
+            <div class="row mt-3 mb-5 ml-3">
+                <h3>My Articles</h3>
+            </div>
+            <div class="row">
+                <div class="col-md-4" *ngFor="let article of articles">
+                    <div class="card card-product">
+                        <div class="card-header card-header-image" data-header-animation="true">
+                            <img class="img" src="./assets/img/card-1.jpg">
                         </div>
-                        <div class="stats">
-                            <a href="">
-                                <p>Channel: {{channel.name}}</p>
-                            </a>
+                        <div class="card-body">
+                            <div class="card-actions text-center">
+                                <button mat-raised-button type="button" class="btn btn-default btn-link"
+                                    matTooltip="View" [matTooltipPosition]="'below'">
+                                    <i class="material-icons">art_track</i>
+                                </button>
+                                <button mat-raised-button type="button" class="btn btn-success btn-link"
+                                    matTooltip="Edit" [matTooltipPosition]="'below'" (click)="showEditArticle(article)">
+                                    <i class="material-icons">edit</i>
+                                </button>
+                                <button mat-raised-button type="button" (click)="DeleteArticle(article._id)"
+                                    class="btn btn-danger btn-link" matTooltip="Delete" [matTooltipPosition]="'below'">
+                                    <i class="material-icons">close</i>
+                                </button>
+                            </div>
+                            <h4 class="card-title">
+                                <p>{{article.title}}</p>
+                            </h4>
+                            <div class="card-description">
+                                <p>Created at: {{article.createdAt}}</p>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price">
+                                <p class="stats"><i class="material-icons">person</i>{{article.author.first_name}}
+                                    {{article.author.last_name}}</p>
+                            </div>
+                            <div class="stats">
+                                <a href="">
+                                    <p>Channel: {{channel.name}}</p>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 
 </div>
@@ -86,36 +86,41 @@
 <!-- Edit -->
 
 <div *ngIf="showEdit">
-        <div class="main-content">
-                <div class="container-fluid">
-                  <div class="row" >
-                    <div class="col">
-                      <div class="card ">
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <div class="card ">
                         <div class="card-header  card-header-icon">
-                          <div class="card-icon">
-                            <i class="material-icons">mail_outline</i>
-                          </div>
-                          <h4 class="card-title">Stacked Form</h4>
-                        </div>
-                        <div class="card-body" >
-                            <mat-form-field class="example-full-width">
-                              <input matInput placeholder="Title" name="title" [(ngModel)]="editArticle.title">
-                            </mat-form-field>
-                            <mat-form-field class="example-full-width">
-                              <textarea matInput placeholder="Body" name="body"  [(ngModel)]="editArticle.body" rows="13"></textarea>
-                            </mat-form-field>
-                            <div class="card-footer ">
-                              <button mat-raised-button (click)="getEditArticle()" type="submit" class="btn btn-fill ">Save</button>
+                            <div class="card-icon">
+                                <i class="material-icons">mail_outline</i>
                             </div>
-                          <div class="col-md-6">
-                            <legend>Tags</legend>
-                            Regular: <tag-input [(ngModel)]='regularItems' theme=''></tag-input>
-                          </div>
+                            <h4 class="card-title">Stacked Form</h4>
                         </div>
-                      </div>
+                        <div class="card-body">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Title" name="title" [(ngModel)]="editArticle.title">
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <textarea matInput placeholder="Body" name="body" [(ngModel)]="editArticle.body"
+                                    rows="13"></textarea>
+                            </mat-form-field>
+                            <div class="col-md-6">
+                                <legend>Tags</legend>
+                                <tag-input [(ngModel)]='regularItems' theme=''></tag-input>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="card-footer ">
+                                    <button mat-raised-button (click)="getEditArticle()" type="submit"
+                                        class="btn btn-fill ">Update</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-              </div>
-              
+            </div>
+        </div>
+    </div>
+
 </div>
