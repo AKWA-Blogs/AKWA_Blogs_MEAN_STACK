@@ -149,6 +149,20 @@ export class HttpService {
     return this._http.post(this.baseUrl + '/channel/unsubscribe', data);
   }
 
+  // read later
+  addToReadList(data){
+    return this._http.post(this.baseUrl + '/user/readlater', data);
+  }
+
+  removeFromReadList(data){
+    return this._http.post(this.baseUrl + '/user/removereadlater', data);
+  }
+
+  getReadList(id) {
+    return this._http.get(this.baseUrl + `/user/readlist/${id}`);
+  };
+
+
 
 
 }

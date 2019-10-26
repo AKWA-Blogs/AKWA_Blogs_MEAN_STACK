@@ -21,11 +21,14 @@ export const AppRoutes: Routes = [
                 path: 'channel',
                 loadChildren: './channel/channel.module#Channel'
             },
-
+            {
+                path: 'readList',
+                loadChildren: './readList/readList.module#ReadListModule'
+            },
             {
                 path: 'forms',
                 loadChildren: './forms/forms.module#Forms'
-            }, 
+            },
             {
                 path: 'components',
                 loadChildren: './components/components.module#ComponentsModule'
@@ -75,7 +78,7 @@ export const AppRoutes: Routes = [
                 path: 'ViewChannel/:id',
                 loadChildren: './view-channel/view-channel.moduls#ViewChannelModule'
             }
-                ]
+        ]
     },
     {
         path: '',

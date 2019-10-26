@@ -8,7 +8,7 @@ var UserSchema = new mongoose.Schema({
     email: { type: String, required: true, unique: true},
     password: { type: String, required: true },
     likes: [Article],
-    read_later: [Article],
+    read_later: [String],
     avatarUrl : {type : String , default: "defaultAvatar.png"},
     subscription: [String],
     tags : [String],
