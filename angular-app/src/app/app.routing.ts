@@ -68,10 +68,14 @@ export const AppRoutes: Routes = [
                 loadChildren: './profile/profile.module#ProfileModule'
             },
             {
-                path: 'ViewArticle',
+                path: 'ViewArticle/:id',
                 loadChildren: './view-article/view-article.module#ViewArticleModule'
+            },
+            {
+                path: 'ViewChannel/:id',
+                loadChildren: './view-channel/view-channel.moduls#ViewChannelModule'
             }
-        ]
+                ]
     },
     {
         path: '',

@@ -52,6 +52,7 @@ import { AdminLayoutComponent } from './layouts/admin/admin-layout.component';
 import { AuthLayoutComponent } from './layouts/auth/auth-layout.component';
 
 import { AppRoutes } from './app.routing';
+//import { ViewChannelComponent } from './view-channel/view-channel.component';
 //import { ViewArticleComponent } from './view-article/view-article.component';
 // import { ProfileComponent } from './profile/profile.component';
 //import { ExploreComponent } from './explore/explore.component';

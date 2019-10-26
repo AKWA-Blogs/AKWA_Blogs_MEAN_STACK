@@ -16,11 +16,12 @@ export class ViewArticleComponent implements OnInit {
 
   }
   getArticlesFromService() {
-    let observable = this._httpService.getArticle('5daecc5a3b2a9c7a3e2e5e68');
+    
+    let observable = this._httpService.getArticle('5daecc763b2a9c7a3e2e5e6a');
     console.log("in expArticle")
 
     observable.subscribe(data => {
-      console.log("Got our Articles!!", data);
+      console.log("Got our Article!!", data);
       this.article = data
     }
     )
