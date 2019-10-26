@@ -19,26 +19,23 @@ declare interface Task {
 @Component({
   selector: 'app-explore',
   templateUrl: 'explore.component.html',
+  styleUrls: ['./explore.component.css']
+
 })
 export class ExploreComponent implements OnInit {
 
   articles = {}
   selectedArticles = {}
   channels = {}
-  tags = {}
+  tags = [];
+  user={}
 
-  public items = [
-    { display: 'Pizza', value: 1 },
-    { display: 'Pasta', value: 2 },
-    { display: 'Parmesan', value: 3 },
-  ];
   constructor(private _httpService: HttpService) {
 
   }
   simpleSlider = 40;
   doubleSlider = [20, 60];
 
-  regularItems = ['Pizza', 'Pasta', 'Parmesan'];
 
 
 
@@ -46,16 +43,24 @@ export class ExploreComponent implements OnInit {
 
 
   ngOnInit() {
+    this.getUser();
 
     this.getArticlesFromService();
     this.getChannelsFromService();
   }
 
-  myFunc(val: any) {
-    // code here
+
+  filterArticles(){
+    console.log("Filter Articles");
+    console.log(this.tags);
+  }
+
+  filterChannels(){
+    console.log("Filter Channels");
+    console.log(this.tags);
   }
   getArticlesFromService() {
-    let observable = this._httpService.expArticle('5daffc8c44476296b93ab61a');
+    let observable = this._httpService.expArticle(localStorage.getItem('id'));
     console.log("in expArticle")
 
     observable.subscribe(data => {
@@ -63,15 +68,23 @@ export class ExploreComponent implements OnInit {
       this.articles = data
     });
   };
-
   getChannelsFromService() {
-    let observable = this._httpService.expChannel('5daffc8c44476296b93ab61a');
+    let observable = this._httpService.expChannel(localStorage.getItem('id'));
     console.log("in expChannels")
 
     observable.subscribe(data => {
       console.log("Got our Channels!!", data);
       this.channels = data;
 
+    });
+  }
+
+  getUser(){
+    let observable = this._httpService.getUsersID(localStorage.getItem('id'));
+    observable.subscribe(data => {
+      this.user = data;
+      console.log(this.user['tags']);
+      this.tags = this.user['tags'];
     });
   }
 }
