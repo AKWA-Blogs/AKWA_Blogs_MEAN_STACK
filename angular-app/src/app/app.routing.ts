@@ -66,6 +66,10 @@ export const AppRoutes: Routes = [
             }, {
                 path: 'profile',
                 loadChildren: './profile/profile.module#ProfileModule'
+            },
+            {
+                path: 'ViewArticle',
+                loadChildren: './view-article/view-article.module#ViewArticleModule'
             }
         ]
     },
