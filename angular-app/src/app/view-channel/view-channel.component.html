@@ -38,16 +38,19 @@
                   Created at: {{channel.createdAt}}
                   <br>
                   Tags:
-                  <div class="col-md-4" *ngFor="let tag of channel.tags">
-                    #{{tag}}
+                  <div *ngIf="channel.tags !=null">
+                    
+                    <div class="col-md-4" *ngFor="let tag of channel.tags">
+                      #{{tag}}
+                    </div>
                   </div>
                 </div>
                 <div class="tab-pane" id="link5">
-                  
-                  <div class="col-md-4" *ngFor="let article of channel.articles">
-                      <div *ngIf="article != null">
 
-                    <a routerLink="../../ViewArticle/{{article._id}}">{{article.title}}</a>
+                  <div class="col-md-4" *ngFor="let article of channel.articles">
+                    <div *ngIf="article != null">
+
+                      <a routerLink="../../ViewArticle/{{article._id}}">{{article.title}}</a>
                     </div>
                   </div>
                 </div>

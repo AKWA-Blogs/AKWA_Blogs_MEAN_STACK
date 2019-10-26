@@ -14,6 +14,7 @@ module.exports = {
     addComment: function (req, res) {
         Comment.create({ commenter: req.body.commenter, comment: req.body.comment ,article_id: req.body.article_id }, function (error, Comment) {
             if (error) {
+                console.log(req);
                 res.json({ message: "Error", error: error });
             }
             else {
