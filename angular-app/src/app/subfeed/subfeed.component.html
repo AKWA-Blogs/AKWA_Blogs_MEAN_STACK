@@ -29,7 +29,7 @@
                         </div>
                         <div class="card-body">
                           <div class="card-actions text-center">
-                            <button mat-raised-button type="button" class="btn btn-default btn-link" matTooltip="View"
+                            <button routerLink="../ViewArticle/{{article._id}}" mat-raised-button type="button" class="btn btn-default btn-link" matTooltip="View"
                               [matTooltipPosition]="'below'">
                               <i class="material-icons">art_track</i>
                             </button>
@@ -69,7 +69,7 @@
                           </a>                    </div>
                     <div class="card-body">
                       <div class="card-actions text-center">
-                        <button mat-raised-button type="button" class="btn btn-default btn-link" matTooltip="View"
+                        <button routerLink="../ViewChannel/{{channel._id}}" mat-raised-button type="button" class="btn btn-default btn-link" matTooltip="View"
                           [matTooltipPosition]="'below'">
                           <i class="material-icons">art_track</i>
                         </button>
