@@ -1,61 +1,137 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
+import swal from 'sweetalert2';
 
-declare var $: any;
+export interface AutoCompleteModel {
+  value: any;
+  display: string;
+}
+
+declare const require: any;
+
+declare const $: any;
+
 declare interface Task {
   title: string;
   checked: boolean;
+
 }
+
 @Component({
   selector: 'app-explore',
   templateUrl: 'explore.component.html',
+  styleUrls: ['./explore.component.css']
+
 })
 export class ExploreComponent implements OnInit {
 
   articles = {}
-  selectedArticles={}
+  selectedArticles = {}
   channels = {}
-  tags ={}
+  tags = [];
+  user = {}
+
   constructor(private _httpService: HttpService) {
 
   }
+  simpleSlider = 40;
+  doubleSlider = [20, 60];
+
+
+
+
+  selectTheme = 'primary';
+
 
   ngOnInit() {
+    this.getUserTags();
+
     this.getArticlesFromService();
     this.getChannelsFromService();
   }
-  getArticlesFromService() {
-    let observable = this._httpService.expArticle('5daffc8c44476296b93ab61a');
-    console.log("in expArticle")
 
+
+  filterArticles() {
+    console.log(this.tags);
+    var tags = this.tags;
+    var filterTags = []
+    for (var i = 0; i < tags.length; i++) {
+      if (typeof tags[i] == "string") {
+        filterTags.push(tags[i]);
+      };
+      if (typeof tags[i] == "object") {
+        filterTags.push(tags[i].display);
+      };
+    }
+    console.log(filterTags);
+    const data = { 'tags': filterTags };
+    let observable = this._httpService.filterArticles(data);
     observable.subscribe(data => {
-      console.log("Got our Articles!!", data);
       this.articles = data
-
-
-/*       for(var x in data ) {
-        if (data[x]['_id']=='5daec7cd1e8d9a78b1a355e6'){
-          this.selectedArticles = data[x];
-          console.log(x,"Go________fvdse____________!!", this.selectedArticles);
-
-        }
-        else{
-          this.articles[x]= data[x]
-
-        }
-      }
-      console.log(x,"Go____________________!!", this.articles);
- */
     });
-  };
 
-  getChannelsFromService() {
-        let observable = this._httpService.expChannel('5daffc8c44476296b93ab61a');
-    console.log("in expChannels")
+  }
 
+  filterChannels() {
+    console.log(this.tags);
+    var tags = this.tags;
+    var filterTags = []
+    for (var i = 0; i < tags.length; i++) {
+      if (typeof tags[i] == "string") {
+        filterTags.push(tags[i]);
+      };
+      if (typeof tags[i] == "object") {
+        filterTags.push(tags[i].display);
+      };
+    }
+    console.log(filterTags);
+    const data = { 'tags': filterTags };
+    let observable = this._httpService.filterChannels(data);
     observable.subscribe(data => {
-      console.log("Got our Channels!!", data);
+      console.log(data);
+      this.channels = data
+    });
+
+  }
+  getArticlesFromService() {
+    let observable = this._httpService.expArticle(localStorage.getItem('id'));
+    observable.subscribe(data => {
+      this.articles = data
+    });
+
+  };
+  getChannelsFromService() {
+    let observable = this._httpService.expChannel(localStorage.getItem('id'));
+    observable.subscribe(data => {
       this.channels = data;
 
-  });
-}}
+    });
+  }
+
+  getUserTags() {
+    let observable = this._httpService.getUsersID(localStorage.getItem('id'));
+    observable.subscribe(data => {
+      this.user = data;
+      this.tags = this.user['tags'];
+    });
+  }
+
+  subToChannel(id: string, channel: string) {
+    console.log("Channel: " + id);
+    const data = { "channel_id": id, "user_id": localStorage.getItem('id') };
+    console.log(data);
+    let observable = this._httpService.subscribeToChannel(data);
+    observable.subscribe(data => {
+      console.log(data);
+      console.log("subbed to channel");
+    });
+    swal({
+      title: "Subsribed to channel!",
+      text: `${channel}`,
+      buttonsStyling: false,
+      confirmButtonClass: "btn btn-success",
+      type: "success"
+  }).catch(swal.noop)
+
+  }
+}

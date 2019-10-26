@@ -65,6 +65,7 @@ module.exports = {
                 res.json({ message: "Error at channel update", error: error });
             }
             else {
+                console.log(req.body.channel_id);
                 User.findOneAndUpdate({ _id: req.body.user_id }, { $push: { subscription: req.body.channel_id } }, function (error) {
                     if (error) {
                         res.json({ message: "Error user update", error: error });
@@ -87,7 +88,7 @@ module.exports = {
                 console.log(user.subscription);
                 Channel.find({
                     "_id": {
-                        "$in": [user.subscription]
+                        "$in": user.subscription
                     }
                 }).then(channels => res.json(channels))
                     .catch(err => res.json(err));
@@ -118,7 +119,7 @@ module.exports = {
         )
     },
     getUserArticles: function (req, res) {
-        Article.find({"author._id": req.params.id }, function (error, articles) {
+        Article.find({ "author._id": req.params.id }, function (error, articles) {
             if (error) {
                 res.json(error);
             }
@@ -126,6 +127,40 @@ module.exports = {
                 res.json(articles);
             }
         })
+    },
+
+    filterChannels: function (req, res) {
+        Channel.find(
+            { 'tags': { $in: req.body.tags } }
+            , function (error, channels) {
+                if (error) {
+                    res.json(error);
+                }
+                else {
+                    res.json(channels);
+                }
+            }
+        )
+    },
+
+    unsubsribeFromChannel: function (req, res) {
+        Channel.findOneAndUpdate({ _id: req.body.channel_id }, { $pull: { subscribers: req.body.user_id } }, function (error) {
+            if (error) {
+                res.json({ message: "Error at channel update", error: error });
+            }
+            else {
+                console.log(req.body.channel_id);
+                User.findOneAndUpdate({ _id: req.body.user_id }, { $pull: { subscription: req.body.channel_id } }, function (error) {
+                    if (error) {
+                        res.json({ message: "Error in user", error: error });
+                    }
+                    else {
+
+                        res.json({ message: "Success unsubbed", added: true });
+                    }
+                });
+            }
+        });
     }
 
 

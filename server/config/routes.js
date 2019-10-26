@@ -52,6 +52,11 @@ module.exports = function (app) {
     app.get("/users/channels/:id", users.getUsersChannels);
 
     app.get("/user/articles/:id", channels.getUserArticles);
+    
+    app.post("/filter/articles", articles.filterArticles);
+    
+    app.post("/filter/channels", channels.filterChannels);
 
-
+    app.post("/channel/unsubscribe", channels.unsubsribeFromChannel);
+    
 }

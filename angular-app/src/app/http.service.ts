@@ -73,10 +73,9 @@ export class HttpService {
     return this._http.get(this.baseUrl + `/users/channels/${id}`);
   };
 
-  getUserArticles(id){
+  getUserArticles(id) {
     return this._http.get(this.baseUrl + `/user/articles/${id}`);
   };
-
 
   // Channel CRUD
 
@@ -100,9 +99,7 @@ export class HttpService {
     return this._http.delete(this.baseUrl + `/channels/${id}`);
   };
 
-  getSubChannels(id) {
-    return this._http.get(this.baseUrl + `/channels/subscribed/${id}`);
-  };
+
 
   getUsersChannels(id) {
     return this._http.get(this.baseUrl + `/users/channels/${id}`);
@@ -111,20 +108,47 @@ export class HttpService {
   //explore
 
 
-  expArticle(id){
-    return this._http.get(this.baseUrl+`/explore/articles/${id}`)
+  expArticle(id) {
+    return this._http.get(this.baseUrl + `/explore/articles/${id}`)
 
   };
 
-  expChannel(id){
-    return this._http.get(this.baseUrl+`/explore/channels/${id}`)
+  expChannel(id) {
+    return this._http.get(this.baseUrl + `/explore/channels/${id}`)
 
   };
-  getArticle(id){
-    return this._http.get(this.baseUrl+`/articles/${id}`) 
+
+  getArticle(id) {
+    return this._http.get(this.baseUrl + `/articles/${id}`)
   }
-  getChannel(id){
-    return this._http.get(this.baseUrl+`/channels/${id}`)
+  getChannel(id) {
+    return this._http.get(this.baseUrl + `/channels/${id}`)
   }
+
+  //filter
+
+  filterArticles(data) {
+    return this._http.post(this.baseUrl + '/filter/articles', data);
+  };
+
+  filterChannels(data) {
+    return this._http.post(this.baseUrl + '/filter/channels', data);
+  };
+
+  // subscription
+
+  subscribeToChannel(data) {
+    return this._http.post(this.baseUrl + '/channel/subscribe', data);
+  }
+
+  getSubChannels(id) {
+    return this._http.get(this.baseUrl + `/channels/subscribed/${id}`);
+  };
+
+  unsubsribeFromChannel(data) {
+    return this._http.post(this.baseUrl + '/channel/unsubscribe', data);
+  }
+
+
 
 }
