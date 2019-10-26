@@ -50,12 +50,50 @@
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
+                   </div>
+                        </div>
             </div>
             <div class="tab-pane" id="link8">
-              Sub Channels
-            </div>
+                <div class="row" *ngIf="channels.length>0">
+                    <div class="col-md-4" *ngFor="let channel of channels">
+                      <div class="card card-product">
+                        <div class="card-header card-header-image" data-header-animation="true">
+                          <a href="#pablo">
+                            <img class="img" src="./assets/img/card-1.jpg">
+                          </a>
+                        </div>
+                        <div class="card-body">
+                          <div class="card-actions text-center">
+                            <button routerLink="../ViewChannel/{{channel._id}} "mat-raised-button type="button" class="btn btn-default btn-link" matTooltip="View"
+                              [matTooltipPosition]="'below'">
+                              <i class="material-icons">art_track</i>
+                            </button>
+                          </div>
+                          <h4 class="card-title">
+                            <p>{{channel.name}}</p>
+                          </h4>
+                          <div class="card-description">
+                            <p> {{channel.description}}</p>
+                          </div>
+                            <div class="card-description">
+                          </div>
+                        </div>
+                        <div class="card-footer">
+                          <div class="price">
+                            <p class="stats"><i class="material-icons">person</i> {{channel.owner.first_name}}  {{channel.owner.last_name}}</p>
+                          </div>
+                          <div class="stats">
+                            <!-- <a href="">
+                              <p>Channel: </p>
+                            </a> -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                    <br>
+                          </div>
           </div>
         </div>
       </div>
