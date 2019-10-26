@@ -65,6 +65,7 @@ module.exports = {
                 res.json({ message: "Error at channel update", error: error });
             }
             else {
+                console.log(req.body.channel_id);
                 User.findOneAndUpdate({ _id: req.body.user_id }, { $push: { subscription: req.body.channel_id } }, function (error) {
                     if (error) {
                         res.json({ message: "Error user update", error: error });
