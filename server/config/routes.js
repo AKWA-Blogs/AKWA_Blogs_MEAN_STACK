@@ -57,6 +57,10 @@ module.exports = function (app) {
     
     app.post("/filter/channels", channels.filterChannels);
 
+
+    app.get("/comments/:id",comments.getComment);
+
+
     app.post("/channel/unsubscribe", channels.unsubsribeFromChannel);
     
 }

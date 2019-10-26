@@ -124,6 +124,11 @@ export class HttpService {
   getChannel(id) {
     return this._http.get(this.baseUrl + `/channels/${id}`)
   }
+  getComment(id){
+    return this._http.get(this.baseUrl+`/comments/${id}`)
+
+  }
+
 
   //filter
 
