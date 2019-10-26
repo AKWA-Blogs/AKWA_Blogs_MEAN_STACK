@@ -53,5 +53,7 @@ module.exports = function (app) {
 
     app.get("/user/articles/:id", channels.getUserArticles);
 
+    app.get("/comments/:id",comments.getComment);
+
 
 }
