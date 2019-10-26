@@ -53,10 +53,19 @@ export class ExploreComponent implements OnInit {
   filterArticles() {
     console.log(this.tags);
     var tags = this.tags;
-    const data = { 'tags': tags };
+    var filterTags = []
+    for (var i = 0; i < tags.length; i++) {
+      if (typeof tags[i] == "string") {
+        filterTags.push(tags[i]);
+      };
+      if (typeof tags[i] == "object") {
+        filterTags.push(tags[i].display);
+      };
+    }
+    console.log(filterTags);
+    const data = { 'tags': filterTags };
     let observable = this._httpService.filterArticles(data);
     observable.subscribe(data => {
-      console.log(data);
       this.articles = data
     });
 
@@ -65,7 +74,17 @@ export class ExploreComponent implements OnInit {
   filterChannels() {
     console.log(this.tags);
     var tags = this.tags;
-    const data = { 'tags': tags };
+    var filterTags = []
+    for (var i = 0; i < tags.length; i++) {
+      if (typeof tags[i] == "string") {
+        filterTags.push(tags[i]);
+      };
+      if (typeof tags[i] == "object") {
+        filterTags.push(tags[i].display);
+      };
+    }
+    console.log(filterTags);
+    const data = { 'tags': filterTags };
     let observable = this._httpService.filterChannels(data);
     observable.subscribe(data => {
       console.log(data);

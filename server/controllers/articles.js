@@ -79,7 +79,6 @@ module.exports = {
             }
             else {
                 user_tags = user.tags;
-                console.log("user's tags", user.tags);
                 Article.find(
                     { 'tags': { $in: user.tags } }
                     , function (error, articles) {
