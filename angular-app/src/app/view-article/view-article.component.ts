@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
-import { ActivatedRoute } from '@angular/router';
-import { observable } from 'rxjs';
 
 
 @Component({
@@ -10,49 +8,22 @@ import { observable } from 'rxjs';
 })
 export class ViewArticleComponent implements OnInit {
   article = {}
-  comments={}
-  user={}
 
-  constructor(private _httpService: HttpService, private activatedRoute: ActivatedRoute) { }
+  constructor(private _httpService: HttpService) { }
 
   ngOnInit() {
     this.getArticlesFromService();
-    this.getCommentFromService();
 
   }
-  getCommentFromService() {
-
-    let observable = this._httpService.getComment(this.activatedRoute.snapshot.params.id);
-    console.log("in comment")
-    console.log(this.activatedRoute.snapshot.params.id);
-
-    observable.subscribe(data => {
-      console.log("Got our comments!!", data);
-      this.comments = data
-    }
-    )
-  }
-
   getArticlesFromService() {
-
-    let observable = this._httpService.getArticle(this.activatedRoute.snapshot.params.id);
-    console.log("in view article")
-    console.log(this.activatedRoute.snapshot.params.id);
+    
+    let observable = this._httpService.getArticle('5daecc763b2a9c7a3e2e5e6a');
+    console.log("in expArticle")
 
     observable.subscribe(data => {
       console.log("Got our Article!!", data);
       this.article = data
     }
     )
-  }
-  comment={comment:"",commenter:"Khalid",article_id:this.activatedRoute.snapshot.params.id}
-  addComment(){
-    console.log("add Comment")
-   let observable = this._httpService.postComment(this.comment)
-    observable.subscribe(data => {
-      console.log('done! ', data)
-
-    });
-
   }
 }

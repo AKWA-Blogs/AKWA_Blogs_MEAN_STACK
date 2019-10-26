@@ -31,11 +31,11 @@
             <div class="col-md-10">
               <div class="tab-content">
                 <div class="tab-pane active" id="link4">
-                  <img style="width: 432px;height: 247px;" class="img" src="./assets/img/card-1.jpg">
-                  <h4></h4>
+                  <img class="img" src="./assets/img/card-1.jpg">
+                  <h4>{{channel.name}}</h4>
                   Description: {{channel.description}}
                   <br>
-                  Created at: {{channel.createdAt}}
+                  Created at:{{channel.createAt}}
                   <br>
                   Tags:
                   <div class="col-md-4" *ngFor="let tag of channel.tags">
@@ -44,11 +44,8 @@
                 </div>
                 <div class="tab-pane" id="link5">
                   
-                  <div class="col-md-4" *ngFor="let article of channel.articles">
-                      <div *ngIf="article != null">
-
+                  <div class="col-md-4" *ngFor="let article of channel.articles">                 
                     <a routerLink="../../ViewArticle/{{article._id}}">{{article.title}}</a>
-                    </div>
                   </div>
                 </div>
                 <div class="tab-pane" id="link6">
