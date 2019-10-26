@@ -88,7 +88,7 @@ module.exports = {
                 console.log(user.subscription);
                 Channel.find({
                     "_id": {
-                        "$in": [user.subscription]
+                        "$in": user.subscription
                     }
                 }).then(channels => res.json(channels))
                     .catch(err => res.json(err));
