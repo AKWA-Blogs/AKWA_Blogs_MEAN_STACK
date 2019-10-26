@@ -1,6 +1,5 @@
 <div class="main-content">
   <div class="container-fluid">
-
     <div class="card">
       <div class="card-body">
         <div class="row">
@@ -10,20 +9,29 @@
               <img style="width: 400px; height: 300px;" class="img" src="./assets/img/card-1.jpg">
 
               <div class="col-md-3 ml-auto">
-                <div class="card card-product" style="width: 250px;">
+                <div class="card card-profile">
                   <div class="card-header card-avatar" data-header-animation="true">
-                    <img class="img" style="width: 200px;" src="./assets/img/card-1.jpg">
+                    <img class="img" src="./assets/img/placeholder.jpg">
                   </div>
                   <div class="card-body">
-                  
-                    <h5 class="card-title">
-
+                    <div class="card-actions text-center">
+                      <button routerLink="../../ViewChannel/{{article.author._id}} " mat-raised-button type="button"
+                        class="btn btn-default btn-link" matTooltip="View" [matTooltipPosition]="'below'">
+                        <i class="material-icons">art_track</i>
+                      </button>
+                    </div>
+                    <h4 class="card-title">
                       <p>{{article.author.first_name}} {{article.author.last_name}}</p>
-                    </h5>
+                    </h4>
+
+
                   </div>
+
+
                 </div>
               </div>
             </div>
+
             <p>{{article.body}}</p>
 
 
@@ -32,7 +40,6 @@
         </div>
       </div>
     </div>
-
 
     <div class="card">
       <div class="card-body">
@@ -64,3 +71,5 @@
 
       </div>
     </div>
+  </div>
+</div>

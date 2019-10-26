@@ -55,9 +55,9 @@ export class AddArticleComponent implements OnInit {
                 observable.subscribe(data => {
                     console.log("Article ", data)
                 });
-
             });
         });
+
         swal({
             title: "Article created!",
             buttonsStyling: false,
