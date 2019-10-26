@@ -1,9 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
 
+export interface AutoCompleteModel {
+  value: any;
+  display: string;
+}
+
 declare const require: any;
 
-declare var $: any;
+declare const $: any;
 
 declare interface Task {
   title: string;
@@ -14,9 +19,6 @@ declare interface Task {
 @Component({
   selector: 'app-explore',
   templateUrl: 'explore.component.html',
-  styles: [`md-calendar {
-      width: 300px;
-  }`]
 })
 export class ExploreComponent implements OnInit {
 
@@ -24,6 +26,12 @@ export class ExploreComponent implements OnInit {
   selectedArticles = {}
   channels = {}
   tags = {}
+
+  public items = [
+    {display: 'Pizza', value: 1},
+    {display: 'Pasta', value: 2},
+    {display: 'Parmesan', value: 3},
+  ];
   constructor(private _httpService: HttpService) {
 
   }

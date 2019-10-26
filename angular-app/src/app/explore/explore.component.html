@@ -1,6 +1,13 @@
 <div class="main-content">
   <div class="container-fluid">
     <div class="row">
+      <div class="col-md-6">
+        <legend>Tags</legend>
+        Regular: <tag-input [(ngModel)]='regularItems' theme='filled-theme'></tag-input>
+      </div>
+
+    </div>
+    <div class="row">
       <div class="col-md-8 ml-auto mr-auto">
         <div class="page-categories">
           <ul class="nav nav-pills nav-pills-danger nav-pills-icons justify-content-center" role="tablist">
@@ -16,20 +23,14 @@
             </li>
           </ul>
           <br>
-          <div class="row">
-            <div class="col-md-6">
-              <legend>Tags</legend>
-              Regular: <tag-input [(ngModel)]='regularItems' theme='filled-theme'></tag-input>
-            </div>
-
-          </div>
           <br>
           <div class="tab-content tab-space tab-subcategories">
             <div class="tab-pane active" id="link7">
               <div class="row" *ngIf="articles.length>0">
                 <div class="col-md-4" *ngFor="let article of articles">
+                  {{article.createdAt}}
                   <div class="card card-product">
-                    <div class="card-header card-header-image" data-header-animation="true">
+                     <div class="card-header card-header-image" data-header-animation="true">
                       <a href="#pablo">
                         <img class="img" src="./assets/img/card-1.jpg">
                       </a>
@@ -46,16 +47,6 @@
                       </h4>
                       <div class="card-description">
                         <p>Created at: {{article.createdAt}}</p>
-                      </div>
-                    </div>
-                    <div class="card-footer">
-                      <div class="price">
-                        <p class="stats"><i class="material-icons">person</i>{{article.author.first_name}}</p>
-                      </div>
-                      <div class="stats">
-                        <!-- <a href="">
-                          <p>Channel: </p>
-                        </a> -->
                       </div>
                     </div>
                   </div>
