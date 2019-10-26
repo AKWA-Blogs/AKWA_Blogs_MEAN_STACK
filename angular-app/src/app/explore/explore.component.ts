@@ -22,9 +22,10 @@ export class ExploreComponent implements OnInit {
 
   ngOnInit() {
     this.getArticlesFromService();
+    this.getChannelsFromService();
   }
   getArticlesFromService() {
-    let observable = this._httpService.expChannel('5daffc8c44476296b93ab61a');
+    let observable = this._httpService.expArticle('5daffc8c44476296b93ab61a');
     console.log("in expArticle")
 
     observable.subscribe(data => {
@@ -46,9 +47,15 @@ export class ExploreComponent implements OnInit {
       console.log(x,"Go____________________!!", this.articles);
  */
     });
-  }
+  };
 
   getChannelsFromService() {
+        let observable = this._httpService.expChannel('5daffc8c44476296b93ab61a');
+    console.log("in expChannels")
 
-  }
-}
+    observable.subscribe(data => {
+      console.log("Got our Channels!!", data);
+      this.channels = data;
+
+  });
+}}
