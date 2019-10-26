@@ -31,22 +31,9 @@ export class ExploreComponent implements OnInit {
     observable.subscribe(data => {
       console.log("Got our Articles!!", data);
       this.articles = data
-
-
-/*       for(var x in data ) {
-        if (data[x]['_id']=='5daec7cd1e8d9a78b1a355e6'){
-          this.selectedArticles = data[x];
-          console.log(x,"Go________fvdse____________!!", this.selectedArticles);
-
-        }
-        else{
-          this.articles[x]= data[x]
-
-        }
-      }
-      console.log(x,"Go____________________!!", this.articles);
- */
+      
     });
+
   };
 
   getChannelsFromService() {
