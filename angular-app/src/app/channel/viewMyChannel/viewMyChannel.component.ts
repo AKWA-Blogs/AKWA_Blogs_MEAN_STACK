@@ -16,6 +16,9 @@ declare const $: any;
 export class ViewMyChannelComponent implements OnInit {
   channel = {}
   articles = {}
+  editArticle = {}
+  regularItems: string[] = [];
+  showEdit: boolean = false;
   constructor(private _httpService: HttpService) { }
 
 
@@ -31,13 +34,12 @@ export class ViewMyChannelComponent implements OnInit {
     });
   }
 
-  getUserArticlesFromService(){
+  getUserArticlesFromService() {
     let observable = this._httpService.getUserArticles(localStorage.getItem('id'));
     observable.subscribe(articles => {
       this.articles = articles;
     });
   }
-
   DeleteArticle(id) {
     console.log(id);
     let observable = this._httpService.deleteArticle(id)
@@ -46,4 +48,22 @@ export class ViewMyChannelComponent implements OnInit {
     })
     this.getUserArticlesFromService()
   }
+
+  showEditArticle(data) {
+    this.editArticle = data
+    this.showEdit = true
+    this.regularItems = data.tags
+    console.log('deit==== ', data)
+  };
+
+  getEditArticle() {
+    this.showEdit = false;
+    console.log('update    ', this.editArticle);
+
+    let observable = this._httpService.putArticle(this.editArticle)
+    observable.subscribe(data => {
+      console.log("Article ", data)
+    });
+  }
 }
+

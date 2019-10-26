@@ -1,3 +1,6 @@
+<div *ngIf="!showEdit">
+
+
 <div class="main-content">
     <div class="container-fluid">
         <div class="card">
@@ -43,7 +46,7 @@
                                 <i class="material-icons">art_track</i>
                             </button>
                             <button mat-raised-button type="button" class="btn btn-success btn-link" matTooltip="Edit"
-                                [matTooltipPosition]="'below'">
+                                [matTooltipPosition]="'below'" (click)="showEditArticle(article)">
                                 <i class="material-icons">edit</i>
                             </button>
                             <button mat-raised-button type="button"  (click)="DeleteArticle(article._id)" class="btn btn-danger btn-link" matTooltip="Delete"
@@ -73,4 +76,46 @@
             </div>
         </div>
     </div>
+</div>
+
+
+</div>
+
+
+
+<!-- Edit -->
+
+<div *ngIf="showEdit">
+        <div class="main-content">
+                <div class="container-fluid">
+                  <div class="row" >
+                    <div class="col">
+                      <div class="card ">
+                        <div class="card-header card-header-rose card-header-icon">
+                          <div class="card-icon">
+                            <i class="material-icons">mail_outline</i>
+                          </div>
+                          <h4 class="card-title">Stacked Form</h4>
+                        </div>
+                        <div class="card-body" >
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Title" name="title" [(ngModel)]="editArticle.title">
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                              <textarea matInput placeholder="Body" name="body"  [(ngModel)]="editArticle.body"></textarea>
+                            </mat-form-field>
+                            <div class="card-footer ">
+                              <button mat-raised-button (click)="getEditArticle()" type="submit" class="btn btn-fill btn-rose">Save</button>
+                            </div>
+                          <div class="col-md-6">
+                            <legend>Tags</legend>
+                            Regular: <tag-input [(ngModel)]='regularItems' theme='filled-theme'></tag-input>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
 </div>
