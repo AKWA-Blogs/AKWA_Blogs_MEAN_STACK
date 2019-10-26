@@ -45,13 +45,14 @@ export class ViewArticleComponent implements OnInit {
     }
     )
   }
-  comment={comment:"",commenter:localStorage.getItem('id'),article_id:this.activatedRoute.snapshot.params.id}
+  comment={comment:"",commenter:"Khalid",article_id:this.activatedRoute.snapshot.params.id}
   addComment(){
-    let observable = this._httpService.getUsersID( localStorage.getItem('id'));
+    console.log("add Comment")
+   let observable = this._httpService.postComment(this.comment)
     observable.subscribe(data => {
-      this.user = data
-      console.log("user ___ ", this.user)
-    }
-    )
+      console.log('done! ', data)
+
+    });
+
   }
 }
