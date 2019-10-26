@@ -116,11 +116,23 @@ export class HttpService {
     return this._http.get(this.baseUrl+`/explore/channels/${id}`)
 
   };
+
   getArticle(id){
     return this._http.get(this.baseUrl+`/articles/${id}`) 
   }
   getChannel(id){
     return this._http.get(this.baseUrl+`/channels/${id}`)
   }
+
+    //filter
+
+    filterArticles(data) {
+      return this._http.post(this.baseUrl + '/filter/articles', data);
+    };
+
+    filterChannels(data) {
+      return this._http.post(this.baseUrl + '/filter/channels', data);
+    };
+
 
 }

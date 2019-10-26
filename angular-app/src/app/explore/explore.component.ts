@@ -28,7 +28,7 @@ export class ExploreComponent implements OnInit {
   selectedArticles = {}
   channels = {}
   tags = [];
-  user={}
+  user = {}
 
   constructor(private _httpService: HttpService) {
 
@@ -50,40 +50,47 @@ export class ExploreComponent implements OnInit {
   }
 
 
-  filterArticles(){
-    console.log("Filter Articles");
+  filterArticles() {
     console.log(this.tags);
+    var tags = this.tags;
+    const data = { 'tags': tags };
+    let observable = this._httpService.filterArticles(data);
+    observable.subscribe(data => {
+      console.log(data);
+      this.articles = data
+    });
+
   }
 
-  filterChannels(){
-    console.log("Filter Channels");
+  filterChannels() {
     console.log(this.tags);
+    var tags = this.tags;
+    const data = { 'tags': tags };
+    let observable = this._httpService.filterChannels(data);
+    observable.subscribe(data => {
+      console.log(data);
+      this.channels = data
+    });
+
   }
   getArticlesFromService() {
     let observable = this._httpService.expArticle(localStorage.getItem('id'));
-    console.log("in expArticle")
-
     observable.subscribe(data => {
-      console.log("Got our Articles!!", data);
       this.articles = data
     });
   };
   getChannelsFromService() {
     let observable = this._httpService.expChannel(localStorage.getItem('id'));
-    console.log("in expChannels")
-
     observable.subscribe(data => {
-      console.log("Got our Channels!!", data);
       this.channels = data;
 
     });
   }
 
-  getUser(){
+  getUser() {
     let observable = this._httpService.getUsersID(localStorage.getItem('id'));
     observable.subscribe(data => {
       this.user = data;
-      console.log(this.user['tags']);
       this.tags = this.user['tags'];
     });
   }

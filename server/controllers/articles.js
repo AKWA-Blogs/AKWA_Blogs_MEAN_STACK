@@ -70,14 +70,14 @@ module.exports = {
             });
     },
 
-    expArticle: function(req,res){
+    expArticle: function (req, res) {
         User.findOne({ _id: req.params.id }, function (error, user) {
             if (error) {
                 res.json(error);
             }
             else {
                 user_tags = user.tags;
-                console.log("user's tags",user.tags);
+                console.log("user's tags", user.tags);
                 Article.find(
                     { 'tags': { $in: user.tags } }
                     , function (error, articles) {
@@ -90,7 +90,23 @@ module.exports = {
                     }
                 )
             }
-        })   
+        })
     },
+
+    filterArticles: function (req, res) {
+        Article.find(
+            { 'tags': { $in: req.body.tags } }
+            , function (error, articles) {
+                if (error) {
+                    res.json(error);
+                }
+                else {
+                    res.json(articles);
+                }
+            }
+        )
+
+    },
+
 
 }
