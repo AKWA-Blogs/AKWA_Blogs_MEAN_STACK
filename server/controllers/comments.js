@@ -12,7 +12,7 @@ module.exports = {
     },
 
     addComment: function (req, res) {
-        Comment.create({ commenter: req.body.commenter, comment: req.body.comment }, function (error, Comment) {
+        Comment.create({ commenter: req.body.commenter, comment: req.body.comment ,article_id:  req.article_id }, function (error, Comment) {
             if (error) {
                 res.json({ message: "Error", error: error });
             }

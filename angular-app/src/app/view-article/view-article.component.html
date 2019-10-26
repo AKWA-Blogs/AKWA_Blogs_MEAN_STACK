@@ -45,7 +45,20 @@
                   {{comment.commenter}}
           </div>
         </div>
-        
+        ____________________________
+        <div class="col-md-10">
+            <div class="card ">
+              <div class="card-body ">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="comment" type="text" [(ngModel)]="comment.comment">
+                  </mat-form-field>
+              </div>
+              <div class="card-footer ">
+                <button mat-raised-button (click)="addComment()" type="submit" class="btn btn-fill btn-rose">add Comment</button>
+              </div>
+            </div>
+          </div>
+
       </div>
     </div>
 

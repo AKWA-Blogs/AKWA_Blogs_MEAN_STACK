@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
 import { ActivatedRoute } from '@angular/router';
+import { observable } from 'rxjs';
 
 
 @Component({
@@ -10,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ViewArticleComponent implements OnInit {
   article = {}
   comments={}
+  user={}
 
   constructor(private _httpService: HttpService, private activatedRoute: ActivatedRoute) { }
 
@@ -40,6 +42,15 @@ export class ViewArticleComponent implements OnInit {
     observable.subscribe(data => {
       console.log("Got our Article!!", data);
       this.article = data
+    }
+    )
+  }
+  comment={comment:"",commenter:localStorage.getItem('id'),article_id:this.activatedRoute.snapshot.params.id}
+  addComment(){
+    let observable = this._httpService.getUsersID( localStorage.getItem('id'));
+    observable.subscribe(data => {
+      this.user = data
+      console.log("user ___ ", this.user)
     }
     )
   }
