@@ -24,7 +24,7 @@
                 </div>
               </div>
               <div class="row mb-5 ml-3">
-                <button mat-raised-button class="btn" (click)="filterArticles()" >Filter</button>
+                <button mat-raised-button class="btn" (click)="filterArticles()">Filter</button>
               </div>
               <div class="row mt-4" *ngIf="articles.length>0">
                 <div class="col-md-4" *ngFor="let article of articles">
@@ -36,7 +36,7 @@
                     </div>
                     <div class="card-body">
                       <div class="card-actions text-center">
-                        <button mat-raised-button type="button" class="btn btn-default btn-link" matTooltip="View"
+                        <button routerLink="../ViewArticle/{{article._id}} "mat-raised-button type="button" class="btn btn-default btn-link" matTooltip="View"
                           [matTooltipPosition]="'below'">
                           <i class="material-icons">art_track</i>
                         </button>
@@ -76,6 +76,10 @@
                         <button routerLink="../ViewChannel/{{channel._id}} " mat-raised-button type="button"
                           class="btn btn-default btn-link" matTooltip="View" [matTooltipPosition]="'below'">
                           <i class="material-icons">art_track</i>
+                        </button>
+                        <button  mat-raised-button type="button"
+                          class="btn btn-default btn-link" (click)="subToChannel(channel._id, channel.name)" matTooltip="Subscribe" [matTooltipPosition]="'below'">
+                          <i class="material-icons">check_circle_outline</i>
                         </button>
                       </div>
                       <h4 class="card-title">

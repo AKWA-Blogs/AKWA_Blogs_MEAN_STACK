@@ -126,7 +126,7 @@ module.exports = {
 
                     } else {
                         console.log('password valid');
-                        let token = jwt.sign({ user: user.email, id: user._id }, "ihtrfdftgyjuhkjlp;pkljkh", { expiresIn: "2h" });
+                        let token = jwt.sign({ user: user.email, id: user._id,user_first_name:user.first_name,user_last_name:user.last_name }, "ihtrfdftgyjuhkjlp;pkljkh", { expiresIn: "2h" });
                         res.status(200).send({
                             token
                         });

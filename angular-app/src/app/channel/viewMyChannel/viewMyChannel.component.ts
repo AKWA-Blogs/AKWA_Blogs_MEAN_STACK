@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { DateAdapter } from '@angular/material';
 import { HttpService } from '../../http.service';
+import swal from 'sweetalert2';
 
 
 declare const require: any;
@@ -41,12 +42,34 @@ export class ViewMyChannelComponent implements OnInit {
     });
   }
   DeleteArticle(id) {
-    console.log(id);
-    let observable = this._httpService.deleteArticle(id)
-    observable.subscribe(data => {
-      console.log('deleted', data)
+    swal({
+      title: 'Delete article?',
+      text: "You won't be able to revert this!",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonClass: 'btn btn-success',
+      cancelButtonClass: 'btn btn-danger',
+      confirmButtonText: 'Yes, delete it!',
+      buttonsStyling: false
+    }).then((result) => {
+      console.log(id);
+      let observable = this._httpService.deleteArticle(id)
+      observable.subscribe(data => {
+        console.log('deleted', data)
+      })
+      this.getUserArticlesFromService();
+      if (result.value) {
+        swal(
+          {
+            title: 'Deleted!',
+            text: 'Your article has been deleted.',
+            type: 'success',
+            confirmButtonClass: "btn btn-success",
+            buttonsStyling: false
+          }
+        )
+      }
     })
-    this.getUserArticlesFromService()
   }
 
   showEditArticle(data) {
