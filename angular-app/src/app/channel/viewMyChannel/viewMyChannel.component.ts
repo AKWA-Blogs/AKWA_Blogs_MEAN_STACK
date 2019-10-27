@@ -57,7 +57,6 @@ export class ViewMyChannelComponent implements OnInit {
       observable.subscribe(data => {
         console.log('deleted', data)
       })
-      this.getUserArticlesFromService();
       if (result.value) {
         swal(
           {
@@ -69,6 +68,7 @@ export class ViewMyChannelComponent implements OnInit {
           }
         )
       }
+      this.getUserArticlesFromService();
     })
   }
 
@@ -87,6 +87,12 @@ export class ViewMyChannelComponent implements OnInit {
     observable.subscribe(data => {
       console.log("Article ", data)
     });
+    swal({
+      title: "Article updated!",
+      buttonsStyling: false,
+      confirmButtonClass: "btn btn-success",
+      type: "success"
+    }).catch(swal.noop)
   }
 }
 

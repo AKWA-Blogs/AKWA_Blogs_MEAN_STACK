@@ -15,6 +15,8 @@
               </a>
             </li>
           </ul>
+          <br>
+          <br>
           <div class="tab-content tab-space tab-subcategories">
             <div class="tab-pane active" id="link7">
               <div class="row">
@@ -29,23 +31,36 @@
               <div class="row mt-4" *ngIf="articles.length>0">
                 <div class="col-md-4" *ngFor="let article of articles">
                   <div class="card card-product">
-                    <div class="card-header card-header-image" data-header-animation="true">
+                    <div class="card-header card-header-image">
                       <a href="#pablo">
                         <img class="img" src="./assets/img/card-1.jpg">
                       </a>
                     </div>
                     <div class="card-body">
                       <div class="card-actions text-center">
-                        <button mat-raised-button type="button" class="btn btn-default btn-link" matTooltip="View"
-                          [matTooltipPosition]="'below'">
+                        <button (click)="addToReadList(article._id)" mat-raised-button type="button"
+                          class="btn btn-default btn-link" matTooltip="Read later" [matTooltipPosition]="'below'">
                           <i class="material-icons">art_track</i>
                         </button>
                       </div>
-                      <h4 class="card-title">
+                      <h5 class="card-title">
                         <p>{{article.title}}</p>
-                      </h4>
+                      </h5>
+
                       <div class="card-description">
-                        <p>Created at: {{article.createdAt}}</p>
+                        <p> {{article.body.substr(0, article.body.lastIndexOf(" ", 100))}}
+                          <a routerLink="../ViewArticle/{{article._id}}"> read more >></a></p>
+                      </div>
+
+                      <div class="card-footer">
+                        <p class="stats"><i class="material-icons">person</i> {{article.author.first_name}}
+                          {{article.author.last_name}}</p>
+                        <div class="stats">
+                          <button (click)="addToReadList(article._id)" mat-raised-button type="button"
+                            class="btn btn-default btn-link" matTooltip="Read later" [matTooltipPosition]="'below'">
+                            <i class="material-icons">bookmark</i>
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -67,9 +82,7 @@
                 <div class="col-md-4" *ngFor="let channel of channels">
                   <div class="card card-profile">
                     <div class="card-header card-avatar" data-header-animation="true">
-                      <a href="#pablo">
-                        <img class="img" src="./assets/img/card-1.jpg">
-                      </a>
+                      <img class="img" src="./assets/img/placeholder.jpg">
                     </div>
                     <div class="card-body">
                       <div class="card-actions text-center">
@@ -77,9 +90,9 @@
                           class="btn btn-default btn-link" matTooltip="View" [matTooltipPosition]="'below'">
                           <i class="material-icons">art_track</i>
                         </button>
-                        <button  mat-raised-button type="button"
-                          class="btn btn-default btn-link" (click)="subToChannel(channel._id, channel.name)" matTooltip="Subscribe" [matTooltipPosition]="'below'">
-                          <i class="material-icons">check_circle_outline</i>
+                        <button (click)="subToChannel(channel._id, channel.name)" mat-raised-button type="button"
+                          class="btn btn-default btn-link" matTooltip="Subscribe" [matTooltipPosition]="'below'">
+                          <i class="material-icons">art_track</i>
                         </button>
                       </div>
                       <h4 class="card-title">
@@ -97,9 +110,6 @@
                           {{channel.owner.last_name}}</p>
                       </div>
                       <div class="stats">
-                        <!-- <a href="">
-                              <p>Channel: </p>
-                            </a> -->
                       </div>
                     </div>
                   </div>

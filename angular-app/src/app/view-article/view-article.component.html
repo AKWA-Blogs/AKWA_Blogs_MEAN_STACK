@@ -1,47 +1,75 @@
 <div class="main-content">
   <div class="container-fluid">
-
-    <div class="card card-product" style="width: 250px;" >
-      <div class="card-header card-avatar" data-header-animation="true">
-        <img class="img" style="width: 200px;" src="./assets/img/card-1.jpg">
-      </div>
-      <div class="card-body">
-        <div class="card-actions text-center">
-          <button mat-raised-button type="button" class="btn btn-default btn-link" matTooltip="View"
-            [matTooltipPosition]="'below'">
-            <i class="material-icons">art_track</i>
-          </button>
-        
-        </div>
-        <h5 class="card-title">
-          <p>{{article.author.first_name}} {{article.author.last_name}}</p>
-        </h5>
-      </div>
-    </div>
     <div class="card">
       <div class="card-body">
         <div class="row">
           <div class="col-sm-12">
             <h3>{{article.title}}</h3>
-            <img style="display: inline-block;" class="img" src="./assets/img/card-1.jpg">
+            <div class="row">
+              <img style="width: 400px; height: 300px;" class="img" src="./assets/img/card-1.jpg">
+
+              <div class="col-md-3 ml-auto">
+                <div class="card card-profile">
+                  <div class="card-header card-avatar" data-header-animation="true">
+                    <img class="img" src="./assets/img/placeholder.jpg">
+                  </div>
+                  <div class="card-body">
+                    <div class="card-actions text-center">
+                   <!--    <button routerLink="../../ViewChannel/{{article.author._id}} " mat-raised-button type="button"
+                        class="btn btn-default btn-link" matTooltip="View" [matTooltipPosition]="'below'">
+                        <i class="material-icons">art_track</i>
+                      </button> -->
+                    </div>
+                    <h4 class="card-title">
+                      <p>{{article.author.first_name}} {{article.author.last_name}}</p>
+                    </h4>
+
+
+                  </div>
+
+
+                </div>
+              </div>
+            </div>
+
             <p>{{article.body}}</p>
 
-          </div>
 
+
+          </div>
         </div>
       </div>
     </div>
-
 
     <div class="card">
       <div class="card-body">
         <div class="row">
           <div class="col-sm-12">
+
             <h5>Comments</h5>
+            <div *ngIf="comments.length>0">
+              <div class="col-md-8" *ngFor="let comment of comments">
+              </div>
+            </div>
+            ____________________________
+            <div class="col-md-10">
+              <div class="card ">
+                <div class="card-body ">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="comment" type="text" [(ngModel)]="comment.comment">
+                  </mat-form-field>
+                </div>
+                <div class="card-footer ">
+                  <button mat-raised-button (click)="addComment()" type="submit" class="btn btn-fill btn-rose">add
+                    Comment</button>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
+
       </div>
     </div>
-
   </div>
 </div>
