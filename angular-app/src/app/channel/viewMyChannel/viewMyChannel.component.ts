@@ -41,6 +41,7 @@ export class ViewMyChannelComponent implements OnInit {
     observable.subscribe(articles => {
       this.articles = articles;
     });
+    console.log("Got Articles: "+this.articles);
   }
   DeleteArticle(id) {
     swal({
@@ -81,6 +82,7 @@ export class ViewMyChannelComponent implements OnInit {
   };
 
   getEditArticle() {
+    console.log("Tags: "+this.regularItems);
     this.showEdit = false;
     console.log(this.regularItems)
 

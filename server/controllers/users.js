@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const emailRegex = require('email-regex');
 let User = require('../models/user');
 const jwt = require('jsonwebtoken');
+let Channel = require('../models/channel');
 
 module.exports = {
     // index: function (req, res) {
@@ -76,11 +77,20 @@ module.exports = {
                     // req.session.user_id = user._id;
                     // req.session.user_email = user.email;
                     user.save();
-                    console.log('Token sent');
-                    let token = jwt.sign({ id: user.id, first_name: user.first_name, last_name: user.last_name, email: user.email }, "Oursecretword", { expiresIn: "2h" });
-                    res.status(200).send({
-                        token
-                    });
+                    console.log(user);
+                    Channel.create({ name: req.body.first_name, description: req.body.last_name, owner: user }, function (error, channel) {
+                        if (error) {
+                            res.json({ message: "Error", error: error });
+                        }
+                        else {
+                            console.log('Token sent');
+                            let token = jwt.sign({ id: user.id, first_name: user.first_name, last_name: user.last_name, email: user.email }, "Oursecretword", { expiresIn: "2h" });
+                            res.status(200).send({
+                                token
+                            });
+                        }
+                    })
+
 
 
                 })
