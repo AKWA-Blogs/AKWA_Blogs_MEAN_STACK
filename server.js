@@ -5,7 +5,7 @@ var path = require('path')
 app.use(express.static(__dirname + '/public/dist/public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// const cors = require('cors');
+const cors = require('cors');
 
 mongoose.set('useCreateIndex', true);
 
@@ -14,12 +14,12 @@ mongoose.connect("mongodb+srv://AKWA-SITE:codingdojo2019@akwa-h0aa7.mongodb.net/
 
 let db = mongoose.connection;
 
-// var corsOptions = {
-//     origin: '*',
-//     optionsSuccessStatus: 200,
-//   }
+var corsOptions = {
+    origin: '*',
+    optionsSuccessStatus: 200,
+  }
 
-// app.use(cors(corsOptions))
+app.use(cors(corsOptions))
 
 
 
