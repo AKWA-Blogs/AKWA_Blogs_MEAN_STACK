@@ -18,7 +18,7 @@ export class ViewMyChannelComponent implements OnInit {
   channel = {}
   articles = {}
   editArticle = {}
-  regularItems: string[] = [];
+  regularItems = [];
   showEdit: boolean = false;
   constructor(private _httpService: HttpService) { }
 
@@ -80,6 +80,7 @@ export class ViewMyChannelComponent implements OnInit {
   };
 
   getEditArticle() {
+    console.log("Tags: "+this.regularItems);
     this.showEdit = false;
     console.log('update    ', this.editArticle);
 
