@@ -15,10 +15,10 @@
                   </div>
                   <div class="card-body">
                     <div class="card-actions text-center">
-                   <!--    <button routerLink="../../ViewChannel/{{article.author._id}} " mat-raised-button type="button"
+                          <button routerLink="../../ViewChannel/{{article.author._id}} " mat-raised-button type="button"
                         class="btn btn-default btn-link" matTooltip="View" [matTooltipPosition]="'below'">
                         <i class="material-icons">art_track</i>
-                      </button> -->
+                      </button> 
                     </div>
                     <h4 class="card-title">
                       <p>{{article.author.first_name}} {{article.author.last_name}}</p>
@@ -39,6 +39,9 @@
           </div>
         </div>
       </div>
+      <!-- <div *ngIf="article.author._id == user_id">
+        <button mat-raised-button type="submit" class="btn btn-fill ">Edit</button>
+      </div> -->
     </div>
 
     <div class="card">

@@ -26,8 +26,8 @@ export class ViewArticleComponent implements OnInit {
     observable.subscribe(data => {
       console.log("Got our Article!!", data);
       this.article = data
-    }
-    )
+    })
+    var user_id = localStorage.getItem('id');
   }
   comment = { comment: "", commenter: localStorage.getItem('name'), article_id: localStorage.getItem('id') }
   addComment() {
