@@ -25,10 +25,6 @@ export const AppRoutes: Routes = [
                 loadChildren: './subfeed/subfeed.module#SubfeedModule'
             },
             {
-                path: '',
-                loadChildren: './userpage/user.module#UserModule'
-            },
-            {
                 path: 'explore',
                 loadChildren: './explore/explore.module#ExploreModule'
             }, {
