@@ -52,10 +52,11 @@ import { AdminLayoutComponent } from './layouts/admin/admin-layout.component';
 import { AuthLayoutComponent } from './layouts/auth/auth-layout.component';
 
 import { AppRoutes } from './app.routing';
-//import { ViewChannelComponent } from './view-channel/view-channel.component';
-//import { ViewArticleComponent } from './view-article/view-article.component';
+// import { FileUploadComponent } from './file-upload/file-upload.component';
+// import { ViewChannelComponent } from './view-channel/view-channel.component';
+// import { ViewArticleComponent } from './view-article/view-article.component';
 // import { ProfileComponent } from './profile/profile.component';
-//import { ExploreComponent } from './explore/explore.component';
+// import { ExploreComponent } from './explore/explore.component';
 
 @NgModule({
   exports: [
@@ -92,7 +93,6 @@ import { AppRoutes } from './app.routing';
     MatTooltipModule
   ],
   declarations: [],
-  // declarations: []
 })
 export class MaterialModule { }
 
