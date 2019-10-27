@@ -31,16 +31,18 @@
               <div class="row mt-4" *ngIf="articles.length>0">
                 <div class="col-md-4" *ngFor="let article of articles">
                   <div class="card card-product">
-                    <div class="card-header card-header-image">
+                    
+                    <div class="card-header card-header-image"  data-header-animation="true">
                       <a href="#pablo">
                         <img class="img" src="./assets/img/card-1.jpg">
                       </a>
                     </div>
+                   
                     <div class="card-body">
                       <div class="card-actions text-center">
                         <button (click)="addToReadList(article._id)" mat-raised-button type="button"
                           class="btn btn-default btn-link" matTooltip="Read later" [matTooltipPosition]="'below'">
-                          <i class="material-icons">art_track</i>
+                          <i class="material-icons">bookmark</i>
                         </button>
                       </div>
                       <h5 class="card-title">
@@ -55,12 +57,7 @@
                       <div class="card-footer">
                         <p class="stats"><i class="material-icons">person</i> {{article.author.first_name}}
                           {{article.author.last_name}}</p>
-                        <div class="stats">
-                          <button (click)="addToReadList(article._id)" mat-raised-button type="button"
-                            class="btn btn-default btn-link" matTooltip="Read later" [matTooltipPosition]="'below'">
-                            <i class="material-icons">bookmark</i>
-                          </button>
-                        </div>
+                       
                       </div>
                     </div>
                   </div>
