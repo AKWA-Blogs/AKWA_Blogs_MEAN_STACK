@@ -59,4 +59,12 @@ module.exports = function (app) {
 
     app.post("/channel/unsubscribe", channels.unsubsribeFromChannel);
     
+    app.post("/user/readlater", users.readLater);
+    
+    app.post("/user/removereadlater", users.removeReadLater);
+
+    app.get("/user/readlist/:id", articles.getReadList);
+
+
+    
 }

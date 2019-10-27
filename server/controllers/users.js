@@ -77,7 +77,7 @@ module.exports = {
                     // req.session.user_email = user.email;
                     user.save();
                     console.log('Token sent');
-                    let token = jwt.sign({id: user.id, first_name: user.first_name, last_name: user.last_name, email: user.email}, "Oursecretword", { expiresIn: "2h" });
+                    let token = jwt.sign({ id: user.id, first_name: user.first_name, last_name: user.last_name, email: user.email }, "Oursecretword", { expiresIn: "2h" });
                     res.status(200).send({
                         token
                     });
@@ -147,17 +147,40 @@ module.exports = {
         })
     },
     getUsersChannels: function (req, res) {
-    Channel.find({}, function (error, channels) {
-        if (error)
-            res.json("Channel not found", error);
-        else{
-            for(var i = 0; i < channels.length; i++){
-                if(channels[i].owner._id == req.params.id){
-                  res.json(channels[i]);
+        Channel.find({}, function (error, channels) {
+            if (error)
+                res.json("Channel not found", error);
+            else {
+                for (var i = 0; i < channels.length; i++) {
+                    if (channels[i].owner._id == req.params.id) {
+                        res.json(channels[i]);
+                    }
                 }
             }
-        }
-    })
-}
+        })
+    },
+    readLater: function (req, res) {
+        User.findOneAndUpdate({ _id: req.body.user_id }, { $push: { read_later: req.body.article_id } }, function (error) {
+            if (error) {
+                res.json({ message: "Error user update", error: error });
+            }
+            else {
+
+                res.json({ message: "Success read later", added: true });
+            }
+        });
+    },
+
+    removeReadLater: function (req, res) {
+        User.findOneAndUpdate({ _id: req.body.user_id }, { $pull: { read_later: req.body.article_id } }, function (error) {
+            if (error) {
+                res.json({ message: "Error in user", error: error });
+            }
+            else {
+
+                res.json({ message: "Success remove read later", added: true });
+            }
+        });
+    },
 
 }

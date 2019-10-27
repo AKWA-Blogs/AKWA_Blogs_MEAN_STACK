@@ -24,14 +24,14 @@ module.exports = {
     },
 
     addArticle: function (req, res) {
-        console.log('req.body ',req.body)
+        console.log('req.body ', req.body)
         Article.create({ title: req.body.title, body: req.body.body, author: req.body.author, tags: req.body.tags }, function (error, article) {
             if (error) {
                 res.json({ message: "Error jjjjjj", error: error });
             }
             else {
                 Channel.findOneAndUpdate({ _id: req.body.channelId }, { $push: { articles: article } }, function (error, channel) {
-                    console.log('channel ',channel)
+                    console.log('channel ', channel)
                     if (error) {
                         res.json({ message: "Error hhhhhh", error: error });
                     }
@@ -107,6 +107,23 @@ module.exports = {
             }
         )
 
+    },
+
+    getReadList: function (req, res) {
+        User.findOne({ _id: req.params.id }, function (error, user) {
+            if (error) {
+                res.json(error);
+            }
+            else {
+                console.log(user.read_later);
+                Article.find({
+                    "_id": {
+                        "$in": user.read_later
+                    }
+                }).then(articles => res.json(articles))
+                    .catch(err => res.json(err));
+            }
+        })
     },
 
 

@@ -29,8 +29,8 @@
                         </div>
                         <div class="card-body">
                           <div class="card-actions text-center">
-                            <button routerLink="../ViewArticle/{{article._id}}" mat-raised-button type="button" class="btn btn-default btn-link" matTooltip="View"
-                              [matTooltipPosition]="'below'">
+                            <button routerLink="../ViewArticle/{{article._id}}" mat-raised-button type="button"
+                              class="btn btn-default btn-link" matTooltip="View" [matTooltipPosition]="'below'">
                               <i class="material-icons">art_track</i>
                             </button>
                           </div>
@@ -64,16 +64,17 @@
                 <div class="col-md-4" *ngFor="let channel of channels">
                   <div class="card card-profile">
                     <div class="card-header card-avatar" data-header-animation="true">
-                        <a href="#pablo">
-                            <img class="img" src="./assets/img/placeholder.jpg">
-                          </a>                    </div>
+                      <a href="#pablo">
+                        <img class="img" src="./assets/img/placeholder.jpg">
+                      </a> </div>
                     <div class="card-body">
                       <div class="card-actions text-center">
-                        <button routerLink="../ViewChannel/{{channel._id}}" mat-raised-button type="button" class="btn btn-default btn-link" matTooltip="View"
-                          [matTooltipPosition]="'below'">
+                        <button routerLink="../ViewChannel/{{channel._id}}" mat-raised-button type="button"
+                          class="btn btn-default btn-link" matTooltip="View" [matTooltipPosition]="'below'">
                           <i class="material-icons">art_track</i>
                         </button>
-                        <button mat-raised-button type="button" class="btn btn-danger btn-link" (click)="unsubFromChannel(channel._id)" matTooltip="Unsubscribe"
+                        <button mat-raised-button type="button" class="btn btn-danger btn-link"
+                          (click)="unsubFromChannel(channel._id)" matTooltip="Unsubscribe"
                           [matTooltipPosition]="'below'">
                           <i class="material-icons">close</i>
                         </button>

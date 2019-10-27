@@ -134,4 +134,22 @@ export class ExploreComponent implements OnInit {
   }).catch(swal.noop)
 
   }
+
+  addToReadList(article_id: string) {
+    console.log("article_id: " + article_id);
+    const data = { "article_id": article_id, "user_id": localStorage.getItem('id') };
+    console.log(data);
+    let observable = this._httpService.addToReadList(data);
+    observable.subscribe(data => {
+      console.log(data);
+      console.log("Added");
+    });
+    swal({
+      title: "Added to read list!",
+      buttonsStyling: false,
+      confirmButtonClass: "btn btn-success",
+      type: "success"
+  }).catch(swal.noop)
+
+  }
 }

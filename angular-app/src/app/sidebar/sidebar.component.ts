@@ -51,6 +51,14 @@ export const ROUTES: RouteInfo[] = [
             { path: 'addArticle', title: 'Add Article', ab: 'AA' }
         ]
     },
+
+    {
+        path: '/readList',
+        title: 'Read List',
+        type: 'link',
+        icontype: 'book'
+
+    },
 ];
 @Component({
     selector: 'app-sidebar-cmp',
