@@ -17,6 +17,8 @@ export class ProfileComponent implements OnInit {
   tags = ["rrrr", "err"];
 
   channel = {}
+  channelTags = [];
+  userTags = [];
 
   constructor(private _httpService: HttpService, private router: Router) { }
   fnameFormControl = new FormControl('', [Validators.required, Validators.minLength(3)])
@@ -41,6 +43,16 @@ export class ProfileComponent implements OnInit {
 
 
   onSubmit() {
+    for (var i = 0; i < this.user['tags'].length; i++) {
+      if (typeof this.user['tags'][i] == "string") {
+        this.userTags.push(this.user['tags'][i]);
+      };
+      if (typeof this.user['tags'][i] == "object") {
+        this.userTags.push(this.user['tags'][i].display);
+      };
+    }
+    console.log("User Tags: "+this.userTags);
+    this.user.tags = this.userTags;
     if (this.user.first_name.length < 3 || this.user.last_name.length < 3) { return }
     // this.user.tags = this.updated.tags
     let observable = this._httpService.putUser(this.user)
@@ -78,8 +90,16 @@ export class ProfileComponent implements OnInit {
   }
 
   updateChannel() {
-    const data = { "_id": this.channel['_id'], "name": this.channel['name'], "description": this.channel['description'], "tags": this.channel['tags'] };
-    console.log(data);
+    for (var i = 0; i < this.channel['tags'].length; i++) {
+      if (typeof this.channel['tags'][i] == "string") {
+        this.channelTags.push(this.channel['tags'][i]);
+      };
+      if (typeof this.channel['tags'][i] == "object") {
+        this.channelTags.push(this.channel['tags'][i].display);
+      };
+    }
+    const data = { "_id": this.channel['_id'], "name": this.channel['name'], "description": this.channel['description'], "tags": this.channelTags };
+    console.log(data)
     let observable = this._httpService.putChannel(data);
     observable.subscribe(channel => {
       this.channel = channel;
