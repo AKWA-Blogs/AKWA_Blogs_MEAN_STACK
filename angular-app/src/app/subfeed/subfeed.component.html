@@ -33,6 +33,10 @@
                               class="btn btn-default btn-link" matTooltip="View" [matTooltipPosition]="'below'">
                               <i class="material-icons">art_track</i>
                             </button>
+                            <button (click)="addToReadList(article._id)" mat-raised-button type="button"
+                              class="btn btn-default btn-link" matTooltip="Read later" [matTooltipPosition]="'below'">
+                              <i class="material-icons">bookmark</i>
+                            </button>
                           </div>
                           <h4 class="card-title">
                             <p>{{article.title}}</p>

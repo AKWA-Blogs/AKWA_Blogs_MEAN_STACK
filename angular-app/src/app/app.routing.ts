@@ -13,11 +13,6 @@ export const AppRoutes: Routes = [
         component: AdminLayoutComponent,
         children: [
             {
-                path: 'dashboard',
-                loadChildren: './dashboard/dashboard.module#DashboardModule'
-            },
-
-            {
                 path: 'channel',
                 loadChildren: './channel/channel.module#Channel'
             },
@@ -26,44 +21,10 @@ export const AppRoutes: Routes = [
                 loadChildren: './readList/readList.module#ReadListModule'
             },
             {
-                path: 'forms',
-                loadChildren: './forms/forms.module#Forms'
-            },
-            {
-                path: 'components',
-                loadChildren: './components/components.module#ComponentsModule'
-            },
-            {
-                path: 'tables',
-                loadChildren: './tables/tables.module#TablesModule'
-            }, {
-                path: 'maps',
-                loadChildren: './maps/maps.module#MapsModule'
-            }, {
                 path: 'subfeed',
                 loadChildren: './subfeed/subfeed.module#SubfeedModule'
             },
-            // {
-            //     path: 'channel',
-            //     loadChildren: './channel/channel.module#ChannelModule'
-            // },
             {
-                path: 'charts',
-                loadChildren: './charts/charts.module#ChartsModule'
-            }, {
-                path: 'calendar',
-                loadChildren: './calendar/calendar.module#CalendarModule'
-            }, {
-                path: '',
-                loadChildren: './userpage/user.module#UserModule'
-            }, {
-                path: '',
-                loadChildren: './timeline/timeline.module#TimelineModule'
-            },
-            {
-                path: '',
-                loadChildren: './timeline/timeline.module#TimelineModule'
-            }, {
                 path: 'explore',
                 loadChildren: './explore/explore.module#ExploreModule'
             }, {
